@@ -17,6 +17,7 @@
 		729C6DD220F94C5300DA5F56 /* HomeContainerPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729C6DD120F94C5300DA5F56 /* HomeContainerPageViewController.swift */; };
 		729C6DD420F94D2E00DA5F56 /* PageHome_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729C6DD320F94D2E00DA5F56 /* PageHome_ViewController.swift */; };
 		729C6DD620F9545300DA5F56 /* PageAlert_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729C6DD520F9545300DA5F56 /* PageAlert_ViewController.swift */; };
+		729C6DD920F958C100DA5F56 /* PageProfile_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729C6DD820F958C100DA5F56 /* PageProfile_ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		729C6DD120F94C5300DA5F56 /* HomeContainerPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeContainerPageViewController.swift; sourceTree = "<group>"; };
 		729C6DD320F94D2E00DA5F56 /* PageHome_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageHome_ViewController.swift; sourceTree = "<group>"; };
 		729C6DD520F9545300DA5F56 /* PageAlert_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageAlert_ViewController.swift; sourceTree = "<group>"; };
+		729C6DD820F958C100DA5F56 /* PageProfile_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageProfile_ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 		729C6DCA20F7BBBB00DA5F56 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				729C6DD720F958A600DA5F56 /* New Group */,
 				729C6DB620F7BA7500DA5F56 /* AppDelegate.swift */,
 				729C6DB820F7BA7500DA5F56 /* MainViewController.swift */,
 				729C6DCC20F90CE300DA5F56 /* HomeMenuCollectionViewCell.swift */,
@@ -99,6 +102,7 @@
 				729C6DD120F94C5300DA5F56 /* HomeContainerPageViewController.swift */,
 				729C6DD320F94D2E00DA5F56 /* PageHome_ViewController.swift */,
 				729C6DD520F9545300DA5F56 /* PageAlert_ViewController.swift */,
+				729C6DD820F958C100DA5F56 /* PageProfile_ViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -117,6 +121,13 @@
 				729C6DCD20F90CE300DA5F56 /* HomeMenuCollectionViewCell.xib */,
 			);
 			path = MenuCellView;
+			sourceTree = "<group>";
+		};
+		729C6DD720F958A600DA5F56 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +207,7 @@
 				729C6DCE20F90CE300DA5F56 /* HomeMenuCollectionViewCell.swift in Sources */,
 				729C6DB920F7BA7500DA5F56 /* MainViewController.swift in Sources */,
 				729C6DB720F7BA7500DA5F56 /* AppDelegate.swift in Sources */,
+				729C6DD920F958C100DA5F56 /* PageProfile_ViewController.swift in Sources */,
 				729C6DD420F94D2E00DA5F56 /* PageHome_ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

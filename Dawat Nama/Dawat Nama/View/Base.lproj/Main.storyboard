@@ -89,7 +89,7 @@
                                     <outlet property="delegate" destination="RKr-WB-vj0" id="c3H-ti-tsW"/>
                                 </connections>
                             </collectionView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MEx-LE-gfa" userLabel="Container View Home">
+                            <containerView opaque="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MEx-LE-gfa" userLabel="Container View Home">
                                 <rect key="frame" x="0.0" y="164" width="375" height="503"/>
                                 <connections>
                                     <segue destination="kkb-Sd-mDe" kind="embed" id="bHu-NG-nzp"/>
@@ -136,7 +136,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9da-0v-Zsu">
-                                <rect key="frame" x="156" y="323" width="42" height="21"/>
+                                <rect key="frame" x="166" y="323" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -149,7 +149,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EIu-EG-yl9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1894" y="224"/>
+            <point key="canvasLocation" x="1695" y="371"/>
         </scene>
         <!--Page Alert View Controller-->
         <scene sceneID="hgT-3a-J0v">
@@ -160,7 +160,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dh7-gq-EPh">
-                                <rect key="frame" x="166" y="323" width="52" height="21"/>
+                                <rect key="frame" x="161" y="323" width="52" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -173,7 +173,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RDz-sU-7jy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2526" y="224"/>
+            <point key="canvasLocation" x="2402" y="371"/>
+        </scene>
+        <!--Page Profile View Controller-->
+        <scene sceneID="7at-of-ul4">
+            <objects>
+                <viewController storyboardIdentifier="PageProfile_ViewController" id="nqb-xc-iiU" customClass="PageProfile_ViewController" customModule="Dawat_Nama" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="laF-kw-i3u">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="xo0-pe-KtI"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="R6Z-7r-Ix3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3041" y="370"/>
         </scene>
     </scenes>
     <resources>

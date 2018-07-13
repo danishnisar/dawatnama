@@ -86,6 +86,8 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath.item)
+        NotificationCenter.default.post(name: NSNotification.Name("\(indexPath.item)"), object: nil)
+        
         for ind in 0...indexPath.count {
             if ind == indexPath.item {
                 bottomLine[ind].isHidden = false
@@ -106,10 +108,6 @@ class MainViewController: UIViewController,UICollectionViewDelegate,UICollection
     }
     
 
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("main touch")
-    }
-   
     
     
 

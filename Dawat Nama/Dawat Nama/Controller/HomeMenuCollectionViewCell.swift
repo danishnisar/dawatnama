@@ -12,6 +12,7 @@ class HomeMenuCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var menuicon: UIImageView!
     
+    @IBOutlet weak var bottom: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

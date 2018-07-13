@@ -13,7 +13,7 @@
         <!--Main View Controller-->
         <scene sceneID="qPP-SD-sdg">
             <objects>
-                <viewController id="RKr-WB-vj0" customClass="MainViewController" sceneMemberID="viewController">
+                <viewController id="RKr-WB-vj0" customClass="MainViewController" customModule="Dawat_Nama" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tda-2O-wc1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,7 +21,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SWg-h7-7TC" userLabel="Header">
                                 <rect key="frame" x="0.0" y="20" width="375" height="77"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cLz-Cl-3Hr">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="cLz-Cl-3Hr">
                                         <rect key="frame" x="8" y="8" width="61" height="61"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="61" id="OBs-Jq-RxD"/>
@@ -46,7 +46,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -63,7 +63,7 @@
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QAw-p0-t7z">
                                 <rect key="frame" x="0.0" y="97" width="375" height="67"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="67" id="Dy3-u8-MhR"/>
                                 </constraints>
@@ -89,13 +89,23 @@
                                     <outlet property="delegate" destination="RKr-WB-vj0" id="c3H-ti-tsW"/>
                                 </connections>
                             </collectionView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MEx-LE-gfa" userLabel="Container View Home">
+                                <rect key="frame" x="0.0" y="164" width="375" height="503"/>
+                                <connections>
+                                    <segue destination="kkb-Sd-mDe" kind="embed" id="bHu-NG-nzp"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="MEx-LE-gfa" firstAttribute="leading" secondItem="5Ym-N9-7yY" secondAttribute="leading" id="21C-cy-yBA"/>
                             <constraint firstItem="SWg-h7-7TC" firstAttribute="trailing" secondItem="5Ym-N9-7yY" secondAttribute="trailing" id="4lK-An-Umg"/>
                             <constraint firstItem="SWg-h7-7TC" firstAttribute="top" secondItem="5Ym-N9-7yY" secondAttribute="top" id="Bqk-3d-KMW"/>
                             <constraint firstItem="SWg-h7-7TC" firstAttribute="leading" secondItem="5Ym-N9-7yY" secondAttribute="leading" id="Ksh-fa-qKs"/>
                             <constraint firstItem="QAw-p0-t7z" firstAttribute="leading" secondItem="5Ym-N9-7yY" secondAttribute="leading" id="ZbY-HF-Szi"/>
+                            <constraint firstItem="MEx-LE-gfa" firstAttribute="top" secondItem="QAw-p0-t7z" secondAttribute="bottom" id="gd5-YJ-lcO"/>
+                            <constraint firstItem="5Ym-N9-7yY" firstAttribute="trailing" secondItem="MEx-LE-gfa" secondAttribute="trailing" id="sOM-QW-Xf7"/>
+                            <constraint firstItem="5Ym-N9-7yY" firstAttribute="bottom" secondItem="MEx-LE-gfa" secondAttribute="bottom" id="sfh-pN-88a"/>
                             <constraint firstItem="QAw-p0-t7z" firstAttribute="trailing" secondItem="5Ym-N9-7yY" secondAttribute="trailing" id="vh0-sV-HwO"/>
                             <constraint firstItem="QAw-p0-t7z" firstAttribute="top" secondItem="SWg-h7-7TC" secondAttribute="bottom" id="wG0-I9-B1p"/>
                         </constraints>
@@ -109,5 +119,64 @@
             </objects>
             <point key="canvasLocation" x="1029.5999999999999" y="-428.63568215892059"/>
         </scene>
+        <!--Home Container Page View Controller-->
+        <scene sceneID="O1e-Fw-K4L">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="kkb-Sd-mDe" customClass="HomeContainerPageViewController" customModule="Dawat_Nama" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O4Z-9r-X4p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1030" y="298"/>
+        </scene>
+        <!--Page Home View Controller-->
+        <scene sceneID="KA9-IN-SWY">
+            <objects>
+                <viewController storyboardIdentifier="PageHome_ViewController" id="lNQ-uc-WXY" customClass="PageHome_ViewController" customModule="Dawat_Nama" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5H7-FN-ve9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9da-0v-Zsu">
+                                <rect key="frame" x="156" y="323" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="wfC-kW-m3v"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EIu-EG-yl9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1894" y="224"/>
+        </scene>
+        <!--Page Alert View Controller-->
+        <scene sceneID="hgT-3a-J0v">
+            <objects>
+                <viewController storyboardIdentifier="PageAlert_ViewController" id="wWv-jk-YYo" customClass="PageAlert_ViewController" customModule="Dawat_Nama" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="peT-ta-aYo">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dh7-gq-EPh">
+                                <rect key="frame" x="166" y="323" width="52" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="lVe-b6-mkT"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RDz-sU-7jy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2526" y="224"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="profile" width="512" height="512"/>
+    </resources>
 </document>

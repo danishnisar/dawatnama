@@ -75,24 +75,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="n8T-cq-oeg">
-                                <rect key="frame" x="0.0" y="20" width="375" height="501"/>
+                                <rect key="frame" x="0.0" y="70" width="375" height="500"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="vLP-ck-quS" id="KXT-Tv-NPq"/>
+                                    <outlet property="delegate" destination="vLP-ck-quS" id="rsD-qc-4dp"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="n8T-cq-oeg" firstAttribute="top" secondItem="4Ag-0U-KOn" secondAttribute="top" id="2xw-3j-zmm"/>
-                            <constraint firstItem="4Ag-0U-KOn" firstAttribute="bottom" secondItem="n8T-cq-oeg" secondAttribute="bottom" id="LHI-3W-SwX"/>
-                            <constraint firstItem="n8T-cq-oeg" firstAttribute="leading" secondItem="4Ag-0U-KOn" secondAttribute="leading" id="tew-qh-Iht"/>
-                            <constraint firstItem="4Ag-0U-KOn" firstAttribute="trailing" secondItem="n8T-cq-oeg" secondAttribute="trailing" id="wAl-tz-uQg"/>
+                            <constraint firstItem="n8T-cq-oeg" firstAttribute="top" secondItem="4Ag-0U-KOn" secondAttribute="top" constant="50" id="CYD-G9-5jL"/>
+                            <constraint firstItem="n8T-cq-oeg" firstAttribute="trailing" secondItem="4Ag-0U-KOn" secondAttribute="trailing" id="Fsj-iy-pdJ"/>
+                            <constraint firstItem="n8T-cq-oeg" firstAttribute="bottom" secondItem="4Ag-0U-KOn" secondAttribute="bottom" constant="49" id="GR1-4m-cEK"/>
+                            <constraint firstItem="n8T-cq-oeg" firstAttribute="leading" secondItem="4Ag-0U-KOn" secondAttribute="leading" id="Rcd-vY-3hR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4Ag-0U-KOn"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Alert" image="Screen-slicing_07" id="oSG-tn-ryk"/>
+                    <connections>
+                        <outlet property="tblView" destination="n8T-cq-oeg" id="sdv-9p-oRP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5hE-ih-Z9j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1074" y="1422"/>
+            <point key="canvasLocation" x="1072.8" y="1421.2893553223389"/>
         </scene>
         <!--Profile-->
         <scene sceneID="3Nk-bR-Ryz">

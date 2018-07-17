@@ -8,14 +8,31 @@
 
 import UIKit
 
-class AlertTabViewController: UIViewController {
+class AlertTabViewController: UIViewController,TabSwiper {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("Alert Loaded")
 
-        // Do any additional setup after loading the view.
+            InitSwipView(direction: .left)
+            InitSwipView(direction: .right)
+        
+    }
+    func HandleSwipe(_ Sender: UISwipeGestureRecognizer) {
+        if Sender.direction == .left {
+            tabBarController?.selectedIndex = 2
+        }
+        if Sender.direction == .right {
+            tabBarController?.selectedIndex = 0
+            
+        }
     }
 
    
 
+}
+
+extension AlertTabViewController:UITableViewController,UITableViewDelegate {
+    
 }

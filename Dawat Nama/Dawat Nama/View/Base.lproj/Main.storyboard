@@ -69,20 +69,23 @@
         <!--Alert-->
         <scene sceneID="A8K-fD-Xpa">
             <objects>
-                <viewController id="vLP-ck-quS" sceneMemberID="viewController">
+                <viewController id="vLP-ck-quS" customClass="AlertTabViewController" customModule="Dawat_Nama" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="19g-hG-wgR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="570"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Alert" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KnV-kS-Ruc">
-                                <rect key="frame" x="169" y="275" width="37" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="n8T-cq-oeg">
+                                <rect key="frame" x="0.0" y="20" width="375" height="501"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="n8T-cq-oeg" firstAttribute="top" secondItem="4Ag-0U-KOn" secondAttribute="top" id="2xw-3j-zmm"/>
+                            <constraint firstItem="4Ag-0U-KOn" firstAttribute="bottom" secondItem="n8T-cq-oeg" secondAttribute="bottom" id="LHI-3W-SwX"/>
+                            <constraint firstItem="n8T-cq-oeg" firstAttribute="leading" secondItem="4Ag-0U-KOn" secondAttribute="leading" id="tew-qh-Iht"/>
+                            <constraint firstItem="4Ag-0U-KOn" firstAttribute="trailing" secondItem="n8T-cq-oeg" secondAttribute="trailing" id="wAl-tz-uQg"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="4Ag-0U-KOn"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Alert" image="Screen-slicing_07" id="oSG-tn-ryk"/>
@@ -94,7 +97,7 @@
         <!--Profile-->
         <scene sceneID="3Nk-bR-Ryz">
             <objects>
-                <viewController id="upn-jy-yNM" sceneMemberID="viewController">
+                <viewController id="upn-jy-yNM" customClass="ProfileTabViewController" customModule="Dawat_Nama" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mMa-kd-bQq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="570"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -110,7 +113,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="jEY-Q2-xVp"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" selectedImage="Screen-slicing_09" id="I5N-sQ-ehf"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="Screen-slicing_09" id="I5N-sQ-ehf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5cR-Gg-Egk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -119,7 +122,7 @@
         <!--Home-->
         <scene sceneID="epz-hy-W7j">
             <objects>
-                <viewController id="tti-0J-eSx" sceneMemberID="viewController">
+                <viewController id="tti-0J-eSx" customClass="HomeTabViewController" customModule="Dawat_Nama" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="D9r-3f-w7g">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="570"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -135,7 +138,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="2Er-jl-JKF"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" selectedImage="Screen-slicing_04" id="JI5-QW-whj"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="Screen-slicing_04" id="JI5-QW-whj"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Am0-Fe-4aw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

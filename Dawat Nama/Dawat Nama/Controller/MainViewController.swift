@@ -11,6 +11,9 @@ import UIKit
 class MainViewController: UIViewController{
    
     @IBOutlet weak var menuContainerConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var mainContainerConstraint: UIView!
+    
     var menuConstraintToggle = false ;
 
     //    lazy var storyB:[UIViewController] = {
@@ -52,14 +55,25 @@ class MainViewController: UIViewController{
     @IBAction func menuContainerSction(_ sender: Any) {
         
         if menuConstraintToggle {
-            UIView.animate(withDuration: 0.7) {
-                    self.menuContainerConstraint.constant = 0
+            UIView.animate(withDuration: 0.5) {
+                                   self.menuContainerConstraint.constant = 186
+                self.mainContainerConstraint.backgroundColor = UIColor.clear
+                self.mainContainerConstraint.alpha = 1
+                self.mainContainerConstraint.isOpaque = false
+                
             }
             menuConstraintToggle = false
         }
         else {
-            UIView.animate(withDuration: 0.7) {
-                    self.menuContainerConstraint.constant = 186
+            
+            UIView.animate(withDuration: 0.5) {
+                 self.menuContainerConstraint.constant = 0
+                
+                self.mainContainerConstraint.backgroundColor = UIColor.black
+                self.mainContainerConstraint.alpha = 0.1
+                self.mainContainerConstraint.isOpaque = true
+                
+                
             }
 
             menuConstraintToggle = true

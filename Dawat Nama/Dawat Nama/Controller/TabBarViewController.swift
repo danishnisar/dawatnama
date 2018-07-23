@@ -13,15 +13,15 @@ class TabBarViewController: UITabBarController,UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self
-
+        
         // Do any additional setup after loading the view.
     }
 
     override func viewWillLayoutSubviews() {
         
-        var tabbar = tabBar.frame
-        tabbar.origin.y = view.frame.origin.y
-        tabBar.frame = tabbar
+        
+        
+          shadowTab()
     }
    
 
@@ -37,6 +37,23 @@ class TabBarViewController: UITabBarController,UITabBarControllerDelegate {
         }
         print("transisition2")
         return true
+    }
+    
+    func shadowTab(){
+        
+        var tabbar = tabBar.frame
+        tabbar.origin.y = view.frame.origin.y
+        tabBar.frame = tabbar
+        
+        tabBar.layer.shadowOffset = CGSize(width: 0, height: 0);
+        tabBar.layer.shadowRadius = 2;
+        //tabBar.backgroundImage = UIImage(named: "transparentine")
+        tabBar.layer.shadowColor = UIColor.black.cgColor
+        tabBar.layer.shadowOpacity = 0.3;
+        tabBar.layer.borderColor = UIColor.clear.cgColor
+        tabBar.layer.borderWidth = 0.50
+        tabBar.clipsToBounds = false
+        
     }
 }
 

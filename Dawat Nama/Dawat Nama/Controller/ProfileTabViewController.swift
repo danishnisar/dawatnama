@@ -19,9 +19,9 @@ class ProfileTabViewController: UIViewController,TabSwiper {
     }
     func HandleSwipe(_ Sender: UISwipeGestureRecognizer) {
         if Sender.direction == .right {
-            UIView.animate(withDuration: 0.5) {
+            
                 self.tabBarController?.selectedIndex = 1
-            }
+            
             
         }
     }

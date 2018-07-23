@@ -21,6 +21,8 @@
 		72A61F3F20FE52AD00F146C5 /* ProfileTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A61F3E20FE52AD00F146C5 /* ProfileTabViewController.swift */; };
 		72A61F4320FE5BAC00F146C5 /* TblBaseCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A61F4120FE5BAB00F146C5 /* TblBaseCellView.swift */; };
 		72A61F4420FE5BAC00F146C5 /* TblBaseCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A61F4220FE5BAC00F146C5 /* TblBaseCellView.xib */; };
+		72A61F472100F3D200F146C5 /* TblBaseHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A61F452100F3D100F146C5 /* TblBaseHome.swift */; };
+		72A61F482100F3D200F146C5 /* TblBaseHome.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A61F462100F3D200F146C5 /* TblBaseHome.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		72A61F3E20FE52AD00F146C5 /* ProfileTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabViewController.swift; sourceTree = "<group>"; };
 		72A61F4120FE5BAB00F146C5 /* TblBaseCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TblBaseCellView.swift; sourceTree = "<group>"; };
 		72A61F4220FE5BAC00F146C5 /* TblBaseCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TblBaseCellView.xib; sourceTree = "<group>"; };
+		72A61F452100F3D100F146C5 /* TblBaseHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TblBaseHome.swift; sourceTree = "<group>"; };
+		72A61F462100F3D200F146C5 /* TblBaseHome.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TblBaseHome.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +155,8 @@
 			children = (
 				72A61F4120FE5BAB00F146C5 /* TblBaseCellView.swift */,
 				72A61F4220FE5BAC00F146C5 /* TblBaseCellView.xib */,
+				72A61F452100F3D100F146C5 /* TblBaseHome.swift */,
+				72A61F462100F3D200F146C5 /* TblBaseHome.xib */,
 			);
 			path = TblCellView;
 			sourceTree = "<group>";
@@ -213,6 +219,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72A61F482100F3D200F146C5 /* TblBaseHome.xib in Resources */,
 				72A61F4420FE5BAC00F146C5 /* TblBaseCellView.xib in Resources */,
 				729C6DCF20F90CE300DA5F56 /* HomeMenuCollectionViewCell.xib in Resources */,
 				729C6DC120F7BAA200DA5F56 /* LaunchScreen.storyboard in Resources */,
@@ -230,6 +237,7 @@
 			files = (
 				72A61F3F20FE52AD00F146C5 /* ProfileTabViewController.swift in Sources */,
 				72A61F3020FD1EA300F146C5 /* TabBarViewController.swift in Sources */,
+				72A61F472100F3D200F146C5 /* TblBaseHome.swift in Sources */,
 				72A61F3D20FE52A000F146C5 /* AlertTabViewController.swift in Sources */,
 				72A61F4320FE5BAC00F146C5 /* TblBaseCellView.swift in Sources */,
 				729C6DCE20F90CE300DA5F56 /* HomeMenuCollectionViewCell.swift in Sources */,
@@ -381,14 +389,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W6L6HHJ7A3;
+				DEVELOPMENT_TEAM = 3G7K5FF87J;
 				INFOPLIST_FILE = "$(SRCROOT)/Dawat Nama/Support/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.codiansoft.Dawat-Nama";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.codiansoft.Dawat-Nama-2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -400,14 +408,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W6L6HHJ7A3;
+				DEVELOPMENT_TEAM = 3G7K5FF87J;
 				INFOPLIST_FILE = "$(SRCROOT)/Dawat Nama/Support/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.codiansoft.Dawat-Nama";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.codiansoft.Dawat-Nama-2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;

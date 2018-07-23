@@ -15,10 +15,11 @@ import UIKit
 extension TabSwiper where Self:UIViewController {
     
     func InitSwipView(direction:UISwipeGestureRecognizerDirection ){
-        
+       
         let swipe = UISwipeGestureRecognizer(target: self, action: #selector(HandleSwipe(_:)))
         swipe.direction = direction
         self.view.addGestureRecognizer(swipe)
+       
     }
     
 }

@@ -10,7 +10,10 @@ import UIKit
 
 class MainViewController: UIViewController{
    
-//    lazy var storyB:[UIViewController] = {
+    @IBOutlet weak var menuContainerConstraint: NSLayoutConstraint!
+    var menuConstraintToggle = false ;
+
+    //    lazy var storyB:[UIViewController] = {
 //        return [
 //            UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PageHome_ViewController") as! PageHome_ViewController,
 //            UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PageAlert_ViewController") as! PageAlert_ViewController,
@@ -41,6 +44,26 @@ class MainViewController: UIViewController{
         // Do any additional setup after loading the view, typically from a nib.
 //        regMenucellview()
 //        regNot()
+        
+    }
+    
+    
+    // MARK :- MenuContainer Function
+    @IBAction func menuContainerSction(_ sender: Any) {
+        
+        if menuConstraintToggle {
+            UIView.animate(withDuration: 0.7) {
+                    self.menuContainerConstraint.constant = 0
+            }
+            menuConstraintToggle = false
+        }
+        else {
+            UIView.animate(withDuration: 0.7) {
+                    self.menuContainerConstraint.constant = 186
+            }
+
+            menuConstraintToggle = true
+        }
         
     }
 

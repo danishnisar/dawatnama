@@ -50,7 +50,7 @@ extension HomeTabViewController:UITableViewDataSource,UITableViewDelegate{
         return cellbase
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 320
+        return 191
     }
 
     

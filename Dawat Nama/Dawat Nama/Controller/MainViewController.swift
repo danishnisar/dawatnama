@@ -180,14 +180,17 @@ class MainViewController: UIViewController{
 //    }
         //bottomLine[indexPath.item].isHidden = false
         //Menucollection.layoutIfNeeded()
-    
-    
-    
-    
 
     
     
-
-
+    // MARK :- Added Invite Function
+    @IBAction func inviteButton(_ sender: Any) {
+        
+        print("invite");
+        
+    }
+    
 }
+
+
 

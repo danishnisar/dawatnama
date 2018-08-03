@@ -38,7 +38,7 @@ class MainViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
 //        Menucollection.delegate = self
 //        Menucollection.dataSource = self
 //
@@ -48,7 +48,14 @@ class MainViewController: UIViewController{
 //        regMenucellview()
 //        regNot()
         
+        
     }
+    
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        authenticate()
+             }
     
     
     // MARK :- MenuContainer Function
@@ -189,6 +196,23 @@ class MainViewController: UIViewController{
         print("invite");
         
     }
+    
+    //MARK: - Authentication Login/Signup
+    
+    func authenticate(){
+        print("auth")
+        
+        let userAuth = UserDefaults.standard
+        if !userAuth.bool(forKey: "confirmlogin"){
+            
+            performSegue(withIdentifier: "authvc", sender: self)
+            userAuth.set(true, forKey: "confirmlogin")
+            
+        }
+        
+    }
+    
+   
     
 }
 

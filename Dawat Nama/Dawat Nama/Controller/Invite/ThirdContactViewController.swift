@@ -87,13 +87,14 @@ class ThirdContactViewController: UIViewController {
                 }catch let err {
                     print("fatal error",err)
                 }
-                DispatchQueue.main.async {
-                    self.contacttblView.reloadData()
-                }
+             
             }else{
                 print("access denied")
             }
             
+            DispatchQueue.main.async {
+                self.contacttblView.reloadData()
+            }
         }
         
         
@@ -114,8 +115,8 @@ extension ThirdContactViewController:UISearchBarDelegate,UITableViewDelegate,UIT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "contactcell", for: indexPath) as! ContactTableViewCell
-        
-        cell.CNName.text = contactModel[indexPath.row].CNName
+        cell.CNName.text = "\(indexPath.row) | \(contactModel[indexPath.row].CNPhone)"
+        //cell.CNName.text +=
         return cell
     }
     

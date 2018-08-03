@@ -29,6 +29,7 @@
 		72AAFB3A2111E38F0097A021 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AAFB382111E38F0097A021 /* ContactTableViewCell.swift */; };
 		72AAFB3B2111E38F0097A021 /* ContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72AAFB392111E38F0097A021 /* ContactTableViewCell.xib */; };
 		72AAFB3D2111EA5D0097A021 /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AAFB3C2111EA5D0097A021 /* ContactModel.swift */; };
+		72AAFB40211423110097A021 /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AAFB3F211423110097A021 /* AuthVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		72AAFB382111E38F0097A021 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		72AAFB392111E38F0097A021 /* ContactTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactTableViewCell.xib; sourceTree = "<group>"; };
 		72AAFB3C2111EA5D0097A021 /* ContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
+		72AAFB3F211423110097A021 /* AuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 		729C6DCA20F7BBBB00DA5F56 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				72AAFB3E211422DC0097A021 /* Authenticate */,
 				72AAFB122110CF8F0097A021 /* Invite */,
 				72A61F3720FE51F800F146C5 /* TabViewController */,
 				72A61F3620FE51F200F146C5 /* Helper */,
@@ -193,6 +196,14 @@
 				72AAFB392111E38F0097A021 /* ContactTableViewCell.xib */,
 			);
 			path = "Contact Table Cell";
+			sourceTree = "<group>";
+		};
+		72AAFB3E211422DC0097A021 /* Authenticate */ = {
+			isa = PBXGroup;
+			children = (
+				72AAFB3F211423110097A021 /* AuthVC.swift */,
+			);
+			path = Authenticate;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +283,7 @@
 			files = (
 				72A61F3F20FE52AD00F146C5 /* ProfileTabViewController.swift in Sources */,
 				72A61F3020FD1EA300F146C5 /* TabBarViewController.swift in Sources */,
+				72AAFB40211423110097A021 /* AuthVC.swift in Sources */,
 				72A61F472100F3D200F146C5 /* TblBaseHome.swift in Sources */,
 				72A61F3D20FE52A000F146C5 /* AlertTabViewController.swift in Sources */,
 				72AAFB3A2111E38F0097A021 /* ContactTableViewCell.swift in Sources */,

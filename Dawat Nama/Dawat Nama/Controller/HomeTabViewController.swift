@@ -14,6 +14,7 @@ class HomeTabViewController: UIViewController,TabSwiper {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         print("HomeTab Loaded")
         InitSwipView(direction:.left)
         // Do any additional setup after loading the view.
@@ -33,6 +34,7 @@ class HomeTabViewController: UIViewController,TabSwiper {
         
     }
     
+  
 
   
 

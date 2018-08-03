@@ -15,6 +15,8 @@ class TabBarViewController: UITabBarController,UITabBarControllerDelegate {
         delegate = self
         
         // Do any additional setup after loading the view.
+        
+        
     }
 
     override func viewWillLayoutSubviews() {
@@ -55,6 +57,11 @@ class TabBarViewController: UITabBarController,UITabBarControllerDelegate {
         tabBar.clipsToBounds = false
         
     }
+    
+    
+    
+   
+
 }
 
 

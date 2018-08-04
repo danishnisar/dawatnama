@@ -30,9 +30,12 @@
 		72AAFB3B2111E38F0097A021 /* ContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72AAFB392111E38F0097A021 /* ContactTableViewCell.xib */; };
 		72AAFB3D2111EA5D0097A021 /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AAFB3C2111EA5D0097A021 /* ContactModel.swift */; };
 		72AAFB40211423110097A021 /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AAFB3F211423110097A021 /* AuthVC.swift */; };
+		C6B588F592BCF4E6171E03F5 /* Pods_Dawat_Nama.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 396E9F7A9FC505501545A4B4 /* Pods_Dawat_Nama.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		396E9F7A9FC505501545A4B4 /* Pods_Dawat_Nama.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dawat_Nama.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C9E89A67F6E705F01C1CA53 /* Pods-Dawat Nama.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dawat Nama.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dawat Nama/Pods-Dawat Nama.release.xcconfig"; sourceTree = "<group>"; };
 		729C6DB320F7BA7500DA5F56 /* Dawat Nama.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dawat Nama.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		729C6DB620F7BA7500DA5F56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		729C6DB820F7BA7500DA5F56 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +61,7 @@
 		72AAFB392111E38F0097A021 /* ContactTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactTableViewCell.xib; sourceTree = "<group>"; };
 		72AAFB3C2111EA5D0097A021 /* ContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
 		72AAFB3F211423110097A021 /* AuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
+		872256B649D7A72366327A74 /* Pods-Dawat Nama.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dawat Nama.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dawat Nama/Pods-Dawat Nama.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6B588F592BCF4E6171E03F5 /* Pods_Dawat_Nama.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +81,8 @@
 			children = (
 				729C6DB520F7BA7500DA5F56 /* Dawat Nama */,
 				729C6DB420F7BA7500DA5F56 /* Products */,
+				96446761F542A7AB43A60963 /* Pods */,
+				B9A586F35EE9462909021BAF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -206,6 +213,23 @@
 			path = Authenticate;
 			sourceTree = "<group>";
 		};
+		96446761F542A7AB43A60963 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				872256B649D7A72366327A74 /* Pods-Dawat Nama.debug.xcconfig */,
+				5C9E89A67F6E705F01C1CA53 /* Pods-Dawat Nama.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B9A586F35EE9462909021BAF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				396E9F7A9FC505501545A4B4 /* Pods_Dawat_Nama.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -213,9 +237,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 729C6DC520F7BAA200DA5F56 /* Build configuration list for PBXNativeTarget "Dawat Nama" */;
 			buildPhases = (
+				F5B08934715E908160AE07F9 /* [CP] Check Pods Manifest.lock */,
 				729C6DAF20F7BA7500DA5F56 /* Sources */,
 				729C6DB020F7BA7500DA5F56 /* Frameworks */,
 				729C6DB120F7BA7500DA5F56 /* Resources */,
+				A94A98CA8CAA68AA5B898E15 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -275,6 +301,49 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A94A98CA8CAA68AA5B898E15 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Dawat Nama/Pods-Dawat Nama-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dawat Nama/Pods-Dawat Nama-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F5B08934715E908160AE07F9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Dawat Nama-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		729C6DAF20F7BA7500DA5F56 /* Sources */ = {
@@ -438,6 +507,7 @@
 		};
 		729C6DC620F7BAA200DA5F56 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 872256B649D7A72366327A74 /* Pods-Dawat Nama.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -457,6 +527,7 @@
 		};
 		729C6DC720F7BAA200DA5F56 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C9E89A67F6E705F01C1CA53 /* Pods-Dawat Nama.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

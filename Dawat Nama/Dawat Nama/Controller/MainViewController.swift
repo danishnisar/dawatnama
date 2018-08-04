@@ -203,10 +203,10 @@ class MainViewController: UIViewController{
         print("auth")
         
         let userAuth = UserDefaults.standard
-        if !userAuth.bool(forKey: "confirmlogin"){
+        if !userAuth.bool(forKey: "confirmlogi"){
             
             performSegue(withIdentifier: "authvc", sender: self)
-            userAuth.set(true, forKey: "confirmlogin")
+            userAuth.set(true, forKey: "confirmlogins")
             
         }
         

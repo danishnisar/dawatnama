@@ -10,10 +10,13 @@ import UIKit
 
 class loginVC: UIViewController {
 
+    @IBOutlet weak var phoneNumber: DesignUITextField!
+    @IBOutlet weak var password: DesignUITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        phoneNumber.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -22,14 +25,25 @@ class loginVC: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+    
 
 }
+extension loginVC:UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("enter in")
+        NotificationCenter.default.post(name: NSNotification.Name("LoginKeyUp"), object: self)
+    }
+    
+    
+   
+    
+    
+}
+
+
+
+
+
+
+

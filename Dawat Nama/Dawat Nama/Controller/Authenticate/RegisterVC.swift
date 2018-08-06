@@ -10,9 +10,12 @@ import UIKit
 
 class RegisterVC: UIViewController {
 
+    @IBOutlet weak var name: DesignUITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        name.delegate = self
+        
         // Do any additional setup after loading the view.
     }
 
@@ -22,14 +25,19 @@ class RegisterVC: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
+    
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+}
+
+extension RegisterVC:UITextFieldDelegate{
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        NotificationCenter.default.post(name: NSNotification.Name("RegisKeyUp"), object: nil)
     }
-    */
-
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        name.endEditing(true)
+        return true
+    }
+    
+    
 }

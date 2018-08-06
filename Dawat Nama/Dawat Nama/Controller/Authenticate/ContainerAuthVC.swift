@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AuthVC: UIViewController {
+class ContainerAuthVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

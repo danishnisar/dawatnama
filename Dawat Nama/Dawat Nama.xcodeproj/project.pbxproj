@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		727D3CFB2118AB1300065235 /* loginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727D3CFA2118AB1200065235 /* loginVC.swift */; };
+		727D3CFF2118ABA400065235 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727D3CFE2118ABA400065235 /* RegisterVC.swift */; };
 		729C6DB720F7BA7500DA5F56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729C6DB620F7BA7500DA5F56 /* AppDelegate.swift */; };
 		729C6DB920F7BA7500DA5F56 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729C6DB820F7BA7500DA5F56 /* MainViewController.swift */; };
 		729C6DBC20F7BA7600DA5F56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 729C6DBA20F7BA7600DA5F56 /* Main.storyboard */; };
@@ -29,13 +31,16 @@
 		72AAFB3A2111E38F0097A021 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AAFB382111E38F0097A021 /* ContactTableViewCell.swift */; };
 		72AAFB3B2111E38F0097A021 /* ContactTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72AAFB392111E38F0097A021 /* ContactTableViewCell.xib */; };
 		72AAFB3D2111EA5D0097A021 /* ContactModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AAFB3C2111EA5D0097A021 /* ContactModel.swift */; };
-		72AAFB40211423110097A021 /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AAFB3F211423110097A021 /* AuthVC.swift */; };
+		72AAFB40211423110097A021 /* ContainerAuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AAFB3F211423110097A021 /* ContainerAuthVC.swift */; };
+		72F4248B2117134400490251 /* DesignUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72F4248A2117134400490251 /* DesignUITextField.swift */; };
 		C6B588F592BCF4E6171E03F5 /* Pods_Dawat_Nama.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 396E9F7A9FC505501545A4B4 /* Pods_Dawat_Nama.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		396E9F7A9FC505501545A4B4 /* Pods_Dawat_Nama.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dawat_Nama.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C9E89A67F6E705F01C1CA53 /* Pods-Dawat Nama.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dawat Nama.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dawat Nama/Pods-Dawat Nama.release.xcconfig"; sourceTree = "<group>"; };
+		727D3CFA2118AB1200065235 /* loginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginVC.swift; sourceTree = "<group>"; };
+		727D3CFE2118ABA400065235 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		729C6DB320F7BA7500DA5F56 /* Dawat Nama.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dawat Nama.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		729C6DB620F7BA7500DA5F56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		729C6DB820F7BA7500DA5F56 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -60,7 +65,8 @@
 		72AAFB382111E38F0097A021 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewCell.swift; sourceTree = "<group>"; };
 		72AAFB392111E38F0097A021 /* ContactTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ContactTableViewCell.xib; sourceTree = "<group>"; };
 		72AAFB3C2111EA5D0097A021 /* ContactModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactModel.swift; sourceTree = "<group>"; };
-		72AAFB3F211423110097A021 /* AuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
+		72AAFB3F211423110097A021 /* ContainerAuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerAuthVC.swift; sourceTree = "<group>"; };
+		72F4248A2117134400490251 /* DesignUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignUITextField.swift; sourceTree = "<group>"; };
 		872256B649D7A72366327A74 /* Pods-Dawat Nama.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dawat Nama.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dawat Nama/Pods-Dawat Nama.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,6 +103,7 @@
 		729C6DB520F7BA7500DA5F56 /* Dawat Nama */ = {
 			isa = PBXGroup;
 			children = (
+				72F42489211712E200490251 /* IB Desginable */,
 				729C6DC920F7BBB400DA5F56 /* Model */,
 				729C6DC820F7BBAA00DA5F56 /* View */,
 				729C6DCA20F7BBBB00DA5F56 /* Controller */,
@@ -208,9 +215,19 @@
 		72AAFB3E211422DC0097A021 /* Authenticate */ = {
 			isa = PBXGroup;
 			children = (
-				72AAFB3F211423110097A021 /* AuthVC.swift */,
+				72AAFB3F211423110097A021 /* ContainerAuthVC.swift */,
+				727D3CFA2118AB1200065235 /* loginVC.swift */,
+				727D3CFE2118ABA400065235 /* RegisterVC.swift */,
 			);
 			path = Authenticate;
+			sourceTree = "<group>";
+		};
+		72F42489211712E200490251 /* IB Desginable */ = {
+			isa = PBXGroup;
+			children = (
+				72F4248A2117134400490251 /* DesignUITextField.swift */,
+			);
+			path = "IB Desginable";
 			sourceTree = "<group>";
 		};
 		96446761F542A7AB43A60963 /* Pods */ = {
@@ -312,13 +329,11 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Dawat Nama/Pods-Dawat Nama-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -352,19 +367,22 @@
 			files = (
 				72A61F3F20FE52AD00F146C5 /* ProfileTabViewController.swift in Sources */,
 				72A61F3020FD1EA300F146C5 /* TabBarViewController.swift in Sources */,
-				72AAFB40211423110097A021 /* AuthVC.swift in Sources */,
+				72AAFB40211423110097A021 /* ContainerAuthVC.swift in Sources */,
 				72A61F472100F3D200F146C5 /* TblBaseHome.swift in Sources */,
 				72A61F3D20FE52A000F146C5 /* AlertTabViewController.swift in Sources */,
 				72AAFB3A2111E38F0097A021 /* ContactTableViewCell.swift in Sources */,
 				72A61F4320FE5BAC00F146C5 /* TblBaseCellView.swift in Sources */,
+				72F4248B2117134400490251 /* DesignUITextField.swift in Sources */,
 				729C6DCE20F90CE300DA5F56 /* HomeMenuCollectionViewCell.swift in Sources */,
 				72AAFB162111A06F0097A021 /* SecoundViewController.swift in Sources */,
+				727D3CFF2118ABA400065235 /* RegisterVC.swift in Sources */,
 				72A61F3920FE526B00F146C5 /* Swipe.swift in Sources */,
 				72AAFB362111D9DE0097A021 /* ThirdContactViewController.swift in Sources */,
 				729C6DB920F7BA7500DA5F56 /* MainViewController.swift in Sources */,
 				729C6DB720F7BA7500DA5F56 /* AppDelegate.swift in Sources */,
 				72AAFB3D2111EA5D0097A021 /* ContactModel.swift in Sources */,
 				72A61F3B20FE528D00F146C5 /* HomeTabViewController.swift in Sources */,
+				727D3CFB2118AB1300065235 /* loginVC.swift in Sources */,
 				72AAFB142110D00A0097A021 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

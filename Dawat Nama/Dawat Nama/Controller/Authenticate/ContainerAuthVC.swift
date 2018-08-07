@@ -20,21 +20,29 @@ class ContainerAuthVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        NotificationCenter.default.addObserver(self, selector: #selector(updateKeyboard), name: NSNotification.Name("LoginKeyUp"), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(registerupdateKeyboard), name: NSNotification.Name("RegisKeyUp"), object: nil)
+        //MARK: - Segment Default Selected
+        defaultSegmentIndexSelected()
+        
+        //MARK: - Register Notifcation Center
+        registerNotifcationCenter()
+        
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+   
     
     
     
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    
+    private func defaultSegmentIndexSelected(){
+        RegisterVC.alpha = 0
+        //segementAuth.selectedSegmentIndex = 0
+    }
+    
+    
     @objc func updateKeyboard(){
         print("updateKeyboard")
         scrollViewUpdate.setContentOffset(CGPoint(x: 0, y: 100), animated: true)
@@ -42,6 +50,11 @@ class ContainerAuthVC: UIViewController {
     @objc func registerupdateKeyboard(){
             print("registerupdateKeyboard")
         scrollViewUpdate.setContentOffset(CGPoint(x: 0, y: 250), animated: true)
+    }
+    
+    @objc func authDownKey(){
+        scrollViewUpdate.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+        
     }
     @IBAction func segmenuAuthAction(_ sender: UISegmentedControl) {
         
@@ -58,5 +71,11 @@ class ContainerAuthVC: UIViewController {
         
     }
     
+    private func registerNotifcationCenter(){
+        NotificationCenter.default.addObserver(self, selector: #selector(updateKeyboard), name: NSNotification.Name("LoginKeyUp"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(registerupdateKeyboard), name: NSNotification.Name("RegisKeyUp"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(authDownKey), name: NSNotification.Name("KeyDown"), object: nil)
+        
+    }
 
 }

@@ -200,15 +200,29 @@ class MainViewController: UIViewController{
     //MARK: - Authentication Login/Signup
     
     func authenticate(){
-        print("auth")
         
+        
+        
+        
+        print("auth")
         let userAuth = UserDefaults.standard
-        if !userAuth.bool(forKey: "confirmlogi"){
-            
-            performSegue(withIdentifier: "authvc", sender: self)
-            userAuth.set(true, forKey: "confirmlogins")
-            
+        if userAuth.bool(forKey: "token") {
+            print("This is inside bool",true)
+            let auth = userAuth.value(forKey: "LoggedIN") as! Dictionary<String,String>
+            print("Auth Status ",auth["Status"]!)
+            if auth["Status"] ==  "success" {
+                
+                print("status access")
+                //userAuth.removeObject(forKey: "LoggedIN")
+            }
         }
+        else{
+            performSegue(withIdentifier: "authvc", sender: self)
+            print(false)
+        }
+       
+        
+
         
     }
     

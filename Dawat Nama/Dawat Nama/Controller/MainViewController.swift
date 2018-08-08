@@ -210,6 +210,7 @@ class MainViewController: UIViewController{
             print("This is inside bool",true)
             let auth = userAuth.value(forKey: "LoggedIN") as! Dictionary<String,String>
             print("Auth Status ",auth["Status"]!)
+            print(auth)
             if auth["Status"] ==  "success" {
                 
                 print("status access")

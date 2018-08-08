@@ -67,10 +67,10 @@ class DesignUITextField: UITextField {
                 layer.addSublayer(brMake)
                 layer.masksToBounds = true
                 
-//                self.layer.shadowColor = borderColor.cgColor
-//                self.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
-//                self.layer.shadowOpacity = 1.0
-//                self.layer.shadowRadius = 0.0
+                //                self.layer.shadowColor = borderColor.cgColor
+                //                self.layer.shadowOffset = CGSize(width: 0.0, height: 2.0)
+                //                self.layer.shadowOpacity = 1.0
+                //                self.layer.shadowRadius = 0.0
             }
             leftView = viewImage
             

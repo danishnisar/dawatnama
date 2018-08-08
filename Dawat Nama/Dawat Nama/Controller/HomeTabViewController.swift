@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class HomeTabViewController: UIViewController,TabSwiper {
 
@@ -16,6 +18,7 @@ class HomeTabViewController: UIViewController,TabSwiper {
 
         
         print("HomeTab Loaded")
+        print("View did Load")
         InitSwipView(direction:.left)
         // Do any additional setup after loading the view.
         tableHome.delegate = self
@@ -24,6 +27,21 @@ class HomeTabViewController: UIViewController,TabSwiper {
         
     }
     
+    
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("Will Appear")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("Did Appear")
+    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("Did Dis Appear")
+    }
     func HandleSwipe(_ Sender: UISwipeGestureRecognizer) {
        
         if Sender.direction == .left {
@@ -35,6 +53,17 @@ class HomeTabViewController: UIViewController,TabSwiper {
     }
     
   
+    
+    
+    private func LoadData(url:String,param:[String:String]){
+        
+        
+    }
+    
+    
+    private func extractJSONData(data:JSON){
+        
+    }
 
   
 
@@ -52,7 +81,7 @@ extension HomeTabViewController:UITableViewDataSource,UITableViewDelegate{
         return cellbase
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 191
+        return 272.5
     }
 
     

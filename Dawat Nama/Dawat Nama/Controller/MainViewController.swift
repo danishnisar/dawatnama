@@ -55,7 +55,12 @@ class MainViewController: UIViewController{
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         authenticate()
+        print("viewDidAppear mainContainer")
              }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("viewWillAppear mainContainer")
+    }
     
     
     // MARK :- MenuContainer Function
@@ -200,11 +205,7 @@ class MainViewController: UIViewController{
     //MARK: - Authentication Login/Signup
     
     func authenticate(){
-        
-        
-        
-        
-        print("auth")
+        print("auth mainContainer")
         let userAuth = UserDefaults.standard
         if userAuth.bool(forKey: "token") {
             print("This is inside bool",true)

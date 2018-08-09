@@ -10,6 +10,10 @@ import UIKit
 
 class TabBarViewController: UITabBarController,UITabBarControllerDelegate {
 
+    
+    
+    var invitationGlobalModel = [FetchInviation]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         delegate = self

@@ -11,6 +11,7 @@ import UIKit
 class TblBaseHome: UITableViewCell {
 
     @IBOutlet weak var MainViewBG: UIView!
+    @IBOutlet weak var senderName: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

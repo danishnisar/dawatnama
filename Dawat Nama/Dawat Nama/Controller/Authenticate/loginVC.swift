@@ -53,7 +53,7 @@ class loginVC: UIViewController {
                 //print(dataResult)
             }
             else{
-                print("\(response.result.error! as! String) in login")
+                print("\(response.result.error!) in login")
             }
         }
     }

@@ -28,21 +28,11 @@ class MenuVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-
-}
-
-extension MenuVC:UITableViewDelegate,UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return MenuData.count
+    @IBAction func cancelResponder(_ sender: Any) {
+        print("Cancel button")
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "menucell", for: indexPath) as! MenuCell
-        cell.label.text = MenuData[indexPath.row]
-        return cell
-    }
+
 }
+
+

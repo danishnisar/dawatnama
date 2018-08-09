@@ -20,4 +20,7 @@ class RestFull {
     //Register URL
     static let registerURL = RestFull.hostURL+"/api/register"
     
+    //FETCH INVITATIONS: (POST)
+    static let fetchInvitationURL = RestFull.hostURL+"/api/fetch_invitations"
+    
 }

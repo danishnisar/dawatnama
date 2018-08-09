@@ -13,6 +13,8 @@ class AlertTabViewController: UIViewController,TabSwiper {
     //MARK :- Added Variable Of IBOUTLET & IBACTION
     
     @IBOutlet weak var tblView: UITableView!
+    var inviteModel = [FetchInviation]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -21,7 +23,14 @@ class AlertTabViewController: UIViewController,TabSwiper {
             InitSwipView(direction: .left)
             InitSwipView(direction: .right)
             CellReg()
-        
+            fetchGlobalData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if inviteModel.count == 0{
+            fetchGlobalData()
+        }
     }
     func HandleSwipe(_ Sender: UISwipeGestureRecognizer) {
         if Sender.direction == .left {
@@ -37,14 +46,20 @@ class AlertTabViewController: UIViewController,TabSwiper {
         tblView.register(UINib(nibName: "TblBaseCellView", bundle: nil), forCellReuseIdentifier: "cellBase")
     }
 
-   
+    func fetchGlobalData(){
+       let fetchGlobalData = tabBarController as! TabBarViewController
+        inviteModel = fetchGlobalData.invitationGlobalModel
+        print(inviteModel)
+        tblView.reloadData()
+        
+    }
 
 }
 
 extension AlertTabViewController:UITableViewDataSource,UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return inviteModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -54,7 +69,7 @@ extension AlertTabViewController:UITableViewDataSource,UITableViewDelegate {
         return cellbase
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return 120
     }
 
 }

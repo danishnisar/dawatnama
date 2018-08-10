@@ -183,7 +183,21 @@ extension HomeTabViewController:UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellbase = tableView.dequeueReusableCell(withIdentifier: "cellBasehome", for: indexPath) as! TblBaseHome
-        cellbase.senderName.text = FetchIniteModel[indexPath.row].sender_name
+        cellbase.heading.text = FetchIniteModel[indexPath.row].event_name
+        if FetchIniteModel[indexPath.row].event_name == "Birthday" {
+            
+            cellbase.centerLabel.isHidden =  true
+            cellbase.senderName.text = "\(FetchIniteModel[indexPath.row].event_name) \(FetchIniteModel[indexPath.row].gender)"
+            cellbase.lastLable.text = FetchIniteModel[indexPath.row].host_1
+            cellbase.invitemsg.text = "\(FetchIniteModel[indexPath.row].sender_name) has invited you in \(FetchIniteModel[indexPath.row].event_name)"
+            
+        }else{
+        cellbase.senderName.text =  FetchIniteModel[indexPath.row].host_1
+            cellbase.centerLabel.text = FetchIniteModel[indexPath.row].event_name == "Barat" ? "Weds" : "none"
+        cellbase.lastLable.text = FetchIniteModel[indexPath.row].host_2
+        cellbase.invitemsg.text = "\(FetchIniteModel[indexPath.row].sender_name) has invited you in \(FetchIniteModel[indexPath.row].event_name)"
+        }
+        
         return cellbase
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

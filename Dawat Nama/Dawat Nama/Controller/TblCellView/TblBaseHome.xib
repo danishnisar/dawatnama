@@ -37,19 +37,25 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some one is invited some one,so some one come " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vWa-wz-r26">
-                                <rect key="frame" x="5" y="82.5" width="335" height="50.5"/>
+                                <rect key="frame" x="5" y="80.5" width="335" height="50.5"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="21"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XYZZZZZZ" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tHh-pH-Q3Y">
-                                <rect key="frame" x="5" y="176" width="335" height="21"/>
+                                <rect key="frame" x="5" y="174" width="335" height="21"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birthday Boy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5TJ-wI-Hew">
-                                <rect key="frame" x="5" y="143" width="335" height="23"/>
+                                <rect key="frame" x="5" y="141" width="335" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Birthday Boy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcG-xv-jUv">
+                                <rect key="frame" x="5" y="205" width="335" height="23"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -58,19 +64,22 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="T1L-nb-OEi" firstAttribute="leading" secondItem="tVp-z0-a39" secondAttribute="leading" id="B6y-DE-pu6"/>
+                            <constraint firstItem="tHh-pH-Q3Y" firstAttribute="leading" secondItem="tVp-z0-a39" secondAttribute="leading" constant="5" id="BoP-ci-wiD"/>
                             <constraint firstItem="3LG-s8-DdL" firstAttribute="leading" secondItem="tVp-z0-a39" secondAttribute="leading" id="Cvz-iG-QLo"/>
                             <constraint firstItem="5TJ-wI-Hew" firstAttribute="top" secondItem="vWa-wz-r26" secondAttribute="bottom" constant="10" id="EGf-LH-ekZ"/>
+                            <constraint firstItem="tHh-pH-Q3Y" firstAttribute="top" secondItem="5TJ-wI-Hew" secondAttribute="bottom" constant="10" id="Elk-I3-TAv"/>
                             <constraint firstAttribute="trailing" secondItem="vWa-wz-r26" secondAttribute="trailing" constant="5" id="EzF-lm-sgT"/>
+                            <constraint firstAttribute="trailing" secondItem="tHh-pH-Q3Y" secondAttribute="trailing" constant="5" id="FZV-BE-zvi"/>
                             <constraint firstItem="T1L-nb-OEi" firstAttribute="top" secondItem="tVp-z0-a39" secondAttribute="top" id="I8I-St-BIA"/>
-                            <constraint firstItem="tHh-pH-Q3Y" firstAttribute="top" secondItem="5TJ-wI-Hew" secondAttribute="bottom" constant="10" id="K36-ST-65A"/>
-                            <constraint firstAttribute="bottom" secondItem="tHh-pH-Q3Y" secondAttribute="bottom" constant="45" id="N1p-2d-pMg"/>
+                            <constraint firstItem="hcG-xv-jUv" firstAttribute="leading" secondItem="tVp-z0-a39" secondAttribute="leading" constant="5" id="Kyc-sI-sPi"/>
                             <constraint firstAttribute="trailing" secondItem="5TJ-wI-Hew" secondAttribute="trailing" constant="5" id="OBk-0m-mdW"/>
+                            <constraint firstAttribute="trailing" secondItem="hcG-xv-jUv" secondAttribute="trailing" constant="5" id="QDW-vu-glX"/>
                             <constraint firstItem="5TJ-wI-Hew" firstAttribute="leading" secondItem="tVp-z0-a39" secondAttribute="leading" constant="5" id="QU6-35-zhK"/>
+                            <constraint firstItem="hcG-xv-jUv" firstAttribute="top" secondItem="tHh-pH-Q3Y" secondAttribute="bottom" constant="10" id="V6b-dd-MMj"/>
                             <constraint firstItem="vWa-wz-r26" firstAttribute="leading" secondItem="tVp-z0-a39" secondAttribute="leading" constant="5" id="XIz-MX-1W2"/>
                             <constraint firstItem="3LG-s8-DdL" firstAttribute="top" secondItem="tVp-z0-a39" secondAttribute="top" id="imp-mZ-4ZH"/>
                             <constraint firstAttribute="trailing" secondItem="3LG-s8-DdL" secondAttribute="trailing" id="ogy-tu-6JX"/>
-                            <constraint firstAttribute="trailing" secondItem="tHh-pH-Q3Y" secondAttribute="trailing" constant="5" id="uOc-tp-4B7"/>
-                            <constraint firstItem="tHh-pH-Q3Y" firstAttribute="leading" secondItem="tVp-z0-a39" secondAttribute="leading" constant="5" id="v42-lP-LYX"/>
+                            <constraint firstAttribute="bottom" secondItem="hcG-xv-jUv" secondAttribute="bottom" constant="14.5" id="vQt-Ai-Wod"/>
                             <constraint firstAttribute="trailing" secondItem="T1L-nb-OEi" secondAttribute="trailing" id="vXw-V3-RoE"/>
                         </constraints>
                     </view>
@@ -86,6 +95,10 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="MainViewBG" destination="tVp-z0-a39" id="hmD-sj-rXv"/>
+                <outlet property="centerLabel" destination="tHh-pH-Q3Y" id="q3X-7K-arU"/>
+                <outlet property="heading" destination="T1L-nb-OEi" id="vvl-it-odf"/>
+                <outlet property="invitemsg" destination="vWa-wz-r26" id="pqU-B5-Qg0"/>
+                <outlet property="lastLable" destination="hcG-xv-jUv" id="DF0-pc-NXe"/>
                 <outlet property="senderName" destination="5TJ-wI-Hew" id="xmU-pE-1Gb"/>
             </connections>
             <point key="canvasLocation" x="-18.5" y="361.5"/>

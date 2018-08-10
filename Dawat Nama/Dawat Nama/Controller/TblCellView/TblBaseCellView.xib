@@ -41,7 +41,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1:43PM 1/6/2018" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o7e-Jt-B2O">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1:43PM 1/6/2018" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o7e-Jt-B2O">
                                 <rect key="frame" x="167" y="51.5" width="105" height="14"/>
                                 <color key="backgroundColor" red="0.082352941176470587" green="0.73725490196078436" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
@@ -81,7 +81,11 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="eventDate" destination="o7e-Jt-B2O" id="Ls0-wP-RVo"/>
+                <outlet property="eventName" destination="D7c-Am-Yh7" id="3jv-fe-6Kz"/>
+                <outlet property="invitesender" destination="anF-qN-MdZ" id="a73-C5-LA2"/>
                 <outlet property="mainview" destination="Mf4-dj-ZcV" id="V5F-UG-EtW"/>
+                <outlet property="profileImage" destination="Kcy-8q-hye" id="eJf-Fv-ama"/>
             </connections>
             <point key="canvasLocation" x="25" y="91"/>
         </tableViewCell>

@@ -11,6 +11,10 @@ import UIKit
 class TblBaseCellView: UITableViewCell {
 
     @IBOutlet weak var mainview: UIView!
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var invitesender: UILabel!
+    @IBOutlet weak var eventName: UILabel!
+    @IBOutlet weak var eventDate: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

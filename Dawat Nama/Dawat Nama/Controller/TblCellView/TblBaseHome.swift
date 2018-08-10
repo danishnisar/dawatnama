@@ -12,6 +12,10 @@ class TblBaseHome: UITableViewCell {
 
     @IBOutlet weak var MainViewBG: UIView!
     @IBOutlet weak var senderName: UILabel!
+    @IBOutlet weak var heading: UILabel!
+    @IBOutlet weak var invitemsg: UILabel!
+    @IBOutlet weak var centerLabel: UILabel!
+    @IBOutlet weak var lastLable: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -7,89 +7,103 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+
 
 class FirstViewController: UIViewController {
 
-    @IBOutlet weak var eventCategory: UITextField!
+    @IBOutlet weak var numberOfInvition: UITextField!
+    @IBOutlet weak var amountToPaid: UITextField!
+    @IBOutlet weak var digitalWallet: UITextField!
     
     let category = ["", "Mr.", "Ms.", "Mrs."]
-    
+    var numberinvite = 0;
+    var walletprice = 0
+    var userINFO = UserDefaults.standard
     override func viewDidLoad() {
         super.viewDidLoad()
 
        
-        
-        let pickerView = UIPickerView()
-        pickerView.delegate = self
-        pickerView.dataSource = self
-        pickerView.showsSelectionIndicator = true
+        //numberOfInvition.delegate = self
         
         
-        eventCategory.inputView = pickerView
-        addToolbar()
+        
+        NetworkIng()
+        
+       
         
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        numberOfInvition.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        let fetch  = userINFO.value(forKey: "LoggedIN") as! Dictionary<String,String>
+        print("dasdasdas\(fetch["Amount"]!)")
+        digitalWallet.text = fetch["Amount"]!
+    }
+    
+    @objc func textDidChange(_ textField:UITextField){
+        print(textField.text!)
+        if let text = Int(textField.text!){
+            let getmultiply = (text * numberinvite)
+            print(getmultiply)
+            amountToPaid.text = "\(getmultiply)"
+        }else{
+            amountToPaid.text = "0"
+        }
+        
+    }
+    
+    @IBAction func stepOne(_ sender: Any) {
+        
+        if let amountp = amountToPaid.text, let digitalW = digitalWallet.text {
+            let amount = Int(amountp)!
+            let wallet = Int(digitalW)!
+            if amount > wallet {
+                print("payment greater than")
+            }else{
+                performSegue(withIdentifier: "stepTwo", sender: nil)
+            }
+            
+        }
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "stepTwo" {
+            let stepTwoVC = segue.destination as! SecoundViewController
+            stepTwoVC.numberOfPepoleInvite = Int(numberOfInvition.text!)!
+        }
+        
+    }
+    
+    
+    
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    
-    func addToolbar(){
-        let toolbarNew = UIToolbar()
-        toolbarNew.barStyle = .default
-        toolbarNew.isTranslucent = true
-        toolbarNew.tintColor = UIColor(red: 93/255, green: 216/255, blue: 255/255, alpha: 1)
-        toolbarNew.sizeToFit()
-        
-        // Adding Button Toolbar
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(buttonDone))
-        let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(buttonCancel))
-        toolbarNew.setItems([cancelButton,spaceButton,doneButton], animated: true)
-        toolbarNew.isUserInteractionEnabled = true
-        eventCategory.inputAccessoryView = toolbarNew
-        
-    }
-    @objc func buttonDone(){
-        print("done Work")
-        eventCategory.resignFirstResponder()
-        
-    }
-    @objc func buttonCancel(){
-        print("cancel Work")
-        eventCategory.resignFirstResponder()
-    }
 
     
+    
+    
+    private func NetworkIng(){
+        Alamofire.request(RestFull.fetch_perInvitation).responseJSON { (response) in
+            if response.result.isSuccess {
+                print("\(response.result.value!)")
+                let data = JSON(response.result.value!)
+                self.setJson(data:data)
+            }else{
+                print("First View Controller alamofire error =>",response.result.error!)
+            }
+        }
+    }
+    
+    
+    private func setJson(data:JSON){
+        let data = data["result"]["data"].stringValue
+        numberinvite = Int(data)!
+    }
 
 }
 
-extension FirstViewController:UIPickerViewDelegate,UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-    return category.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-    return category[row]
-    }
-    
-    // When user selects an option, this function will set the text of the text field to reflect
-    // the selected option.
-     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        eventCategory.text = category[row]
-    }
-    
-    
-    
-    
 
-    
-    
-    
-}
+

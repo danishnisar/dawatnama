@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		721CA24E211F190C00D23F12 /* AlamofireRequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721CA24D211F190C00D23F12 /* AlamofireRequestHelper.swift */; };
+		725EDDA721244731006D0CF3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 725EDDA62124472F006D0CF3 /* GoogleService-Info.plist */; };
 		727D3CFB2118AB1300065235 /* loginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727D3CFA2118AB1200065235 /* loginVC.swift */; };
 		727D3CFF2118ABA400065235 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727D3CFE2118ABA400065235 /* RegisterVC.swift */; };
 		729C6DB720F7BA7500DA5F56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729C6DB620F7BA7500DA5F56 /* AppDelegate.swift */; };
@@ -25,6 +27,7 @@
 		72A61F4420FE5BAC00F146C5 /* TblBaseCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A61F4220FE5BAC00F146C5 /* TblBaseCellView.xib */; };
 		72A61F472100F3D200F146C5 /* TblBaseHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A61F452100F3D100F146C5 /* TblBaseHome.swift */; };
 		72A61F482100F3D200F146C5 /* TblBaseHome.xib in Resources */ = {isa = PBXBuildFile; fileRef = 72A61F462100F3D200F146C5 /* TblBaseHome.xib */; };
+		72A6696221242ED900C5CD7D /* UploadRecordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A6696121242ED900C5CD7D /* UploadRecordVC.swift */; };
 		72AAFB142110D00A0097A021 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AAFB132110D00A0097A021 /* FirstViewController.swift */; };
 		72AAFB162111A06F0097A021 /* SecoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AAFB152111A06F0097A021 /* SecoundViewController.swift */; };
 		72AAFB362111D9DE0097A021 /* ThirdContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AAFB352111D9DD0097A021 /* ThirdContactViewController.swift */; };
@@ -45,6 +48,8 @@
 /* Begin PBXFileReference section */
 		396E9F7A9FC505501545A4B4 /* Pods_Dawat_Nama.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dawat_Nama.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C9E89A67F6E705F01C1CA53 /* Pods-Dawat Nama.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dawat Nama.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dawat Nama/Pods-Dawat Nama.release.xcconfig"; sourceTree = "<group>"; };
+		721CA24D211F190C00D23F12 /* AlamofireRequestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireRequestHelper.swift; sourceTree = "<group>"; };
+		725EDDA62124472F006D0CF3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		727D3CFA2118AB1200065235 /* loginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginVC.swift; sourceTree = "<group>"; };
 		727D3CFE2118ABA400065235 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		729C6DB320F7BA7500DA5F56 /* Dawat Nama.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dawat Nama.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +70,7 @@
 		72A61F4220FE5BAC00F146C5 /* TblBaseCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TblBaseCellView.xib; sourceTree = "<group>"; };
 		72A61F452100F3D100F146C5 /* TblBaseHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TblBaseHome.swift; sourceTree = "<group>"; };
 		72A61F462100F3D200F146C5 /* TblBaseHome.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TblBaseHome.xib; sourceTree = "<group>"; };
+		72A6696121242ED900C5CD7D /* UploadRecordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadRecordVC.swift; sourceTree = "<group>"; };
 		72AAFB132110D00A0097A021 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		72AAFB152111A06F0097A021 /* SecoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecoundViewController.swift; sourceTree = "<group>"; };
 		72AAFB352111D9DD0097A021 /* ThirdContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdContactViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +169,7 @@
 		729C6DCB20F7BBC400DA5F56 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				725EDDA62124472F006D0CF3 /* GoogleService-Info.plist */,
 				729C6DC220F7BAA200DA5F56 /* Info.plist */,
 			);
 			path = Support;
@@ -214,6 +221,7 @@
 				72AAFB132110D00A0097A021 /* FirstViewController.swift */,
 				72AAFB152111A06F0097A021 /* SecoundViewController.swift */,
 				72AAFB352111D9DD0097A021 /* ThirdContactViewController.swift */,
+				72A6696121242ED900C5CD7D /* UploadRecordVC.swift */,
 			);
 			path = Invite;
 			sourceTree = "<group>";
@@ -241,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				72C4B80321198306009F506B /* RestFull.swift */,
+				721CA24D211F190C00D23F12 /* AlamofireRequestHelper.swift */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -285,6 +294,7 @@
 				729C6DB020F7BA7500DA5F56 /* Frameworks */,
 				729C6DB120F7BA7500DA5F56 /* Resources */,
 				A94A98CA8CAA68AA5B898E15 /* [CP] Embed Pods Frameworks */,
+				E225FA68CC1B7B401635F91B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -333,6 +343,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				725EDDA721244731006D0CF3 /* GoogleService-Info.plist in Resources */,
 				72A61F482100F3D200F146C5 /* TblBaseHome.xib in Resources */,
 				72A61F4420FE5BAC00F146C5 /* TblBaseCellView.xib in Resources */,
 				72AAFB3B2111E38F0097A021 /* ContactTableViewCell.xib in Resources */,
@@ -354,16 +365,40 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Dawat Nama/Pods-Dawat Nama-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dawat Nama/Pods-Dawat Nama-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E225FA68CC1B7B401635F91B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Dawat Nama/Pods-Dawat Nama-resources.sh",
+				"${PODS_ROOT}/AccountKit/AccountKitStrings.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccountKitStrings.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dawat Nama/Pods-Dawat Nama-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F5B08934715E908160AE07F9 /* [CP] Check Pods Manifest.lock */ = {
@@ -403,11 +438,13 @@
 				729C6DCE20F90CE300DA5F56 /* HomeMenuCollectionViewCell.swift in Sources */,
 				72AAFB162111A06F0097A021 /* SecoundViewController.swift in Sources */,
 				72C4B80421198306009F506B /* RestFull.swift in Sources */,
+				721CA24E211F190C00D23F12 /* AlamofireRequestHelper.swift in Sources */,
 				727D3CFF2118ABA400065235 /* RegisterVC.swift in Sources */,
 				72A61F3920FE526B00F146C5 /* Swipe.swift in Sources */,
 				72BBB45F211A02870008F2EB /* DesginUILabelField.swift in Sources */,
 				72AAFB362111D9DE0097A021 /* ThirdContactViewController.swift in Sources */,
 				72B39603211C15010052AF39 /* FetchInviation.swift in Sources */,
+				72A6696221242ED900C5CD7D /* UploadRecordVC.swift in Sources */,
 				72B39605211CA34F0052AF39 /* DesignUIImageView.swift in Sources */,
 				729C6DB920F7BA7500DA5F56 /* MainViewController.swift in Sources */,
 				729C6DB720F7BA7500DA5F56 /* AppDelegate.swift in Sources */,

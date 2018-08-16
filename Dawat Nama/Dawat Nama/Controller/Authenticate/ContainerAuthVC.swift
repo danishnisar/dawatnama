@@ -75,6 +75,16 @@ class ContainerAuthVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(updateKeyboard), name: NSNotification.Name("LoginKeyUp"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(registerupdateKeyboard), name: NSNotification.Name("RegisKeyUp"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(authDownKey), name: NSNotification.Name("KeyDown"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(selectIndexSegment), name: NSNotification.Name("SelectSegment"), object: nil)
+        
+    }
+    
+    @objc func selectIndexSegment(){
+        
+        segementAuth.selectedSegmentIndex = 0
+        RegisterVC.alpha = 0
+        loginVC.alpha = 1
+        
         
     }
 

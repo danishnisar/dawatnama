@@ -15,6 +15,11 @@ class DesignUIView: UIView {
             updateUI()
         }
     }
+    @IBInspectable var backgrouImage:UIImage? {
+        didSet{
+            updateUI()
+        }
+    }
     
     private func updateUI(){
         
@@ -25,6 +30,11 @@ class DesignUIView: UIView {
             layer.shadowRadius = 2
             layer.shadowColor = UIColor.black.cgColor
             layer.masksToBounds = false
+        }
+        if let image = backgrouImage {
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height))
+        imageView.image = image
+        self.addSubview(imageView)
         }
         
     }

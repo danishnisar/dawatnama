@@ -23,10 +23,12 @@ class MainViewController: UIViewController{
     
     let UserInfo = UserDefaults.standard
     
+    
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        UserInfo.removeObject(forKey: "token")
+//        UserInfo.removeObject(forKey: "LoggedIN")
         registerNotifcation()
         
     }

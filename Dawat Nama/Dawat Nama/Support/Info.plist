@@ -2,6 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>use photo saved</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>use microphone</string>
+	<key>NSCameraUsageDescription</key>
+	<string>open camera</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -40,6 +46,19 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+	<key>FacebookAppID</key>
+	<string>1200941286737983</string>
+	<key>AccountKitClientToken</key>
+	<string>93daabe25f40aedc0b935f7ed5ccaac5</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>ak93daabe25f40aedc0b935f7ed5ccaac5</string>
+			</array>
+		</dict>
 	</array>
 </dict>
 </plist>

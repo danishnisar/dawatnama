@@ -53,6 +53,24 @@ class ThirdContactViewController: UIViewController {
         store.requestAccess(for: .contacts) { (granted, err) in
             if let err = err {
                 print("Error in accesing the contatc",err)
+                let alert = UIAlertController(title: "allow contact", message: "allow contatc", preferredStyle: .alert)
+                let actionadd = UIAlertAction(title: "setting", style: .default, handler: { (alertaction) in
+                    guard let settingurl = URL(string: UIApplicationOpenSettingsURLString) else {
+                        return
+                    }
+                    
+                    if #available(iOS 10.0,*)
+                    {
+                        UIApplication.shared.open(settingurl, options: [:], completionHandler: { (succss) in
+                            print("success 10")
+                        })
+                    }else{
+                        UIApplication.shared.openURL(settingurl)
+                    }
+                })
+                alert.addAction(actionadd)
+                self.present(alert, animated: true, completion: nil)
+                
             }
             if granted {
                 print("access Granted")

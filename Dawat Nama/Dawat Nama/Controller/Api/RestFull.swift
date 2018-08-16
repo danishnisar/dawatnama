@@ -12,7 +12,7 @@ class RestFull {
     
     
     
-    private static var hostURL = "https://admiria.pk/marriage"
+    private static var hostURL = "https://dawatnama.com/marriage"
     
     //Login URL
     static let loginURL = RestFull.hostURL+"/api/login"
@@ -22,5 +22,9 @@ class RestFull {
     
     //FETCH INVITATIONS: (POST)
     static let fetchInvitationURL = RestFull.hostURL+"/api/fetch_invitations"
+
+    static let fetch_perInvitation = RestFull.hostURL+"/api/per_invitation"
+    
+    static let fetch_Event = RestFull.hostURL+"/api/get_events"
     
 }

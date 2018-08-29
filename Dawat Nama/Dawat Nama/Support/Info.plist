@@ -4,6 +4,14 @@
 <dict>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>use photo saved</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Need access</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>chal jao bhai</string>
+	<key>NSLocationUsageDescription</key>
+	<string>need this babes</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>need access</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>use microphone</string>
 	<key>NSCameraUsageDescription</key>

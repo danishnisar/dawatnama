@@ -60,7 +60,7 @@ class loginVC: UIViewController {
     
     private func fetchJsontoObj(datajson:JSON){
         
-        print(datajson)
+        print("LoginVC data",datajson)
         
         
         let status = datajson["result"]["status"].stringValue

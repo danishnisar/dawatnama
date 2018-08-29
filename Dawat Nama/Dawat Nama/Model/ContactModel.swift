@@ -12,12 +12,14 @@ class ContactModel {
     var CNName = ""
     var CNPhone = ""
     var CNImage = ""
+    var selec = false
     
-    init(name:String,phone:String,image:String) {
+    init(name:String,phone:String,image:String,select:Bool) {
         
         self.CNName = name
         self.CNPhone = phone
         self.CNImage = image
+        self.selec = select
     }
     
     

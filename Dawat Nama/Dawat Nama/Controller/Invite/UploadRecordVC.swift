@@ -17,10 +17,13 @@ class UploadRecordVC: UIViewController {
     @IBOutlet weak var videoAttachment: UIImageView!
     var videoUrl:NSURL?
     let storageRefrence = Storage.storage().reference()
+    var checkVideohas = false
+    
+    var dataCollect:Dictionary = [String:String]()
    //var mymp4url:URL?
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print(dataCollect)
         // Do any additional setup after loading the view.
     }
 
@@ -37,7 +40,6 @@ class UploadRecordVC: UIViewController {
         imagepicker.videoQuality = .typeLow
         imagepicker.mediaTypes = [kUTTypeMovie as String]
         imagepicker.videoMaximumDuration = 10.0
-        
         present(imagepicker, animated: true, completion: nil)
         
     }
@@ -56,10 +58,39 @@ class UploadRecordVC: UIViewController {
     
     
     @IBAction func videoSubmitAction(_ sender: Any) {
-        if let url = videoUrl {
-            self.firbaseVideoUpload(url: url as URL)
-
+        
+        if checkVideohas {
+            
+            if let url = videoUrl {
+                self.firbaseVideoUpload(url: url as URL)
+            }
+            
         }
+        else {
+            
+            let alertControl = UIAlertController(title: "Confrimation", message: "Do you want to skip this step?", preferredStyle: .alert)
+            let actionYes = UIAlertAction(title: "YES", style: .default) { (uiaction) in
+                self.dataCollect["video_name"] = "no_name"
+                self.dataCollect["video_url"] = "no_video"
+                
+               
+                self.performSegue(withIdentifier: "contact", sender: self)
+               
+
+                print("actionYes")
+            }
+            let actionNo = UIAlertAction(title: "NO", style: .default) { (uiaction) in
+                print("actionNo")
+            }
+            alertControl.addAction(actionNo)
+            alertControl.addAction(actionYes)
+            present(alertControl, animated: true, completion: nil)
+        }
+        
+        
+        
+        
+        
         
     }
     
@@ -87,6 +118,11 @@ class UploadRecordVC: UIViewController {
                     return
                 }
                 print("download url",downloadURL)
+                let stringURL = "\(downloadURL)"
+                self.dataCollect["video_name"] = "no_name"
+                self.dataCollect["video_url"] = stringURL
+                
+                self.performSegue(withIdentifier: "contact", sender: self)
             })
             
             
@@ -99,6 +135,14 @@ class UploadRecordVC: UIViewController {
         })
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "contact" {
+            let vc = segue.destination as! ThirdContactViewController
+            vc.dataCollect = self.dataCollect
+            
+            
+        }
+    }
     
     
     
@@ -187,6 +231,7 @@ extension UploadRecordVC:UINavigationControllerDelegate,UIImagePickerControllerD
                 print(info)
                 if let url = info[UIImagePickerControllerMediaURL] as? NSURL {
                     //videoUrl = url
+                    checkVideohas = true
                     DispatchQueue.global().async {
                         let asset = AVAsset(url: url as URL)
                         let assetImgGenerate : AVAssetImageGenerator = AVAssetImageGenerator(asset: asset)
@@ -206,8 +251,6 @@ extension UploadRecordVC:UINavigationControllerDelegate,UIImagePickerControllerD
                                     }
                                 })
                             })
-                            
-                            
                         }
                         //MARK: - Video Save
                         if picker.sourceType != .photoLibrary{
@@ -222,15 +265,10 @@ extension UploadRecordVC:UINavigationControllerDelegate,UIImagePickerControllerD
                                 }
                             }
                         }
-                        
-                        
                     }
-                    
-                    
+                }else {
+                    checkVideohas = false
                 }
-                
-            
-                
                
             }
             self.dismiss(animated: true, completion: nil)

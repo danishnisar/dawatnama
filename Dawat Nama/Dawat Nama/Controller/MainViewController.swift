@@ -51,7 +51,7 @@ class MainViewController: UIViewController{
         
         if menuConstraintToggle {
             UIView.animate(withDuration: 0.5) {
-                                   self.menuContainerConstraint.constant = 186
+                                   self.menuContainerConstraint.constant = 265
                 self.mainContainerConstraint.backgroundColor = UIColor.clear
                 self.mainContainerConstraint.alpha = 1
                 self.mainContainerConstraint.isOpaque = false

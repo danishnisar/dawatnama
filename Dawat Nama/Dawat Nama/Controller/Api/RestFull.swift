@@ -27,4 +27,7 @@ class RestFull {
     
     static let fetch_Event = RestFull.hostURL+"/api/get_events"
     
+    static let post_Invitation = RestFull.hostURL+"/api/invitations"
+    
+    
 }

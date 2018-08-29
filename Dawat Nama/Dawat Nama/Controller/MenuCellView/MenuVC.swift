@@ -13,7 +13,7 @@ class MenuVC: UIViewController {
     
     let MenuData = ["Upcomming Event","Past Events","View Packages","Send Recipet","Refresh","Logout"]
     
-    
+    let UserInfo = UserDefaults.standard
     
     
     override func viewDidLoad() {
@@ -32,7 +32,13 @@ class MenuVC: UIViewController {
         print("Cancel button")
     }
     
-
+    @IBAction func logoutAction(_ sender: Any) {
+    UserInfo.removeObject(forKey: "token")
+    UserInfo.removeObject(forKey: "LoggedIN")
+        
+    }
+   
+    
 }
 
 

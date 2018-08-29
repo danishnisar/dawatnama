@@ -45,12 +45,12 @@ class HomeTabViewController: UIViewController,TabSwiper {
         tableHome.dataSource = self
         tableHome.register(UINib(nibName: "TblBaseHome", bundle: nil), forCellReuseIdentifier: "cellBasehome")
         
-        
         if userINFO.bool(forKey: "token"){
             userTokenCheckAndloadNetowrk()
         }else{
             print("Token not found")
         }
+        
        
         
     }
@@ -71,6 +71,7 @@ class HomeTabViewController: UIViewController,TabSwiper {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         print("Did Appear")
+        
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)

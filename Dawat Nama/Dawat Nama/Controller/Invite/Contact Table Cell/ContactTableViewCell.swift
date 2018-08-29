@@ -13,16 +13,15 @@ class ContactTableViewCell: UITableViewCell {
     
     
     @IBOutlet weak var CNName: UILabel!
+//    @IBOutlet weak var checkMark: UIButton!
+    @IBOutlet weak var CNNumber: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
-    }
+
     
 }

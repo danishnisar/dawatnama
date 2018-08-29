@@ -8,26 +8,50 @@
 
 import UIKit
 import Contacts
+import Alamofire
+import SwiftyJSON
+
+
 
 class ThirdContactViewController: UIViewController {
 
     //MARK: - Variables,Constant and Outlets
     
     @IBOutlet weak var contacttblView: UITableView!
-    
+    @IBOutlet weak var sendInviteOutlet: UIButton!
+    var familyorNot = false
+    var invitecount = 1
+    var dataCollect:Dictionary = [String:String]()
     var contactModel = [ContactModel]()
+    var searchArray = [ContactModel]()
+    var collectselctNUmber = [ContactModel]()
     
-    
+    //parameter collection array
+    var param:Dictionary = [String:Any]()
+    @IBOutlet weak var searchBarOutlet: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Do any additional setup after loading the view.()
         //Mark: - Fetch Contact Function
-        fetchContatcs()
+        
         
         //Mark: - Contatc Cell Nib Register
+        //setFamilyOrNot()
+        print(dataCollect)
+        searchBarOutlet.delegate = self
+        searchBarOutlet.returnKeyType = .done
         contactCell()
+        
+    }
+    
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setFamilyOrNot()
+        fetchContatcs()
+        //searchArray = contactModel
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,47 +96,60 @@ class ThirdContactViewController: UIViewController {
                 self.present(alert, animated: true, completion: nil)
                 
             }
+            
             if granted {
                 print("access Granted")
+                
+                
                 //MARK: - Fetching Start
                 let Keys = [CNContactGivenNameKey,CNContactPhoneNumbersKey,CNContactImageDataKey]
                 let request = CNContactFetchRequest(keysToFetch: Keys as [CNKeyDescriptor])
                 
-                do {
-                    try store.enumerateContacts(with: request) { (contact, StopPointerIfYouWantToStopEnum) in
-                        
-                        
-                        if let phoneNumber = contact.phoneNumbers.first?.value.stringValue {
+                DispatchQueue.global().async {
+                    
+                    do {
+                        try store.enumerateContacts(with: request) { (contact, StopPointerIfYouWantToStopEnum) in
                             
-                            print(contact.givenName)
-                            print(phoneNumber)
-                            print(contact.imageData ?? "N/A")
                             
-                            let name = contact.givenName
-                            let number = phoneNumber
-                            self.contactModel.append(ContactModel(name: name, phone: number, image: "N/A"))
+                            if let phoneNumber = contact.phoneNumbers.first?.value.stringValue {
+                                
+                                print(contact.givenName)
+                                print(phoneNumber)
+                                print(contact.imageData ?? "N/A")
+                                
+                                var name = contact.givenName
+                                let number = phoneNumber
+                                
+                                if contact.givenName == "" {
+                                     name = "Unknown"
+                                }
+                                
+                                // let arramodel = [name,number,"N/A"]
+                                self.contactModel.append(ContactModel(name: name, phone: number, image: "N/A",select:false))
+                                
+                            }
                             
-//                            if contact.imageDataAvailable {
-//                               var image  = contact.imageData
-//                                self.contactModel.append(ContactModel(name: name, phone: number, image: image))
-//                            }else{
-//
-//                                var image = "pinmap"
-//                                self.contactModel.append(ContactModel(name: name, phone: number, image: image))
-//                            }
+                            
                         }
+                        DispatchQueue.main.async {
+                            self.searchArray = self.contactModel
+                          self.contacttblView.reloadData()
+                        }
+                    }catch let err {
+                        print("fatal error",err)
                     }
-                }catch let err {
-                    print("fatal error",err)
+                    
+                    
                 }
+
              
+               
+                
             }else{
                 print("access denied")
             }
             
-            DispatchQueue.main.async {
-                self.contacttblView.reloadData()
-            }
+            
         }
         
         
@@ -120,11 +157,184 @@ class ThirdContactViewController: UIViewController {
         
     }
     
+    func setFamilyOrNot(){
+        let AlertControl = UIAlertController(title: "Opinion", message: "Would you Like to Send Invitation With Family", preferredStyle: .alert)
+        let yesAction = UIAlertAction(title: "Yes", style: .default) { (action) in
+            print("Yes")
+            self.familyorNot = true
+            self.sendInviteOutlet.titleLabel?.text = "Send Invitaion with Family"
+            
+        }
+        let noAction = UIAlertAction(title: "No", style: .default) { (action) in
+            print("No")
+            self.familyorNot = false
+            self.sendInviteOutlet.titleLabel?.text = "Send Invitaion"
+        }
+        AlertControl.addAction(noAction)
+        AlertControl.addAction(yesAction)
+        present(AlertControl, animated: true) {
+            print("alert completetion")
+        }
+        
+    }
+    
+    @IBAction func sendInviatonFinaly(_ sender: Any) {
+        
+        networkFire()
+    }
+    
 
+    
+    func networkFire(){
+        //["Barat", "3", "Birthday Side", "tf", "Boy", "ggg", "tg", "fcf", "fcff", "KaimKhani Ground Sector 5 Orangi Town, Karachi, Karachi City, Sindh, Sector 5 Orangi Town, Karachi, Karachi City, Sindh, Pakistan", "10/292/2018", "03:08", "03:08", "gggggggg", "25555", "", "", "", "", "Lunch", "03:08", "1", "https://firebasestorage.googleapis.com/v0/b/dawat-nama.appspot.com/o/videos%2FinvoteVideoiOS-2018-08-18%2022:55:15%20%2B0000.mp4?alt=media&token=cd97a6f3-cb22-497d-9635-8fb8fe7af887"]
+        
+        
+
+        if dataCollect["invitationInput"] == "Barat" {
+            
+             param = ["event_cat_id":"1",//dataCollect["invitationInput"]!
+                         "sender_id":dataCollect["sendreID"]!,
+                         "invitation_side":dataCollect["side"]!,
+                         "host_1":dataCollect["GroomInput.text!"]!,
+                         "gender":dataCollect["segmentSelect"]!,
+                         "host_1_parent":dataCollect["GroomSonInput.text!"]!,
+                         "host_2":dataCollect["BrideInput.text!"]!,
+                         "host_2_parent":dataCollect["BrideDaughterInput.text!"]!,
+                         "venue_location":dataCollect["VenuInput.text!"]!,
+                         "location":dataCollect["locationInput.text!"]!,
+                         "date":dataCollect["DateInput.text!"]!,
+                         "nikkah_time":dataCollect["NikkahTimeInput.text!"]!,
+                         "arr_time":dataCollect["ArrivalTimeInput.text!"]!,
+                         "time_label":dataCollect["LunchOrDinnerInput"]!,
+                         "din_time":dataCollect["LuncOrDinnerTimeInput"]!,
+                         "rsvp_name_1":dataCollect["resvp_name_0"]!,
+                         "rsvp_number_1":dataCollect["resvp_number_1"]!,
+                         "rsvp_name_2":dataCollect["resvp_name_2"]!,
+                         "rsvp_number_2":dataCollect["resvp_number_3"]!,
+                         "rsvp_name_3":dataCollect["resvp_name_4"]!,
+                         "rsvp_number_3":dataCollect["resvp_number_5"]!,
+                         "rsvp_name_4":"",
+                         "rsvp_number_4":"",
+                         "video_url":dataCollect["video_url"]!,
+                         "video_name":dataCollect["video_name"]!,
+                         "invitation_limit":dataCollect["numberofInvite"]!,
+                         "invitation_count":collectselctNUmber.count
+                ]
+            
+            
+        }else if dataCollect["invitationInput"] == "Walima" || dataCollect["invitationInput"] == "Mehandi"  {
+             param = ["event_cat_id":dataCollect["invitationInput"]!,
+                         "sender_id":dataCollect["sendreID"]!,
+                         "invitation_side":dataCollect["side"]!,
+                         "host_1":dataCollect["GroomInput.text!"]!,
+                         "gender":dataCollect["segmentSelect"]!,
+                         "host_1_parent":dataCollect["GroomSonInput.text!"]!,
+                         "host_2":dataCollect["BrideInput.text!"]!,
+                         "host_2_parent":dataCollect["BrideDaughterInput.text!"]!,
+                         "venue_location":dataCollect["VenuInput.text!"]!,
+                         "location":dataCollect["locationInput.text!"]!,
+                         "date":dataCollect["DateInput.text!"]!,
+                         "nikkah_time":dataCollect["NikkahTimeInput.text!"]!,
+                         "arr_time":dataCollect["ArrivalTimeInput.text!"]!,
+                         "time_label":dataCollect["LunchOrDinnerInput"]!,
+                         "din_time":dataCollect["LuncOrDinnerTimeInput"]!,
+                         "rsvp_name_1":dataCollect["resvp_name_0"]!,
+                         "rsvp_number_1":dataCollect["resvp_number_1"]!,
+                         "rsvp_name_2":dataCollect["resvp_name_2"]!,
+                         "rsvp_number_2":dataCollect["resvp_number_3"]!,
+                         "rsvp_name_3":dataCollect["resvp_name_4"]!,
+                         "rsvp_number_3":dataCollect["resvp_number_5"]!,
+                         "rsvp_name_4":"",
+                         "rsvp_number_4":"",
+                         "video_url":dataCollect["video_url"]!,
+                         "video_name":dataCollect["video_name"]!,
+                         "invitation_limit":dataCollect["numberofInvite"]!,
+                         "invitation_count":collectselctNUmber.count
+                ]
+
+        }else {
+            
+             param = ["event_cat_id":dataCollect["invitationInput"]!,
+                         "sender_id":dataCollect["sendreID"]!,
+                         "invitation_side":dataCollect["side"]!,
+                         "host_1":dataCollect["GroomInput.text!"]!,
+                         "gender":dataCollect["segmentSelect"]!,
+                         "host_1_parent":dataCollect["GroomSonInput.text!"]!,
+                         "host_2":dataCollect["BrideInput.text!"]!,
+                         "host_2_parent":dataCollect["BrideDaughterInput.text!"]!,
+                         "venue_location":dataCollect["VenuInput.text!"]!,
+                         "location":dataCollect["locationInput.text!"]!,
+                         "date":dataCollect["DateInput.text!"]!,
+                         "nikkah_time":dataCollect["NikkahTimeInput.text!"]!,
+                         "arr_time":dataCollect["ArrivalTimeInput.text!"]!,
+                         "time_label":dataCollect["cakeinput"]!,
+                         "din_time":dataCollect["cakeTime"]!,
+                         "rsvp_name_1":dataCollect["resvp_name_0"]!,
+                         "rsvp_number_1":dataCollect["resvp_number_1"]!,
+                         "rsvp_name_2":dataCollect["resvp_name_2"]!,
+                         "rsvp_number_2":dataCollect["resvp_number_3"]!,
+                         "rsvp_name_3":dataCollect["resvp_name_4"]!,
+                         "rsvp_number_3":dataCollect["resvp_number_5"]!,
+                         "rsvp_name_4":"",
+                         "rsvp_number_4":"",
+                         "video_url":dataCollect["video_url"]!,
+                         "video_name":dataCollect["video_name"]!,
+                         "invitation_limit":dataCollect["numberofInvite"]!,
+                         "invitation_count":collectselctNUmber.count
+            ]
+            
+        }
+        
+   // print(param)
+        for i in 0..<100{
+            
+            if i >= collectselctNUmber.count {
+                param["contact_name_\(i+1)"] = "no_name"
+                param["contact_number_\(i+1)"] = "no_number"
+                param["invitation_type_\(i+1)"] = familyorNot ? "With family":"Single"
+                
+            }else {
+                
+                param["contact_name_\(i+1)"] = collectselctNUmber[i].CNName
+                param["contact_number_\(i+1)"] = collectselctNUmber[i].CNPhone
+                param["invitation_type_\(i+1)"] = familyorNot ? "With family":"Single"
+                print("selected name",collectselctNUmber[i].CNName,"selected number",collectselctNUmber[i].CNPhone)
+                
+               
+                
+            }
+        
+           
+        }
+      // print(param)
+//        do {
+//            self.param = try JSONSerialization.jsonObject(with: param, options: JSONSerialization.ReadingOptions.allowFragments)
+//
+//        }catch let err as NSError{
+//            print("not serialze json:: \(err)")
+//        }
+        //let dictat =
+
+        //https://admiria.pk/marriage/api/invitations
+        Alamofire.request(RestFull.post_Invitation, method: .post, parameters: param).responseJSON{ (response) in
+            
+            if let err = response.result.error {
+                print("Parameter=",self.param)
+                print("Alamofire Error:",err)
+                return
+            }
+            print(response.result.value as Any)
+           // print(self.param)
+            self.dismiss(animated: true, completion: {
+                
+            })
+        }
+    }
+    
 }
 
 
-extension ThirdContactViewController:UISearchBarDelegate,UITableViewDelegate,UITableViewDataSource{
+extension ThirdContactViewController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contactModel.count
@@ -133,11 +343,67 @@ extension ThirdContactViewController:UISearchBarDelegate,UITableViewDelegate,UIT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "contactcell", for: indexPath) as! ContactTableViewCell
-        cell.CNName.text = "\(indexPath.row) | \(contactModel[indexPath.row].CNPhone)"
+        cell.CNName.text = "\(contactModel[indexPath.row].CNName)"
+        cell.CNNumber.text = "\(contactModel[indexPath.row].CNPhone)"
         //cell.CNName.text +=
+       // cell.checkMark.addTarget(self, action: #selector(checkMarpresed(_:)), for: .touchUpInside)
+        cell.accessoryType = contactModel[indexPath.row].selec ? .checkmark : .none
+        
+        
         return cell
     }
     
+    
+
+    
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       
+        
+        if tableView.cellForRow(at: indexPath)?.accessoryType == .checkmark {
+        
+            if invitecount > Int(dataCollect["numberofInvite"]!)! {
+               invitecount -= 1
+            }
+            
+            collectselctNUmber.remove(at: 0)
+//            collectselctNUmber.removeValue(forKey: "contact_name_\(indexPath.row)")
+//            collectselctNUmber.removeValue(forKey: "contact_number_\(indexPath.row)")
+
+            
+            tableView.cellForRow(at: indexPath)?.accessoryType = .none
+            contactModel[indexPath.row].selec = false
+
+        }else {
+           
+            if invitecount > Int(dataCollect["numberofInvite"]!)! {
+                print("no more selection need")
+                return
+            }
+            
+            collectselctNUmber.append(ContactModel(name: contactModel[indexPath.row].CNName, phone: contactModel[indexPath.row].CNPhone, image: "", select: true))
+//            collectselctNUmber[0] = contactModel[indexPath.row].CNPhone
+//            collectselctNUmber["contact_name_\(indexPath.row)"] = contactModel[indexPath.row].CNName
+//            collectselctNUmber["contact_number_\(indexPath.row)"] = contactModel[indexPath.row].CNPhone
+
+            
+            tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+            
+            contactModel[indexPath.row].selec = true
+            invitecount += 1
+        }
+        
+        for i in 0..<collectselctNUmber.count {
+            print(collectselctNUmber[i].CNName,collectselctNUmber[i].CNPhone)
+        }
+        
+     }
+    
+
+//    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+//        contactModel[indexPath.row].selec = false
+//    }
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -146,13 +412,44 @@ extension ThirdContactViewController:UISearchBarDelegate,UITableViewDelegate,UIT
     
     
     
+    @objc private func checkMarpresed(_ sender:UIButton){
+       
+        if sender.isSelected {
+            sender.isSelected = false
+        }else {
+            sender.isSelected = true
+        }
+    }
+    
     
     
     
 }
 
-
-
+extension ThirdContactViewController:UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty  else {
+            searchArray = contactModel;
+            contacttblView.reloadData()
+            //searchBar.resignFirstResponder()
+            return
+        }
+        searchArray = contactModel.filter({ (model) -> Bool in
+            model.CNName.lowercased().contains(searchText.lowercased())
+            
+        })
+        
+        contacttblView.reloadData()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print("done button")
+        searchBar.resignFirstResponder()
+    }
+    
+    
+}
 
 
 

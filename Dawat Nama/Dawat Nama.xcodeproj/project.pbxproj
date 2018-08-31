@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		721CA24E211F190C00D23F12 /* AlamofireRequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721CA24D211F190C00D23F12 /* AlamofireRequestHelper.swift */; };
 		725EDDA721244731006D0CF3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 725EDDA62124472F006D0CF3 /* GoogleService-Info.plist */; };
+		727519102136E8D60049A1AD /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7275190F2136E8D60049A1AD /* ToastView.swift */; };
 		727D3CFB2118AB1300065235 /* loginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727D3CFA2118AB1200065235 /* loginVC.swift */; };
 		727D3CFF2118ABA400065235 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727D3CFE2118ABA400065235 /* RegisterVC.swift */; };
 		729C6DB720F7BA7500DA5F56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729C6DB620F7BA7500DA5F56 /* AppDelegate.swift */; };
@@ -50,8 +51,10 @@
 		5C9E89A67F6E705F01C1CA53 /* Pods-Dawat Nama.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dawat Nama.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dawat Nama/Pods-Dawat Nama.release.xcconfig"; sourceTree = "<group>"; };
 		721CA24D211F190C00D23F12 /* AlamofireRequestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireRequestHelper.swift; sourceTree = "<group>"; };
 		725EDDA62124472F006D0CF3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7275190F2136E8D60049A1AD /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		727D3CFA2118AB1200065235 /* loginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginVC.swift; sourceTree = "<group>"; };
 		727D3CFE2118ABA400065235 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		7286081721397AA10077A73D /* Dawat Nama.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Dawat Nama.entitlements"; sourceTree = "<group>"; };
 		729C6DB320F7BA7500DA5F56 /* Dawat Nama.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dawat Nama.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		729C6DB620F7BA7500DA5F56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		729C6DB820F7BA7500DA5F56 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -121,6 +124,7 @@
 		729C6DB520F7BA7500DA5F56 /* Dawat Nama */ = {
 			isa = PBXGroup;
 			children = (
+				7286081721397AA10077A73D /* Dawat Nama.entitlements */,
 				72F42489211712E200490251 /* IB Desginable */,
 				729C6DC920F7BBB400DA5F56 /* Model */,
 				729C6DC820F7BBAA00DA5F56 /* View */,
@@ -188,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				72A61F3820FE526B00F146C5 /* Swipe.swift */,
+				7275190F2136E8D60049A1AD /* ToastView.swift */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -317,6 +322,11 @@
 				TargetAttributes = {
 					729C6DB220F7BA7500DA5F56 = {
 						CreatedOnToolsVersion = 9.3;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -367,9 +377,9 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftSpinner/SwiftSpinner.framework",
+				"${BUILT_PRODUCTS_DIR}/ProgressHUD/ProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -377,9 +387,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSpinner.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -444,6 +454,7 @@
 				72AAFB3A2111E38F0097A021 /* ContactTableViewCell.swift in Sources */,
 				72C8D047211D937B00217398 /* DesignUIView.swift in Sources */,
 				72A61F4320FE5BAC00F146C5 /* TblBaseCellView.swift in Sources */,
+				727519102136E8D60049A1AD /* ToastView.swift in Sources */,
 				72F4248B2117134400490251 /* DesignUITextField.swift in Sources */,
 				729C6DCE20F90CE300DA5F56 /* HomeMenuCollectionViewCell.swift in Sources */,
 				72AAFB162111A06F0097A021 /* SecoundViewController.swift in Sources */,
@@ -607,6 +618,7 @@
 			baseConfigurationReference = 872256B649D7A72366327A74 /* Pods-Dawat Nama.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Dawat Nama/Dawat Nama.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W6L6HHJ7A3;
 				INFOPLIST_FILE = "$(SRCROOT)/Dawat Nama/Support/Info.plist";
@@ -627,6 +639,7 @@
 			baseConfigurationReference = 5C9E89A67F6E705F01C1CA53 /* Pods-Dawat Nama.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Dawat Nama/Dawat Nama.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W6L6HHJ7A3;
 				INFOPLIST_FILE = "$(SRCROOT)/Dawat Nama/Support/Info.plist";

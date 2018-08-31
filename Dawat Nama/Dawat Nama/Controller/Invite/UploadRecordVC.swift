@@ -12,6 +12,8 @@ import AVFoundation
 import Photos
 import Firebase
 import FirebaseStorage
+import ProgressHUD
+
 class UploadRecordVC: UIViewController {
 
     @IBOutlet weak var videoAttachment: UIImageView!
@@ -129,18 +131,24 @@ class UploadRecordVC: UIViewController {
         })
         uploadTask.observe(.progress, handler: { (snapshoot) in
             print(snapshoot.progress?.completedUnitCount ?? "novalue")
+            if let progressCount = snapshoot.progress?.completedUnitCount {
+                            ProgressHUD.show("Uploading \(progressCount)")
+            }
+
+            
         })
         uploadTask.observe(.success, handler: { (snapsoot) in
             uploadTask.removeAllObservers()
+            ProgressHUD.showSuccess("Uploading Complete")
+            
         })
+        ProgressHUD.dismiss()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "contact" {
             let vc = segue.destination as! ThirdContactViewController
             vc.dataCollect = self.dataCollect
-            
-            
         }
     }
     

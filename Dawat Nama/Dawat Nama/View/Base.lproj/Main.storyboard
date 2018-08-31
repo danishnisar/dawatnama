@@ -1537,11 +1537,12 @@
                         <outlet property="contacttblView" destination="20S-P6-V5h" id="nUc-GH-LBk"/>
                         <outlet property="searchBarOutlet" destination="dVq-pK-sAK" id="Yth-GN-E6D"/>
                         <outlet property="sendInviteOutlet" destination="ycP-42-y1e" id="GYT-TO-VcQ"/>
+                        <segue destination="RKr-WB-vj0" kind="show" identifier="gotohome" id="Pbl-sN-Iwd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3YS-9U-JTk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5256.8000000000002" y="-937.78110944527748"/>
+            <point key="canvasLocation" x="4108" y="323"/>
         </scene>
         <!--MenuVC-->
         <scene sceneID="tPQ-E8-4Bs">

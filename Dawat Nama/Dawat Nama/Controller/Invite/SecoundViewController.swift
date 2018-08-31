@@ -10,7 +10,9 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import GooglePlacePicker
-import SwiftSpinner
+import ProgressHUD
+
+
 
 class SecoundViewController: UIViewController {
 
@@ -130,7 +132,16 @@ class SecoundViewController: UIViewController {
         
         //Location delegate set
         locationInput.delegate = self
-        
+//        GroomInput.delegate = self
+//        GroomInput.returnKeyType = .next
+//        GroomSonInput.delegate = self
+//        GroomSonInput.returnKeyType = .next
+//        BrideInput.delegate = self
+//        BrideInput.returnKeyType = .next
+//        BrideDaughterInput.delegate = self
+//        BrideDaughterInput.returnKeyType = .next
+//        VenuInput.delegate = self
+//        VenuInput.returnKeyType = .next
         
        
         
@@ -144,10 +155,7 @@ class SecoundViewController: UIViewController {
         timepicker()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        //imageClickable()
-    }
+ 
 
     @IBAction func changesideinvite(_ sender: Any) {
         if inviteside {
@@ -178,8 +186,10 @@ class SecoundViewController: UIViewController {
             
             
             if invitationInput.text == "" || GroomInput.text == "" || GroomSonInput.text == "" || BrideInput.text == "" || BrideDaughterInput.text == "" || VenuInput.text == "" || locationInput.text == "" || DateInput.text == "" || NikkahTimeInput.text == "" || ArrivalTimeInput.text == "" || LuncOrDinnerTimeInput.text == "" {
-                print("Some Fields are empty please fill that")
                 
+                
+                print("Some Fields are empty please fill that")
+                showToast()
                 return
                 
             }else {
@@ -212,6 +222,7 @@ class SecoundViewController: UIViewController {
             
             if invitationInput.text == "" || GroomInput.text == "" || GroomSonInput.text == "" || BrideInput.text == "" || BrideDaughterInput.text == "" || VenuInput.text == "" || locationInput.text == "" || DateInput.text == "" || ArrivalTimeInput.text == "" || LuncOrDinnerTimeInput.text == "" {
                 print("Some Fields are empty please fill that")
+                showToast()
                 return
                 
             }else {
@@ -244,6 +255,7 @@ class SecoundViewController: UIViewController {
         }else{
             
             if invitationInput.text == "" || GroomInput.text == "" || VenuInput.text == "" || locationInput.text == "" || DateInput.text == "" || ArrivalTimeInput.text == "" || birthdaytimeInput.text == "" {
+                showToast()
                 print("Some Fields are empty please fill that")
                 return
                 
@@ -279,8 +291,10 @@ class SecoundViewController: UIViewController {
         }
         
         
-        
-        
+    }
+    //Mark Toast Function
+   private func showToast(){
+        ToastView.shared.short(self.view, txt_msg: "Plase fill missing field")
     }
     
     //MARK: - Add function reservationAction
@@ -470,6 +484,7 @@ class SecoundViewController: UIViewController {
             break;
         case 1:
             print("Location Tapped")
+            showMapPlace()
             break;
         case 2:
             print("Nikkah Tapped")
@@ -524,7 +539,7 @@ class SecoundViewController: UIViewController {
             let dateFormater = DateFormatter()
             dateFormater.dateFormat = "dd-MM-YYYY"
             DateInput.text = dateFormater.string(from: datepicker.date)
-            print("Picker4 \(DateInput.text)")
+            print("Picker4 \(String(describing: DateInput.text))")
         }else if datepicker == pickerview5{
             let dateFormater = DateFormatter()
             dateFormater.dateFormat = "hh:mm a"
@@ -553,12 +568,13 @@ class SecoundViewController: UIViewController {
     
     
     private func NetworkFire(){
+        ProgressHUD.show()
         Alamofire.request(RestFull.fetch_Event).responseJSON { (response) in
             if response.result.isSuccess{
                 let data = JSON(response.result.value!)
                 self.extractJson(data:data)
                 print(data)
-                
+                ProgressHUD.dismiss()
             }else{
                 print("Network error\(response.result.error!)")
             }
@@ -810,18 +826,27 @@ extension SecoundViewController:UITextFieldDelegate,GMSPlacePickerViewController
     
     
     func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        print("begin editin")
+        if textField == locationInput{
+            showMapPlace()
+        }
         
+        
+        
+        return false
+    }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            textField.resignFirstResponder()
+        return true
+    }
+    
+    private func showMapPlace(){
         let config = GMSPlacePickerConfig(viewport: nil)
         let placePicker = GMSPlacePickerViewController(config: config)
         placePicker.delegate = self
         
         present(placePicker, animated: true, completion: nil)
-        return false
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-       
     }
     
     // To receive the results from the place picker 'self' will need to conform to

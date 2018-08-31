@@ -9,7 +9,9 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
-import SwiftSpinner
+import ProgressHUD
+
+
 
 class FirstViewController: UIViewController {
 
@@ -33,8 +35,8 @@ class FirstViewController: UIViewController {
         
         
         NetworkIng()
-        
-       
+        amountToPaid.isEnabled = false
+        digitalWallet.isEnabled = false
         
     }
     
@@ -59,23 +61,34 @@ class FirstViewController: UIViewController {
     }
     
     @IBAction func stepOne(_ sender: Any) {
-        if let amountp = amountToPaid.text, let digitalW = digitalWallet.text {
-            let amount = Int(amountp)!
-            let wallet = Int(digitalW)!
-            if amount > wallet {
-                print("payment greater than")
-                alertFunc()
-            }
-            else{
-                
-                //self.dismiss(animated: true, completion: nil)
-                self.performSegue(withIdentifier: "stepTwo", sender: nil)
-                
-                
+        
+        if numberOfInvition.text != nil && numberOfInvition.text != "" {
+            
+            print("InvitationTextfield = \(String(describing: numberOfInvition.text))")
+            if let amountp = amountToPaid.text, let digitalW = digitalWallet.text {
+                let amount = Int(amountp)!
+                let wallet = Int(digitalW)!
+                if amount > wallet {
+                    print("payment greater than")
+                    alertFunc()
+                }
+                else{
+                    
+                    //self.dismiss(animated: true, completion: nil)
+                    self.performSegue(withIdentifier: "stepTwo", sender: nil)
+                    
+                    
+                    
+                }
                 
             }
             
+        }else{
+            ToastView.shared.short(self.view, txt_msg: "Add invitation Number")
         }
+        
+        
+     
         
     }
     
@@ -118,14 +131,14 @@ class FirstViewController: UIViewController {
     
     
     private func NetworkIng(){
-        SwiftSpinner.show("Loading.")
         
+        ProgressHUD.show()
         Alamofire.request(RestFull.fetch_perInvitation).responseJSON { (response) in
             if response.result.isSuccess {
                 print("firstview = \(response.result.value!)")
                 let data = JSON(response.result.value!)
                 self.setJson(data:data)
-                SwiftSpinner.hide()
+                ProgressHUD.dismiss()
             }else{
                 print("First View Controller alamofire error =>",response.result.error!)
             }

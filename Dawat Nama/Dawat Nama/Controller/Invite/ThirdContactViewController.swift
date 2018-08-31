@@ -10,8 +10,8 @@ import UIKit
 import Contacts
 import Alamofire
 import SwiftyJSON
-
-
+import ProgressHUD
+import MessageUI
 
 class ThirdContactViewController: UIViewController {
 
@@ -30,11 +30,16 @@ class ThirdContactViewController: UIViewController {
     var param:Dictionary = [String:Any]()
     @IBOutlet weak var searchBarOutlet: UISearchBar!
     
+   
+    //sendsmscheck
+    var sendsmscheck = false
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.()
         //Mark: - Fetch Contact Function
+        
+        //Check and confirm to move on home
         
         
         //Mark: - Contatc Cell Nib Register
@@ -49,15 +54,33 @@ class ThirdContactViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        setFamilyOrNot()
-        fetchContatcs()
-        //searchArray = contactModel
+        print("sendsmscheck\(sendsmscheck)")
+        if sendsmscheck {
+            gotohome()
+        }else{
+            setFamilyOrNot()
+            fetchContatcs()
+            //searchArray = contactModel
+
+        }
+        
+    }
+    
+    //after send message inform customer and return to home
+    
+    private func gotohome(){
+        let alert = UIAlertController(title: "Invitation", message: "Invitation sent sucessfully", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default) { (okay) in
+            self.performSegue(withIdentifier: "gotohome", sender: self)
+        }
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-        
+    
+   
+    override func viewDidDisappear(_ animated: Bool) {
+        sendsmscheck = false
     }
     
     func contactCell(){
@@ -113,9 +136,9 @@ class ThirdContactViewController: UIViewController {
                             
                             if let phoneNumber = contact.phoneNumbers.first?.value.stringValue {
                                 
-                                print(contact.givenName)
-                                print(phoneNumber)
-                                print(contact.imageData ?? "N/A")
+//                                print(contact.givenName)
+//                                print(phoneNumber)
+//                                print(contact.imageData ?? "N/A")
                                 
                                 var name = contact.givenName
                                 let number = phoneNumber
@@ -190,9 +213,9 @@ class ThirdContactViewController: UIViewController {
         
         
 
-        if dataCollect["invitationInput"] == "Barat" {
+        if dataCollect["invitationInput"] == "1" {
             
-             param = ["event_cat_id":"1",//dataCollect["invitationInput"]!
+             param = ["event_cat_id":dataCollect["invitationInput"]!,
                          "sender_id":dataCollect["sendreID"]!,
                          "invitation_side":dataCollect["side"]!,
                          "host_1":dataCollect["GroomInput.text!"]!,
@@ -222,7 +245,7 @@ class ThirdContactViewController: UIViewController {
                 ]
             
             
-        }else if dataCollect["invitationInput"] == "Walima" || dataCollect["invitationInput"] == "Mehandi"  {
+        }else if dataCollect["invitationInput"] == "2" || dataCollect["invitationInput"] == "3"  {
              param = ["event_cat_id":dataCollect["invitationInput"]!,
                          "sender_id":dataCollect["sendreID"]!,
                          "invitation_side":dataCollect["side"]!,
@@ -307,30 +330,96 @@ class ThirdContactViewController: UIViewController {
            
         }
       // print(param)
-//        do {
-//            self.param = try JSONSerialization.jsonObject(with: param, options: JSONSerialization.ReadingOptions.allowFragments)
-//
-//        }catch let err as NSError{
-//            print("not serialze json:: \(err)")
-//        }
-        //let dictat =
+
 
         //https://admiria.pk/marriage/api/invitations
+        ProgressHUD.show("Loading...")
         Alamofire.request(RestFull.post_Invitation, method: .post, parameters: param).responseJSON{ (response) in
             
             if let err = response.result.error {
                 print("Parameter=",self.param)
                 print("Alamofire Error:",err)
+                ProgressHUD.showError("Internet issue please check Connectecion")
                 return
             }
-            print(response.result.value as Any)
-           // print(self.param)
-            self.dismiss(animated: true, completion: {
-                
-            })
+            
+
+            ProgressHUD.dismiss()
+            let jsonData = JSON(response.result.value!)
+            self.extractJson(data: jsonData)
         }
     }
     
+    private func extractJson(data:JSON){
+//        var name=[String]();
+        var number=[String]()
+        var textmessage = "These number not have Dawatnama Application\n"
+        print(data)
+     //   let walletamount = data["result"]["updated_amount"].intValue
+        let count = data["result"]["numbers"].count
+        print(count)
+        
+        if count == 0 {
+            
+            gotohome()
+            
+            
+        }else {
+            for i in 0..<data["result"]["numbers"].count{
+                textmessage += "\(data["result"]["numbers"][i]["i_name"]) : \(data["result"]["numbers"][i]["contact_number"])\n"
+                number.append((data["result"]["numbers"][i]["contact_number"].stringValue))
+            }
+            
+            let confirmAction = UIAlertController(title: "Send SMS", message: textmessage, preferredStyle: .alert)
+            let cancel  = UIAlertAction(title: "Cancel", style: .cancel) { (cancel) in
+                print("Cancel")
+            }
+            let sendsms = UIAlertAction(title: "Send SMS", style: .default) { (sms) in
+                ProgressHUD.show()
+                self.opensmsController(recipent: number)
+                print("sendsms")
+            }
+            confirmAction.addAction(cancel)
+            confirmAction.addAction(sendsms)
+            
+            present(confirmAction, animated: true, completion: nil)
+            
+            
+        }
+        
+        
+    }
+    
+    
+    
+}
+
+extension ThirdContactViewController:MFMessageComposeViewControllerDelegate{
+    
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        sendsmscheck = true
+        
+        controller.dismiss(animated: true)
+//        performSegue(withIdentifier: "gotohome", sender: self)
+   
+    }
+
+    
+    private func opensmsController(recipent:[String]){
+        
+        if MFMessageComposeViewController.canSendText() {
+            let controler  = MFMessageComposeViewController()
+            controler.messageComposeDelegate = self
+            controler.body = "Need to send text for download app"
+            controler.recipients = recipent
+            self.present(controler, animated: true)
+        }
+        else{
+            ToastView.shared.short(self.view, txt_msg: "SMS Services are nto available")
+        }
+        ProgressHUD.dismiss()
+    }
 }
 
 
@@ -368,10 +457,6 @@ extension ThirdContactViewController:UITableViewDelegate,UITableViewDataSource{
             }
             
             collectselctNUmber.remove(at: 0)
-//            collectselctNUmber.removeValue(forKey: "contact_name_\(indexPath.row)")
-//            collectselctNUmber.removeValue(forKey: "contact_number_\(indexPath.row)")
-
-            
             tableView.cellForRow(at: indexPath)?.accessoryType = .none
             contactModel[indexPath.row].selec = false
 
@@ -383,9 +468,6 @@ extension ThirdContactViewController:UITableViewDelegate,UITableViewDataSource{
             }
             
             collectselctNUmber.append(ContactModel(name: contactModel[indexPath.row].CNName, phone: contactModel[indexPath.row].CNPhone, image: "", select: true))
-//            collectselctNUmber[0] = contactModel[indexPath.row].CNPhone
-//            collectselctNUmber["contact_name_\(indexPath.row)"] = contactModel[indexPath.row].CNName
-//            collectselctNUmber["contact_number_\(indexPath.row)"] = contactModel[indexPath.row].CNPhone
 
             
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
@@ -435,9 +517,9 @@ extension ThirdContactViewController:UISearchBarDelegate {
             //searchBar.resignFirstResponder()
             return
         }
-        searchArray = contactModel.filter({ (model) -> Bool in
+        
+        contactModel = contactModel.filter({ (model) -> Bool in
             model.CNName.lowercased().contains(searchText.lowercased())
-            
         })
         
         contacttblView.reloadData()

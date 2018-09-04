@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Alamofire
+import ProgressHUD
+import SwiftyJSON
 
 class ProfileTabViewController: UIViewController,TabSwiper {
 
@@ -42,15 +45,13 @@ class ProfileTabViewController: UIViewController,TabSwiper {
         if Sender.direction == .right {
             
                 self.tabBarController?.selectedIndex = 1
-            
-            
         }
     }
     func setimageSaved(){
+        self.profileImage.contentMode = .scaleAspectFill
+        
         if let imageObj = imagesave.object(forKey:"saveImage") {
-            print("setimageSaved true")
-            let dataImage = imageObj as! NSData
-            profileImage.image = UIImage(data: dataImage as Data)
+            profileImage.image = UIImage(data: imageObj as! Data)
         }else{
             print("setimageSaved false")
 
@@ -100,14 +101,66 @@ extension ProfileTabViewController:UINavigationControllerDelegate,UIImagePickerC
             print("notimage")
             return
         }
-        profileImage.contentMode = .scaleAspectFill
-        profileImage.image = image
-        let images = ["imageSet":image]
-        let imageDecode = UIImageJPEGRepresentation(image, 1.0)! as NSData
-        imagesave.set(imageDecode, forKey: "saveImage")
         
-        NotificationCenter.default.post(name: NSNotification.Name("profileDataMain"), object: nil, userInfo: images)
         
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true){
+            self.updateProfileImage(img:image)
+        }
+        
     }
+    
+    
+    func updateProfileImage(img:UIImage){
+        
+        let alertconfirmation = UIAlertController(title: "Confirmation", message: "Do you want to update your profile image", preferredStyle: .alert)
+        
+        let actionNo = UIAlertAction(title: "No", style: .destructive) { (cancel) in
+            
+            print("no to update")
+        }
+        let actionYes = UIAlertAction(title: "Yes", style: .default) { (upload) in
+            
+            ProgressHUD.show("Uploading")
+            let imageDecode = UIImageJPEGRepresentation(img, 1.0)! as NSData
+            let base64string = imageDecode.base64EncodedString(options: NSData.Base64EncodingOptions.lineLength64Characters)
+            
+            //print("base64",base64string)
+            /*
+             
+             user_id,
+             image,
+             extension
+             
+             */
+            let userinfo = self.imagesave.value(forKey: "LoggedIN") as! Dictionary<String,String>
+            let param = ["user_id":userinfo["ID"]!,"image":base64string,"extension":"jpg"] as [String : Any]
+            Alamofire.request(RestFull.updateProfileimage,method: .post, parameters: param).responseJSON(completionHandler: { (response) in
+                
+                if let err = response.result.error{
+                    ProgressHUD.showError("Uploading Failed")
+                    print(err.localizedDescription)
+                    ToastView.shared.short(self.view, txt_msg: "Internet connectivity issue")
+                    ProgressHUD.dismiss()
+                    return
+                }
+                ProgressHUD.dismiss()
+                //let dataextract = JSON(response.result.value!)
+                ProgressHUD.showSuccess("profile Updated")
+                
+                self.profileImage.image = img
+                let images = ["imageSet":imageDecode]
+                NotificationCenter.default.post(name: NSNotification.Name("profileDataMain"), object: nil, userInfo: images)
+                
+            })
+            
+            
+        }
+        alertconfirmation.addAction(actionNo)
+        alertconfirmation.addAction(actionYes)
+        
+        present(alertconfirmation, animated: true, completion: nil)
+        
+    }
+    
+    
 }

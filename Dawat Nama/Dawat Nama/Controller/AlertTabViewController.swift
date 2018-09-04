@@ -65,8 +65,9 @@ extension AlertTabViewController:UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellbase = tableView.dequeueReusableCell(withIdentifier: "cellBase", for: indexPath) as! TblBaseCellView
-        cellbase.invitesender.text = "\(inviteModel[indexPath.row].sender_name) has invited you in"
-        cellbase.eventName.text = inviteModel[indexPath.row].event_name
+        cellbase.invitesender.text = "\(inviteModel[indexPath.row].sender_name) has invited you in \(inviteModel[indexPath.row].event_name)"
+        //cellbase.eventName.text = inviteModel[indexPath.row].event_name
+        cellbase.profileImage.loadCacheImage(imgUrl: inviteModel[indexPath.row].image_url)
         cellbase.eventDate.text = "Event Date: \(inviteModel[indexPath.row].event_date)"
         return cellbase
     }

@@ -38,6 +38,12 @@ class MenuVC: UIViewController {
         
     }
    
+    @IBOutlet weak var eventsButtonMenu: UIButton!
+    @IBAction func eventsButtonActionmenu(_ sender: UIButton) {
+        
+        NotificationCenter.default.post(name: NSNotification.Name("menuid"), object: nil, userInfo: ["id": sender.tag])
+        print("sendermenuid",sender.tag)
+    }
     
 }
 

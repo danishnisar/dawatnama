@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import AccountKit
+import ProgressHUD
 
 class RegisterVC: UIViewController {
 
@@ -20,6 +21,7 @@ class RegisterVC: UIViewController {
     @IBOutlet weak var confrimPassword: DesignUITextField!
     var phoneNumber = ""
     var fbacount:AKFAccountKit!
+    let localdb = UserDefaults.standard
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -80,18 +82,22 @@ class RegisterVC: UIViewController {
     
     
     private func networkingStart(){
-        
-            let param = ["number":phoneNumber,"name":name.text!,"email":email.text!,"password":password.text!]
-            
+        ProgressHUD.show()
+            let token = "\(localdb.value(forKey: "fcmtoken")!)"
+        let param = ["number":phoneNumber,"name":name.text!,"email":email.text!,"password":password.text!,"firebase_token":token]
+            print("register param ",param)
             Alamofire.request(RestFull.registerURL, method: .post, parameters: param).responseJSON { (response) in
                 if response.result.isSuccess{
+                    ProgressHUD.showSuccess("Success")
                     print("\(response.result.value!)")
                     
                     NotificationCenter.default.post(name: NSNotification.Name("SelectSegment"), object: nil)
                 }
                 else{
+                    ProgressHUD.showSuccess("Internet Issue")
                     print(response.result.error!)
                 }
+                ProgressHUD.dismiss()
             }
             
         }

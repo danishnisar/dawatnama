@@ -11,16 +11,17 @@ import UIKit
 class TblBaseHome: UITableViewCell {
 
     @IBOutlet weak var MainViewBG: UIView!
-    @IBOutlet weak var senderName: UILabel!
-    @IBOutlet weak var heading: UILabel!
-    @IBOutlet weak var invitemsg: UILabel!
-    @IBOutlet weak var centerLabel: UILabel!
-    @IBOutlet weak var lastLable: UILabel!
+    @IBOutlet weak var invitationImage: UIImageView!
+    @IBOutlet weak var senderProfileImage: UIImageView!
+    @IBOutlet weak var senderInviteTitle: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
+    
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

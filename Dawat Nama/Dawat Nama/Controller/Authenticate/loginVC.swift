@@ -9,12 +9,13 @@
 import UIKit
 import Alamofire
 import SwiftyJSON
+import ProgressHUD
 
 class loginVC: UIViewController {
 
     @IBOutlet weak var phoneNumber: DesignUITextField!
     @IBOutlet weak var password: DesignUITextField!
-    
+    let localdb = UserDefaults.standard
     
     
     override func viewDidLoad() {
@@ -36,7 +37,9 @@ class loginVC: UIViewController {
        
         if phoneNumber.text! != "Phone Number" && password.text! != "Password"{
             print(phoneNumber.text!,password.text!)
-            let parameter = ["number":phoneNumber.text!,"password":password.text!]
+            let token = "\(localdb.value(forKey: "fcmtoken")!)"
+            let parameter = ["number":phoneNumber.text!,"password":password.text!,"firebase_token":token]
+            print("register param ",parameter)
             AuthLogin(logUrl: RestFull.loginURL, param: parameter)
         }else{
             print("credentail dalo")
@@ -45,16 +48,21 @@ class loginVC: UIViewController {
     }
     
     private func AuthLogin(logUrl:String, param:Dictionary<String, String>){
+        ProgressHUD.show("Authenticating..")
         Alamofire.request(logUrl, method: .post, parameters: param).responseJSON { (response) in
             if response.result.isSuccess {
                 
                 let dataResult:JSON = JSON(response.result.value!)
                 self.fetchJsontoObj(datajson: dataResult)
                 //print(dataResult)
+                
             }
             else{
+                ProgressHUD.showError("Internet issue")
                 print("\(response.result.error!) in login")
             }
+            
+            ProgressHUD.dismiss()
         }
     }
     
@@ -73,15 +81,18 @@ class loginVC: UIViewController {
             let user_amount = datajson["result"]["user_amount"].stringValue
             let number = datajson["result"]["number"].stringValue
             
-            let userData = ["Status":status,"Name":name,"Email":email,"ID":id,"Response":response,"Amount":user_amount,"Phone":number]
+            let userData = ["Status":status,"Name":name,"Email":email,"ID":id,"Response":response,"Phone":number]
+            //"Amount":user_amount,
             
             let userINFO = UserDefaults.standard
+            userINFO.set(user_amount, forKey: "walletamount")
             userINFO.set(userData, forKey: "LoggedIN")
             //userINFO.bool(forKey: "true")
             userINFO.set(true, forKey: "token")
             
 //            let fetch  = userINFO.value(forKey: "LoggedIN") as! Dictionary<String,String>
 //            print(fetch)
+            NotificationCenter.default.post(name: NSNotification.Name("reloaddataHome"), object: nil)
             self.dismiss(animated: true, completion: nil)
         }
         else{

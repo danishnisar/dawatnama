@@ -49,9 +49,15 @@ class MainViewController: UIViewController{
     // MARK :- MenuContainer Function
     @IBAction func menuContainerSction(_ sender: Any) {
         
+        menucallorclose()
+        
+    }
+    
+    
+    func menucallorclose(){
         if menuConstraintToggle {
             UIView.animate(withDuration: 0.5) {
-                                   self.menuContainerConstraint.constant = 265
+                self.menuContainerConstraint.constant = 265
                 self.mainContainerConstraint.backgroundColor = UIColor.clear
                 self.mainContainerConstraint.alpha = 1
                 self.mainContainerConstraint.isOpaque = false
@@ -62,7 +68,7 @@ class MainViewController: UIViewController{
         else {
             
             UIView.animate(withDuration: 0.5) {
-                 self.menuContainerConstraint.constant = 0
+                self.menuContainerConstraint.constant = 0
                 
                 self.mainContainerConstraint.backgroundColor = UIColor.black
                 self.mainContainerConstraint.alpha = 0.1
@@ -70,10 +76,9 @@ class MainViewController: UIViewController{
                 
                 
             }
-
+            
             menuConstraintToggle = true
         }
-        
     }
 
 
@@ -127,22 +132,62 @@ class MainViewController: UIViewController{
     }
     
     private func registerNotifcation(){
-        
         NotificationCenter.default.addObserver(self, selector: #selector(updateData(notification:)), name: NSNotification.Name("profileDataMain"), object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(menuAction(notification:)), name: NSNotification.Name("menuid"), object: nil)
     }
     
     
     @objc func updateData(notification:Notification){
-        let images = notification.userInfo!["imageSet"] as! UIImage
-        self.profileImage.image = images
+        let images = notification.userInfo!["imageSet"] as! Data
+        self.profileImage.image = UIImage(data: images)
+        self.UserInfo.set(images, forKey: "saveImage")
+    }
+    @objc func menuAction(notification:Notification){
+     
+        let id = notification.userInfo!["id"] as! Int
+        switch id {
+            case 1:
+                self.performSegue(withIdentifier: "upcommingevent", sender: self)
+            break;
+            
+        case 2:
+            self.performSegue(withIdentifier: "pastevent", sender: self)
+            break;
+        case 3:
+            self.performSegue(withIdentifier: "viewpackage", sender: self)
+            break;
+            
+        case 4:
+            self.performSegue(withIdentifier: "sendrecipt", sender: self)
+            break;
+            
+        case 5:
+            //refresh
+            break;
+            
+        case 6:
+            //logout
+            UserInfo.removeObject(forKey: "token")
+            UserInfo.removeObject(forKey: "LoggedIN")
+            performSegue(withIdentifier: "authvc", sender: self)
+            break;
+            
+        case 7:
+            //cacnel
+            menucallorclose()
+            break;
+        
+        default:
+            print("default option raise in switch")
+        }
+        print("recivesenderid",id)
+        
     }
     
     
     private func setsaveImage(){
          if let imageObj = UserInfo.object(forKey:"saveImage") {
-            let image  = imageObj as! NSData
-            self.profileImage.image = UIImage(data: image as Data)
+            self.profileImage.image = UIImage(data: imageObj as! Data)
 
         }
         else{
@@ -152,8 +197,8 @@ class MainViewController: UIViewController{
         if UserInfo.bool(forKey:"token"){
             let fetch  = UserInfo.value(forKey: "LoggedIN") as! Dictionary<String,String>
             profileName.text = fetch["Name"]
-            profileStatus.text = "Status:\(fetch["Status"]=="success" ? "Active":"Offline")"
-            profileWallet.text = fetch["Amount"]
+            profileStatus.text = "Status:\(fetch["Status"] == "success" ? "Active":"Offline")"
+            profileWallet.text = UserInfo.value(forKey: "walletamount") as? String
         }
     }
     

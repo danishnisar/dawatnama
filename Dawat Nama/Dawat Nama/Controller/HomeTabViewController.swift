@@ -26,6 +26,7 @@ class HomeTabViewController: UIViewController,TabSwiper {
       var FetchIniteModel = [FetchInviation]()
    // var OldFetchIniteModel = [FetchInviation]()
     
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,12 +45,14 @@ class HomeTabViewController: UIViewController,TabSwiper {
         tableHome.delegate = self
         tableHome.dataSource = self
         tableHome.register(UINib(nibName: "TblBaseHome", bundle: nil), forCellReuseIdentifier: "cellBasehome")
-        
+       
         if userINFO.bool(forKey: "token"){
             userTokenCheckAndloadNetowrk()
         }else{
             print("Token not found")
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(againrelaod), name: NSNotification.Name("reloaddataHome"), object: nil)
         
        
         
@@ -72,12 +75,22 @@ class HomeTabViewController: UIViewController,TabSwiper {
         super.viewDidAppear(animated)
         print("Did Appear")
         
+        
+        
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         print("Did Dis Appear===>")
     }
     
+    
+   @objc func againrelaod(){
+        if userINFO.bool(forKey: "token"){
+            userTokenCheckAndloadNetowrk()
+        }else{
+            print("Token not found")
+        }
+    }
     
     func HandleSwipe(_ Sender: UISwipeGestureRecognizer) {
        
@@ -184,25 +197,22 @@ extension HomeTabViewController:UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellbase = tableView.dequeueReusableCell(withIdentifier: "cellBasehome", for: indexPath) as! TblBaseHome
-        cellbase.heading.text = FetchIniteModel[indexPath.row].event_name
-        if FetchIniteModel[indexPath.row].event_name == "Birthday" {
-            
-            cellbase.centerLabel.isHidden =  true
-            cellbase.senderName.text = "\(FetchIniteModel[indexPath.row].event_name) \(FetchIniteModel[indexPath.row].gender)"
-            cellbase.lastLable.text = FetchIniteModel[indexPath.row].host_1
-            cellbase.invitemsg.text = "\(FetchIniteModel[indexPath.row].sender_name) has invited you in \(FetchIniteModel[indexPath.row].event_name)"
-            
+        cellbase.senderInviteTitle.text = "\(FetchIniteModel[indexPath.row].sender_name) has invited you in \(FetchIniteModel[indexPath.row].event_name)"
+        cellbase.senderProfileImage.loadCacheImage(imgUrl: FetchIniteModel[indexPath.row].image_url)
+        if FetchIniteModel[indexPath.row].event_name == "Birthday"{
+            cellbase.invitationImage.image = UIImage(named: "bdimg")
+        }else if FetchIniteModel[indexPath.row].event_name == "Barat"{
+            cellbase.invitationImage.image = UIImage(named: "baratimg")
+        }else if FetchIniteModel[indexPath.row].event_name == "Mehandi" {
+            cellbase.invitationImage.image = UIImage(named: "mehandiimg")
         }else{
-        cellbase.senderName.text =  FetchIniteModel[indexPath.row].host_1
-            cellbase.centerLabel.text = FetchIniteModel[indexPath.row].event_name == "Barat" ? "Weds" : "none"
-        cellbase.lastLable.text = FetchIniteModel[indexPath.row].host_2
-        cellbase.invitemsg.text = "\(FetchIniteModel[indexPath.row].sender_name) has invited you in \(FetchIniteModel[indexPath.row].event_name)"
+            cellbase.invitationImage.image = UIImage(named: "walimaimg")
         }
         
         return cellbase
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 272.5
+        return 173
     }
 
     

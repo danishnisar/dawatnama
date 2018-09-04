@@ -29,5 +29,7 @@ class RestFull {
     
     static let post_Invitation = RestFull.hostURL+"/api/invitations"
     
+    static let updateProfileimage = RestFull.hostURL+"/api/update_user_image"
+    
     
 }

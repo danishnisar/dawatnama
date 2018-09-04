@@ -358,6 +358,9 @@ class ThirdContactViewController: UIViewController {
      //   let walletamount = data["result"]["updated_amount"].intValue
         let count = data["result"]["numbers"].count
         print(count)
+    
+        let userInfo = UserDefaults.standard
+        userInfo.set(data["result"]["updated_amount"].stringValue, forKey: "walletamount")
         
         if count == 0 {
             

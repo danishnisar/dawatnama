@@ -2,20 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>use photo saved</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Need access</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>chal jao bhai</string>
-	<key>NSLocationUsageDescription</key>
-	<string>need this babes</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>need access</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>use microphone</string>
-	<key>NSCameraUsageDescription</key>
-	<string>open camera</string>
+	<key>AccountKitClientToken</key>
+	<string>93daabe25f40aedc0b935f7ed5ccaac5</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -30,12 +18,41 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>ak93daabe25f40aedc0b935f7ed5ccaac5</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>FacebookAppID</key>
+	<string>1200941286737983</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>open camera</string>
 	<key>NSContactsUsageDescription</key>
 	<string>DawatNama Need Acce of Your Contact</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Need access</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>need access</string>
+	<key>NSLocationUsageDescription</key>
+	<string>need this babes</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>chal jao bhai</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>use microphone</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>use photo saved</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -54,19 +71,6 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>FacebookAppID</key>
-	<string>1200941286737983</string>
-	<key>AccountKitClientToken</key>
-	<string>93daabe25f40aedc0b935f7ed5ccaac5</string>
-	<key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>ak93daabe25f40aedc0b935f7ed5ccaac5</string>
-			</array>
-		</dict>
 	</array>
 </dict>
 </plist>

@@ -24,7 +24,7 @@ class ThirdContactViewController: UIViewController {
     var dataCollect:Dictionary = [String:String]()
     var contactModel = [ContactModel]()
     var searchArray = [ContactModel]()
-    var collectselctNUmber = [ContactModel]()
+    var collectselctNUmber = [SelectModel]()
     
     //parameter collection array
     var param:Dictionary = [String:Any]()
@@ -48,7 +48,10 @@ class ThirdContactViewController: UIViewController {
         searchBarOutlet.delegate = self
         searchBarOutlet.returnKeyType = .done
         contactCell()
-        
+        if let counting = dataCollect["eventtopupload"] {
+            dataCollect["numberofInvite"] = dataCollect["invitation_count"]!
+            
+        }
     }
     
     
@@ -203,15 +206,86 @@ class ThirdContactViewController: UIViewController {
     
     @IBAction func sendInviatonFinaly(_ sender: Any) {
         
-        networkFire()
+        if collectselctNUmber.count == 0 {
+            let warning = UIAlertController(title: "Message", message: "Please Select Number", preferredStyle: .alert)
+            let okayCancle = UIAlertAction(title: "OK", style: .destructive, handler: nil)
+            warning.addAction(okayCancle)
+            present(warning, animated: true, completion: nil)
+            return
+        }
+                if let counting = dataCollect["eventtopupload"] {
+                    var params = [String : String]()
+                    for i in 0..<100{
+                        
+                        if i >= collectselctNUmber.count {
+                            params["contact_name_\(i+1)"] = "no_name"
+                            params["contact_number_\(i+1)"] = "no_number"
+                            params["invitation_type_\(i+1)"] = familyorNot ? "With family":"Single"
+                            
+                        }else {
+                            
+                            params["contact_name_\(i+1)"] = collectselctNUmber[i].CNName
+                            params["contact_number_\(i+1)"] = collectselctNUmber[i].CNPhone
+                            params["invitation_type_\(i+1)"] = familyorNot ? "With family":"Single"
+                            print("selected name",collectselctNUmber[i].CNName,"selected number",collectselctNUmber[i].CNPhone)
+                            
+                            
+                            
+                        }
+                        
+                        
+                    }
+
+                    if counting == "yes"{
+                        params["new_video_url"] = dataCollect["video_url"]!
+                        params["new_video_name"] = dataCollect["video_name"]!
+                        params["invitation_id"] = dataCollect["invitation_id"]!
+                        params["sender_id"] = dataCollect["sendreID"]!
+                        params["invitation_count"] = dataCollect["invitation_count"]!
+                        print("YES",params)
+                        networkEvent(params: params)
+                    }else{
+                        if let videourl=dataCollect["video_url"]{
+                            params["video_url"] = videourl
+                        }else{
+                            params["video_url"] = "no_video"
+                        }
+                        //param["video_url"] = dataCollect["video_url"]!
+                        params["video_name"] = "no_name"
+                        params["invitation_id"] = dataCollect["invitation_id"]!
+                        params["sender_id"] = dataCollect["sendreID"]!
+                        params["invitation_count"] = dataCollect["invitation_count"]!
+                        print("NO",params)
+                        networkEvent(params: params)
+                    }
+                }else{
+                    
+                    networkFire()
+                    
+        }
+        
     }
     
 
     
     func networkFire(){
         //["Barat", "3", "Birthday Side", "tf", "Boy", "ggg", "tg", "fcf", "fcff", "KaimKhani Ground Sector 5 Orangi Town, Karachi, Karachi City, Sindh, Sector 5 Orangi Town, Karachi, Karachi City, Sindh, Pakistan", "10/292/2018", "03:08", "03:08", "gggggggg", "25555", "", "", "", "", "Lunch", "03:08", "1", "https://firebasestorage.googleapis.com/v0/b/dawat-nama.appspot.com/o/videos%2FinvoteVideoiOS-2018-08-18%2022:55:15%20%2B0000.mp4?alt=media&token=cd97a6f3-cb22-497d-9635-8fb8fe7af887"]
-        
-        
+//        var count = ""
+//        var video_name = ""
+//        var video_url = ""
+//        if let counting = dataCollect["eventtopupload"] {
+//            if counting == "yes"{
+//                count = dataCollect["eventViewresendCount"]!
+//                video_name = dataCollect[]
+//            }
+//        }else{
+//
+//        }
+//
+//        "video_url":dataCollect["video_url"]!,
+//        "video_name":dataCollect["video_name"]!,
+//        "invitation_limit":dataCollect["numberofInvite"]!,
+//        "invitation_count": collectselctNUmber.count
 
         if dataCollect["invitationInput"] == "1" {
             
@@ -241,7 +315,8 @@ class ThirdContactViewController: UIViewController {
                          "video_url":dataCollect["video_url"]!,
                          "video_name":dataCollect["video_name"]!,
                          "invitation_limit":dataCollect["numberofInvite"]!,
-                         "invitation_count":collectselctNUmber.count
+                         "invitation_count": collectselctNUmber.count
+                
                 ]
             
             
@@ -272,7 +347,7 @@ class ThirdContactViewController: UIViewController {
                          "video_url":dataCollect["video_url"]!,
                          "video_name":dataCollect["video_name"]!,
                          "invitation_limit":dataCollect["numberofInvite"]!,
-                         "invitation_count":collectselctNUmber.count
+                         "invitation_count": collectselctNUmber.count
                 ]
 
         }else {
@@ -303,12 +378,12 @@ class ThirdContactViewController: UIViewController {
                          "video_url":dataCollect["video_url"]!,
                          "video_name":dataCollect["video_name"]!,
                          "invitation_limit":dataCollect["numberofInvite"]!,
-                         "invitation_count":collectselctNUmber.count
+                         "invitation_count": collectselctNUmber.count
             ]
             
         }
         
-   // print(param)
+    //print(param)
         for i in 0..<100{
             
             if i >= collectselctNUmber.count {
@@ -376,6 +451,7 @@ class ThirdContactViewController: UIViewController {
             let confirmAction = UIAlertController(title: "Send SMS", message: textmessage, preferredStyle: .alert)
             let cancel  = UIAlertAction(title: "Cancel", style: .cancel) { (cancel) in
                 print("Cancel")
+                self.gotohome()
             }
             let sendsms = UIAlertAction(title: "Send SMS", style: .default) { (sms) in
                 ProgressHUD.show()
@@ -394,6 +470,22 @@ class ThirdContactViewController: UIViewController {
     }
     
     
+    private func networkEvent(params:[String:String]){
+        ProgressHUD.show("Loading...")
+        Alamofire.request(RestFull.resendEventsContact, method: .post, parameters: params).responseJSON{ (response) in
+            
+            if let err = response.result.error {
+                print("Parameter=",self.param)
+                print("Alamofire Error:",err)
+                ProgressHUD.showError("Internet issue please check Connectecion")
+                return
+            }
+            
+            ProgressHUD.dismiss()
+            let jsonData = JSON(response.result.value!)
+            self.extractJson(data: jsonData)
+        }
+    }
     
 }
 
@@ -423,23 +515,26 @@ extension ThirdContactViewController:MFMessageComposeViewControllerDelegate{
         }
         ProgressHUD.dismiss()
     }
+    
+    
+    
 }
 
 
 extension ThirdContactViewController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contactModel.count
+        return searchArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "contactcell", for: indexPath) as! ContactTableViewCell
-        cell.CNName.text = "\(contactModel[indexPath.row].CNName)"
-        cell.CNNumber.text = "\(contactModel[indexPath.row].CNPhone)"
+        cell.CNName.text = "\(searchArray[indexPath.row].CNName)"
+        cell.CNNumber.text = "\(searchArray[indexPath.row].CNPhone)"
         //cell.CNName.text +=
        // cell.checkMark.addTarget(self, action: #selector(checkMarpresed(_:)), for: .touchUpInside)
-        cell.accessoryType = contactModel[indexPath.row].selec ? .checkmark : .none
+        cell.accessoryType = searchArray[indexPath.row].selec ? .checkmark : .none
         
         
         return cell
@@ -461,7 +556,7 @@ extension ThirdContactViewController:UITableViewDelegate,UITableViewDataSource{
             
             collectselctNUmber.remove(at: 0)
             tableView.cellForRow(at: indexPath)?.accessoryType = .none
-            contactModel[indexPath.row].selec = false
+            searchArray[indexPath.row].selec = false
 
         }else {
            
@@ -469,26 +564,26 @@ extension ThirdContactViewController:UITableViewDelegate,UITableViewDataSource{
                 print("no more selection need")
                 return
             }
-            
-            collectselctNUmber.append(ContactModel(name: contactModel[indexPath.row].CNName, phone: contactModel[indexPath.row].CNPhone, image: "", select: true))
+            collectselctNUmber.append(SelectModel(name: searchArray[indexPath.row].CNName, phone: searchArray[indexPath.row].CNPhone, image: "", select: true))
+//            collectselctNUmber.append(["name":searchArray[indexPath.row].CNName,"phone":searchArray[indexPath.row].CNPhone,"image": ""])
+//            collectselctNUmber.append(ContactModel(name: contactModel[indexPath.row].CNName, phone: contactModel[indexPath.row].CNPhone, image: "", select: true))
 
             
             tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
             
-            contactModel[indexPath.row].selec = true
+            searchArray[indexPath.row].selec = true
             invitecount += 1
+           // print(collectselctNUmber[0])
+            for i in 0..<collectselctNUmber.count {
+                print(collectselctNUmber[i].CNName,collectselctNUmber[i].CNPhone)
+            }
         }
         
-        for i in 0..<collectselctNUmber.count {
-            print(collectselctNUmber[i].CNName,collectselctNUmber[i].CNPhone)
-        }
+        
         
      }
     
 
-//    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-//        contactModel[indexPath.row].selec = false
-//    }
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -514,14 +609,15 @@ extension ThirdContactViewController:UITableViewDelegate,UITableViewDataSource{
 extension ThirdContactViewController:UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
         guard !searchText.isEmpty  else {
             searchArray = contactModel;
             contacttblView.reloadData()
-            //searchBar.resignFirstResponder()
+           
             return
         }
         
-        contactModel = contactModel.filter({ (model) -> Bool in
+        searchArray = contactModel.filter({ (model) -> Bool in
             model.CNName.lowercased().contains(searchText.lowercased())
         })
         

@@ -16,6 +16,7 @@ class FetchInviation{
     var video_url = ""
     var invitation_count = ""
     var host_2_parent = ""
+    var nikkah_time = ""
     var din_time = ""
     var rsvp_number_3 = ""
     var host_2 = ""
@@ -49,6 +50,7 @@ class FetchInviation{
         din_time:String,
         rsvp_number_3:String,
         host_2:String,
+        nikkah_time:String,
         sender_id:String,
         event_name:String,
         id:String,
@@ -82,6 +84,7 @@ class FetchInviation{
         self.din_time = din_time
         self.rsvp_number_3 = rsvp_number_3
         self.host_2 = host_2
+        self.nikkah_time = nikkah_time
         self.sender_id = sender_id
         self.event_name = event_name
         self.id = id

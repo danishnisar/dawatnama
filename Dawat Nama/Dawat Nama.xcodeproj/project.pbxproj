@@ -21,6 +21,10 @@
 		7286082B213E62620077A73D /* PackgesTblVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72860829213E62620077A73D /* PackgesTblVCell.swift */; };
 		7286082C213E62620077A73D /* PackgesTblVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7286082A213E62620077A73D /* PackgesTblVCell.xib */; };
 		7286082E213E6DD30077A73D /* SendReceiptVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7286082D213E6DD20077A73D /* SendReceiptVC.swift */; };
+		72860830213EA6390077A73D /* PackagesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7286082F213EA6390077A73D /* PackagesModel.swift */; };
+		72860832213FEF290077A73D /* EventAgainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72860831213FEF290077A73D /* EventAgainVC.swift */; };
+		72860834214298080077A73D /* SelectModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72860833214298030077A73D /* SelectModel.swift */; };
+		728608362142A4900077A73D /* HomeDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728608352142A48F0077A73D /* HomeDetailVC.swift */; };
 		729C6DB720F7BA7500DA5F56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729C6DB620F7BA7500DA5F56 /* AppDelegate.swift */; };
 		729C6DB920F7BA7500DA5F56 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729C6DB820F7BA7500DA5F56 /* MainViewController.swift */; };
 		729C6DBC20F7BA7600DA5F56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 729C6DBA20F7BA7600DA5F56 /* Main.storyboard */; };
@@ -28,6 +32,7 @@
 		729C6DC120F7BAA200DA5F56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 729C6DBF20F7BAA200DA5F56 /* LaunchScreen.storyboard */; };
 		729C6DCE20F90CE300DA5F56 /* HomeMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729C6DCC20F90CE300DA5F56 /* HomeMenuCollectionViewCell.swift */; };
 		729C6DCF20F90CE300DA5F56 /* HomeMenuCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 729C6DCD20F90CE300DA5F56 /* HomeMenuCollectionViewCell.xib */; };
+		72A5B4D52142C43C006ED438 /* HomeVideoContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A5B4D42142C43C006ED438 /* HomeVideoContainer.swift */; };
 		72A61F3020FD1EA300F146C5 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A61F2F20FD1EA200F146C5 /* TabBarViewController.swift */; };
 		72A61F3920FE526B00F146C5 /* Swipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A61F3820FE526B00F146C5 /* Swipe.swift */; };
 		72A61F3B20FE528D00F146C5 /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A61F3A20FE528D00F146C5 /* HomeTabViewController.swift */; };
@@ -73,6 +78,10 @@
 		72860829213E62620077A73D /* PackgesTblVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackgesTblVCell.swift; sourceTree = "<group>"; };
 		7286082A213E62620077A73D /* PackgesTblVCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PackgesTblVCell.xib; sourceTree = "<group>"; };
 		7286082D213E6DD20077A73D /* SendReceiptVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendReceiptVC.swift; sourceTree = "<group>"; };
+		7286082F213EA6390077A73D /* PackagesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesModel.swift; sourceTree = "<group>"; };
+		72860831213FEF290077A73D /* EventAgainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventAgainVC.swift; sourceTree = "<group>"; };
+		72860833214298030077A73D /* SelectModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectModel.swift; sourceTree = "<group>"; };
+		728608352142A48F0077A73D /* HomeDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDetailVC.swift; sourceTree = "<group>"; };
 		729C6DB320F7BA7500DA5F56 /* Dawat Nama.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dawat Nama.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		729C6DB620F7BA7500DA5F56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		729C6DB820F7BA7500DA5F56 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +91,7 @@
 		729C6DC220F7BAA200DA5F56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		729C6DCC20F90CE300DA5F56 /* HomeMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		729C6DCD20F90CE300DA5F56 /* HomeMenuCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeMenuCollectionViewCell.xib; sourceTree = "<group>"; };
+		72A5B4D42142C43C006ED438 /* HomeVideoContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVideoContainer.swift; sourceTree = "<group>"; };
 		72A61F2F20FD1EA200F146C5 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		72A61F3820FE526B00F146C5 /* Swipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swipe.swift; sourceTree = "<group>"; };
 		72A61F3A20FE528D00F146C5 /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +147,7 @@
 				72860825213E60380077A73D /* PastEventVC.swift */,
 				72860827213E61E90077A73D /* PackagesVC.swift */,
 				7286082D213E6DD20077A73D /* SendReceiptVC.swift */,
+				72860831213FEF290077A73D /* EventAgainVC.swift */,
 			);
 			name = MenuSegue;
 			sourceTree = "<group>";
@@ -199,6 +210,8 @@
 			children = (
 				72AAFB3C2111EA5D0097A021 /* ContactModel.swift */,
 				72B39602211C15010052AF39 /* FetchInviation.swift */,
+				7286082F213EA6390077A73D /* PackagesModel.swift */,
+				72860833214298030077A73D /* SelectModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -255,6 +268,8 @@
 				72A61F3A20FE528D00F146C5 /* HomeTabViewController.swift */,
 				72A61F3C20FE52A000F146C5 /* AlertTabViewController.swift */,
 				72A61F3E20FE52AD00F146C5 /* ProfileTabViewController.swift */,
+				728608352142A48F0077A73D /* HomeDetailVC.swift */,
+				72A5B4D42142C43C006ED438 /* HomeVideoContainer.swift */,
 			);
 			name = TabViewController;
 			sourceTree = "<group>";
@@ -504,6 +519,7 @@
 			files = (
 				72A61F3F20FE52AD00F146C5 /* ProfileTabViewController.swift in Sources */,
 				72A61F3020FD1EA300F146C5 /* TabBarViewController.swift in Sources */,
+				72860830213EA6390077A73D /* PackagesModel.swift in Sources */,
 				72AAFB40211423110097A021 /* ContainerAuthVC.swift in Sources */,
 				72A61F472100F3D200F146C5 /* TblBaseHome.swift in Sources */,
 				72A61F3D20FE52A000F146C5 /* AlertTabViewController.swift in Sources */,
@@ -516,11 +532,14 @@
 				72F4248B2117134400490251 /* DesignUITextField.swift in Sources */,
 				729C6DCE20F90CE300DA5F56 /* HomeMenuCollectionViewCell.swift in Sources */,
 				72AAFB162111A06F0097A021 /* SecoundViewController.swift in Sources */,
+				72860834214298080077A73D /* SelectModel.swift in Sources */,
 				72C4B80421198306009F506B /* RestFull.swift in Sources */,
 				721CA24E211F190C00D23F12 /* AlamofireRequestHelper.swift in Sources */,
+				728608362142A4900077A73D /* HomeDetailVC.swift in Sources */,
 				727D3CFF2118ABA400065235 /* RegisterVC.swift in Sources */,
 				7286081A213D240B0077A73D /* ImageExtension.swift in Sources */,
 				72A61F3920FE526B00F146C5 /* Swipe.swift in Sources */,
+				72A5B4D52142C43C006ED438 /* HomeVideoContainer.swift in Sources */,
 				72BBB45F211A02870008F2EB /* DesginUILabelField.swift in Sources */,
 				72AAFB362111D9DE0097A021 /* ThirdContactViewController.swift in Sources */,
 				72B39603211C15010052AF39 /* FetchInviation.swift in Sources */,
@@ -534,6 +553,7 @@
 				72A61F3B20FE528D00F146C5 /* HomeTabViewController.swift in Sources */,
 				7286082E213E6DD30077A73D /* SendReceiptVC.swift in Sources */,
 				727D3CFB2118AB1300065235 /* loginVC.swift in Sources */,
+				72860832213FEF290077A73D /* EventAgainVC.swift in Sources */,
 				72860821213DA12B0077A73D /* UpCommingTblVCell.swift in Sources */,
 				72AAFB142110D00A0097A021 /* FirstViewController.swift in Sources */,
 				72860826213E60380077A73D /* PastEventVC.swift in Sources */,

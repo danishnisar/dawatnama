@@ -11,11 +11,16 @@ import UIKit
 class UpCommingTblVCell: UITableViewCell {
 
     @IBOutlet weak var mainviewShadow: UIView!
+    @IBOutlet weak var eventTitle: UILabel!
+    @IBOutlet weak var invites: UILabel!
+    @IBOutlet weak var dates: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
+    
+  
 
     override func layoutSubviews() {
         

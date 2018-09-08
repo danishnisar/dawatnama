@@ -24,6 +24,8 @@ class HomeTabViewController: UIViewController,TabSwiper {
     @IBOutlet weak var indicatorViewHeightConstraint: NSLayoutConstraint!
    // var FetchIniteModel = [FetchInviation]()
       var FetchIniteModel = [FetchInviation]()
+      var selecteddata = [FetchInviation]()
+      var indexID = 0
    // var OldFetchIniteModel = [FetchInviation]()
     
   
@@ -136,7 +138,7 @@ class HomeTabViewController: UIViewController,TabSwiper {
         
             for i in 0..<lineFlow.count{
                 userINFO.set(lineFlow.count, forKey: "ResultCount")
-            FetchIniteModel.append(FetchInviation(invitation_type:lineFlow[i]["invitation_type"].stringValue,host_1: lineFlow[i]["host_1"].stringValue,venue_name: lineFlow[i]["venue_name"].stringValue,rsvp_name_3: lineFlow[i]["rsvp_name_3"].stringValue,video_url: lineFlow[i]["video_url"].stringValue,invitation_count: lineFlow[i]["invitation_count"].stringValue,host_2_parent: lineFlow[i]["host_2_parent"].stringValue,din_time: lineFlow[i]["din_time"].stringValue,rsvp_number_3: lineFlow[i]["rsvp_number_3"].stringValue,host_2: lineFlow[i]["host_2"].stringValue,sender_id: lineFlow[i]["sender_id"].stringValue,event_name: lineFlow[i]["event_name"].stringValue,id: lineFlow[i]["id"].stringValue,rsvp_name_1: lineFlow[i]["rsvp_name_1"].stringValue,new_video_url: lineFlow[i]["new_video_url"].stringValue,event_date: lineFlow[i]["event_date"].stringValue,invitation_limit: lineFlow[i]["invitation_limit"].stringValue,image_url: lineFlow[i]["image_url"].stringValue,rsvp_number_1: lineFlow[i]["rsvp_number_1"].stringValue,rsvp_number_2: lineFlow[i]["rsvp_number_2"].stringValue,rsvp_name_4: lineFlow[i]["rsvp_name_4"].stringValue,sender_name: lineFlow[i]["sender_name"].stringValue,rsvp_number_4: lineFlow[i]["rsvp_number_4"].stringValue,event_cat_id: lineFlow[i]["event_cat_id"].stringValue,gender: lineFlow[i]["gender"].stringValue,date: lineFlow[i]["date"].stringValue,rsvp_name_2: lineFlow[i]["rsvp_name_2"].stringValue,host_1_parent: lineFlow[i]["host_1_parent"].stringValue,location: lineFlow[i]["location"].stringValue,arr_time: lineFlow[i]["arr_time"].stringValue,time_label: lineFlow[i]["time_label"].stringValue,invitation_side: lineFlow[i]["invitation_side"].stringValue))
+            FetchIniteModel.append(FetchInviation(invitation_type:lineFlow[i]["invitation_type"].stringValue,host_1: lineFlow[i]["host_1"].stringValue,venue_name: lineFlow[i]["venue_name"].stringValue,rsvp_name_3: lineFlow[i]["rsvp_name_3"].stringValue,video_url: lineFlow[i]["video_url"].stringValue,invitation_count: lineFlow[i]["invitation_count"].stringValue,host_2_parent: lineFlow[i]["host_2_parent"].stringValue,din_time: lineFlow[i]["din_time"].stringValue,rsvp_number_3: lineFlow[i]["rsvp_number_3"].stringValue,host_2: lineFlow[i]["host_2"].stringValue,nikkah_time:"NoNikkah",sender_id: lineFlow[i]["sender_id"].stringValue,event_name: lineFlow[i]["event_name"].stringValue,id: lineFlow[i]["id"].stringValue,rsvp_name_1: lineFlow[i]["rsvp_name_1"].stringValue,new_video_url: lineFlow[i]["new_video_url"].stringValue,event_date: lineFlow[i]["event_date"].stringValue,invitation_limit: lineFlow[i]["invitation_limit"].stringValue,image_url: lineFlow[i]["image_url"].stringValue,rsvp_number_1: lineFlow[i]["rsvp_number_1"].stringValue,rsvp_number_2: lineFlow[i]["rsvp_number_2"].stringValue,rsvp_name_4: lineFlow[i]["rsvp_name_4"].stringValue,sender_name: lineFlow[i]["sender_name"].stringValue,rsvp_number_4: lineFlow[i]["rsvp_number_4"].stringValue,event_cat_id: lineFlow[i]["event_cat_id"].stringValue,gender: lineFlow[i]["gender"].stringValue,date: lineFlow[i]["date"].stringValue,rsvp_name_2: lineFlow[i]["rsvp_name_2"].stringValue,host_1_parent: lineFlow[i]["host_1_parent"].stringValue,location: lineFlow[i]["location"].stringValue,arr_time: lineFlow[i]["arr_time"].stringValue,time_label: lineFlow[i]["time_label"].stringValue,invitation_side: lineFlow[i]["invitation_side"].stringValue))
                 
             }
                 DispatchQueue.main.async {
@@ -186,6 +188,14 @@ class HomeTabViewController: UIViewController,TabSwiper {
         }
         
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "seekingEvents" {
+            let vc = segue.destination as! HomeDetailVC
+            vc.recivedData = selecteddata
+            
+        }
+    }
 
 }
 
@@ -197,6 +207,7 @@ extension HomeTabViewController:UITableViewDataSource,UITableViewDelegate{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellbase = tableView.dequeueReusableCell(withIdentifier: "cellBasehome", for: indexPath) as! TblBaseHome
+        cellbase.selectionStyle = UITableViewCellSelectionStyle.none
         cellbase.senderInviteTitle.text = "\(FetchIniteModel[indexPath.row].sender_name) has invited you in \(FetchIniteModel[indexPath.row].event_name)"
         cellbase.senderProfileImage.loadCacheImage(imgUrl: FetchIniteModel[indexPath.row].image_url)
         if FetchIniteModel[indexPath.row].event_name == "Birthday"{
@@ -210,6 +221,13 @@ extension HomeTabViewController:UITableViewDataSource,UITableViewDelegate{
         }
         
         return cellbase
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+            indexID = indexPath.row
+        selecteddata.append(FetchIniteModel[0])
+        performSegue(withIdentifier: "seekingEvents", sender: self)
+        
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 173

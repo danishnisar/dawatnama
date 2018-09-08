@@ -148,25 +148,31 @@ class MainViewController: UIViewController{
         switch id {
             case 1:
                 self.performSegue(withIdentifier: "upcommingevent", sender: self)
+                menucallorclose()
             break;
             
         case 2:
             self.performSegue(withIdentifier: "pastevent", sender: self)
+            menucallorclose()
             break;
         case 3:
             self.performSegue(withIdentifier: "viewpackage", sender: self)
+            menucallorclose()
             break;
             
         case 4:
             self.performSegue(withIdentifier: "sendrecipt", sender: self)
+            menucallorclose()
             break;
             
         case 5:
             //refresh
+            menucallorclose()
             break;
             
         case 6:
             //logout
+            menucallorclose()
             UserInfo.removeObject(forKey: "token")
             UserInfo.removeObject(forKey: "LoggedIN")
             performSegue(withIdentifier: "authvc", sender: self)

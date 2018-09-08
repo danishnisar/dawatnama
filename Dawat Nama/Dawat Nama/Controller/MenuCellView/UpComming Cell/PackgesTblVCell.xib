@@ -100,6 +100,9 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="mainviewShadow" destination="7TJ-RP-j5o" id="rAe-NE-f5u"/>
+                <outlet property="packagetitle" destination="Hu6-02-iYB" id="dG8-95-4me"/>
+                <outlet property="points" destination="Q0P-qW-Szt" id="zJd-Ot-1iq"/>
+                <outlet property="prive" destination="QJg-0j-hbh" id="0h0-R7-jhX"/>
             </connections>
             <point key="canvasLocation" x="25" y="51.5"/>
         </tableViewCell>

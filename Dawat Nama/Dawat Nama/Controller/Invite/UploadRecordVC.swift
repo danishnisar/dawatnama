@@ -72,6 +72,8 @@ class UploadRecordVC: UIViewController {
             
             let alertControl = UIAlertController(title: "Confrimation", message: "Do you want to skip this step?", preferredStyle: .alert)
             let actionYes = UIAlertAction(title: "YES", style: .default) { (uiaction) in
+               
+                
                 self.dataCollect["video_name"] = "no_name"
                 self.dataCollect["video_url"] = "no_video"
                 

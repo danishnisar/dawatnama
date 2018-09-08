@@ -11,6 +11,9 @@ import UIKit
 class PackgesTblVCell: UITableViewCell {
 
     @IBOutlet weak var mainviewShadow: UIView!
+    @IBOutlet weak var packagetitle: UILabel!
+    @IBOutlet weak var points: UILabel!
+    @IBOutlet weak var prive: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -31,5 +31,21 @@ class RestFull {
     
     static let updateProfileimage = RestFull.hostURL+"/api/update_user_image"
     
+    static let sendpackageImage = RestFull.hostURL+"/api/send_receipt"
+
+    //FETCH WALLET PACKAGES: (GET)
+    static let fetchWallet = RestFull.hostURL+"/api/packages"
+    
+    //FETCH UPCOMING EVENTS: (POST)
+    static let fetchUpcommingEvents = RestFull.hostURL+"/api/fetch_upcoming_events"
+   // inputs: sender_id, phone_number
+   // output: same data as FETCH INVITATIONS
+
+    //FETCH UPCOMING EVENTS: (POST)
+    static let fetchEventsContact = RestFull.hostURL+"/api/fetch_contacts"
+    
+    //ResendInvitation
+    static let resendEventsContact = RestFull.hostURL+"/api/resend_invitation"
+    
     
 }

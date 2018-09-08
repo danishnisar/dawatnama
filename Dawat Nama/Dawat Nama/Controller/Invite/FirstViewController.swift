@@ -43,9 +43,10 @@ class FirstViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         numberOfInvition.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
-        let fetch  = userINFO.value(forKey: "LoggedIN") as! Dictionary<String,String>
+        let fetch  = userINFO.value(forKey: "walletamount")
        // print("dasdasdas\(fetch["Amount"]!)")
-        digitalWallet.text = fetch["Amount"]!
+        digitalWallet.text = fetch as? String
+        
     }
     
     @objc func textDidChange(_ textField:UITextField){

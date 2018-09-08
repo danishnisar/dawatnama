@@ -29,7 +29,7 @@
                                     <constraint firstAttribute="height" constant="36" id="CnR-v4-84a"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invites" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="POo-7n-fdI">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="POo-7n-fdI">
                                 <rect key="frame" x="245" y="37" width="35" height="14"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="35" id="g5w-Gm-lYI"/>
@@ -116,6 +116,9 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="dates" destination="8ef-go-dRt" id="w03-6l-YwN"/>
+                <outlet property="eventTitle" destination="3uW-og-dp0" id="jro-kN-1hS"/>
+                <outlet property="invites" destination="Pvf-ib-abe" id="rbR-X3-8mx"/>
                 <outlet property="mainviewShadow" destination="UEu-Kd-3R5" id="lgp-RN-H87"/>
             </connections>
             <point key="canvasLocation" x="20" y="48.5"/>

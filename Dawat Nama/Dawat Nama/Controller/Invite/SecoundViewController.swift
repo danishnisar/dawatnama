@@ -176,6 +176,12 @@ class SecoundViewController: UIViewController {
 
         }
     }
+    
+    @IBAction func closeView(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+
     @IBAction func stepThree(_ sender: Any) {
         
         let userDefault = UserDefaults.standard
@@ -568,16 +574,28 @@ class SecoundViewController: UIViewController {
     
     
     private func NetworkFire(){
-        ProgressHUD.show()
+        ProgressHUD.show("Laoding..")
         Alamofire.request(RestFull.fetch_Event).responseJSON { (response) in
+           
+            
+            if let err = response.result.error{
+                ProgressHUD.showError("Loading Failed")
+                print(err.localizedDescription)
+                ToastView.shared.short(self.view, txt_msg: "Internet connectivity issue")
+                
+                ProgressHUD.dismiss()
+                return
+            }
+            
+            
             if response.result.isSuccess{
                 let data = JSON(response.result.value!)
                 self.extractJson(data:data)
                 print(data)
                 ProgressHUD.dismiss()
-            }else{
-                print("Network error\(response.result.error!)")
             }
+            
+            ProgressHUD.dismiss()
         }
         
         
@@ -842,11 +860,14 @@ extension SecoundViewController:UITextFieldDelegate,GMSPlacePickerViewController
     }
     
     private func showMapPlace(){
+        ProgressHUD.show("Loading..")
         let config = GMSPlacePickerConfig(viewport: nil)
         let placePicker = GMSPlacePickerViewController(config: config)
         placePicker.delegate = self
         
-        present(placePicker, animated: true, completion: nil)
+        present(placePicker, animated: true){
+            ProgressHUD.dismiss()
+        }
     }
     
     // To receive the results from the place picker 'self' will need to conform to

@@ -58,6 +58,9 @@ class UploadRecordVC: UIViewController {
 
     }
     
+    @IBAction func closeView(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func videoSubmitAction(_ sender: Any) {
         

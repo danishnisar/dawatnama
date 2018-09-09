@@ -931,17 +931,28 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pPL-KR-pGF">
-                                            <rect key="frame" x="322" y="12" width="49" height="33"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pPL-KR-pGF">
+                                            <rect key="frame" x="318" y="8" width="49" height="33"/>
                                             <color key="backgroundColor" red="1" green="0.24892351169999999" blue="0.093598999530000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="33" id="YEt-Lm-TSl"/>
+                                                <constraint firstAttribute="width" constant="49" id="u0r-gf-rS8"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <state key="normal" title="X">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>
+                                            <connections>
+                                                <action selector="closeViewAction:" destination="8qT-BN-79n" eventType="touchUpInside" id="YBp-Hf-m3D"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="pPL-KR-pGF" secondAttribute="trailing" constant="8" id="2mo-jI-7ZO"/>
+                                        <constraint firstItem="pPL-KR-pGF" firstAttribute="top" secondItem="aci-Kb-Wuu" secondAttribute="top" constant="8" id="SHr-oS-1xz"/>
+                                        <constraint firstAttribute="bottom" secondItem="pPL-KR-pGF" secondAttribute="bottom" constant="9" id="ykc-bv-Rzs"/>
+                                    </constraints>
                                 </view>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -961,7 +972,7 @@
                                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mLG-Em-QBG">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="195"/>
                                                         <connections>
-                                                            <segue destination="ayN-C7-Zt6" kind="embed" identifier="videocontainer" id="Meb-T4-7CN"/>
+                                                            <segue destination="ayN-C7-Zt6" kind="embed" identifier="" id="Meb-T4-7CN"/>
                                                         </connections>
                                                     </containerView>
                                                 </subviews>
@@ -977,7 +988,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="saS-6Z-cPe" userLabel="Viewimage1">
                                                 <rect key="frame" x="0.0" y="195" width="375" height="227"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baratinvite" translatesAutoresizingMaskIntoConstraints="NO" id="OJV-Gb-LxZ">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="name_card" translatesAutoresizingMaskIntoConstraints="NO" id="OJV-Gb-LxZ">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="227"/>
                                                     </imageView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vUn-5p-iaX">
@@ -1088,71 +1099,71 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="16" id="lHA-De-Ach"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
+                                                                <color key="textColor" red="0.87058823529999996" green="0.57254901960000004" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="son of nisar weds " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oyp-gy-Ipe">
                                                                 <rect key="frame" x="177.5" y="31" width="177.5" height="16"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                                <color key="textColor" red="0.87058823529999996" green="0.57254901960000004" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="son of nisar weds " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z60-QM-hS4">
                                                                 <rect key="frame" x="0.0" y="31" width="177.5" height="16"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                                <color key="textColor" red="0.87058823529999996" green="0.57254901960000004" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="son of nisar weds " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TyT-AM-69h">
                                                                 <rect key="frame" x="177.5" y="48" width="177.5" height="16"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                                <color key="textColor" red="0.87058823529999996" green="0.57254901960000004" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="son of nisar weds " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5UW-g5-8k7">
                                                                 <rect key="frame" x="0.0" y="48" width="177.5" height="16"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                                <color key="textColor" red="0.87058823529999996" green="0.57254901960000004" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="son of nisar weds " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQE-we-QHk">
                                                                 <rect key="frame" x="177.5" y="65" width="177.5" height="16"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                                <color key="textColor" red="0.87058823529999996" green="0.57254901960000004" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="son of nisar weds " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWl-ap-Dv1">
                                                                 <rect key="frame" x="0.0" y="65" width="177.5" height="16"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                                <color key="textColor" red="0.87058823529999996" green="0.57254901960000004" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="son of nisar weds " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUc-lM-Kw5">
                                                                 <rect key="frame" x="177.5" y="82" width="177.5" height="16"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                                <color key="textColor" red="0.87058823529999996" green="0.57254901960000004" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="son of nisar weds " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YkC-PY-3xW">
                                                                 <rect key="frame" x="0.0" y="82" width="177.5" height="16"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                                <color key="textColor" red="0.87058823529999996" green="0.57254901960000004" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="son of nisar weds " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h7v-xN-gaY">
                                                                 <rect key="frame" x="0.0" y="103" width="355" height="28"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                                <color key="textColor" red="0.87058823529999996" green="0.57254901960000004" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -1239,8 +1250,9 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ZA-75-Vvd" userLabel="Viewimage3">
                                                 <rect key="frame" x="0.0" y="649" width="375" height="225"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baratinvite" translatesAutoresizingMaskIntoConstraints="NO" id="AII-a3-aHc">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="baratinvite" translatesAutoresizingMaskIntoConstraints="NO" id="AII-a3-aHc">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="225"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K4e-1h-jdc">
                                                         <rect key="frame" x="10" y="45" width="355" height="131"/>
@@ -1251,71 +1263,71 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="16" id="Nwh-05-8LZ"/>
                                                                 </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
+                                                                <color key="textColor" red="0.87058823529999996" green="0.57254901960000004" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="son of nisar weds " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GvH-31-mWd">
                                                                 <rect key="frame" x="177.5" y="31" width="177.5" height="16"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                                <color key="textColor" red="0.87058823529999996" green="0.57254901960000004" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="son of nisar weds " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQj-DR-UGk">
                                                                 <rect key="frame" x="0.0" y="31" width="177.5" height="16"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                                <color key="textColor" red="0.87058823529999996" green="0.57254901960000004" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="son of nisar weds " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UNk-vd-Kka">
                                                                 <rect key="frame" x="177.5" y="48" width="177.5" height="16"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                                <color key="textColor" red="0.87058823529999996" green="0.57254901960000004" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="son of nisar weds " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f4N-Cv-MEd">
                                                                 <rect key="frame" x="0.0" y="48" width="177.5" height="16"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                                <color key="textColor" red="0.87058823529999996" green="0.57254901960000004" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="son of nisar weds " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r2g-n1-03m">
                                                                 <rect key="frame" x="177.5" y="65" width="177.5" height="16"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                                <color key="textColor" red="0.87058823529999996" green="0.57254901960000004" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="son of nisar weds " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N0V-mx-TgE">
                                                                 <rect key="frame" x="0.0" y="65" width="177.5" height="16"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                                <color key="textColor" red="0.87058823529999996" green="0.57254901960000004" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="son of nisar weds " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Rp-Uc-IOX">
                                                                 <rect key="frame" x="177.5" y="82" width="177.5" height="16"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                                <color key="textColor" red="0.87058823529999996" green="0.57254901960000004" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="son of nisar weds " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0sb-VK-72k">
                                                                 <rect key="frame" x="0.0" y="82" width="177.5" height="16"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                                <color key="textColor" red="0.87058823529999996" green="0.57254901960000004" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="son of nisar weds " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZa-0X-HMd">
                                                                 <rect key="frame" x="0.0" y="103" width="355" height="28"/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                <nil key="textColor"/>
+                                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                                                <color key="textColor" red="0.87058823529999996" green="0.57254901960000004" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                         </subviews>
@@ -1362,13 +1374,9 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="AII-a3-aHc" secondAttribute="bottom" id="1Wv-cA-E7q"/>
                                                     <constraint firstItem="K4e-1h-jdc" firstAttribute="leading" secondItem="5ZA-75-Vvd" secondAttribute="leading" constant="10" id="4mt-yZ-JJn"/>
                                                     <constraint firstItem="K4e-1h-jdc" firstAttribute="top" secondItem="5ZA-75-Vvd" secondAttribute="top" constant="45" id="LMr-2r-Ugq"/>
-                                                    <constraint firstItem="AII-a3-aHc" firstAttribute="top" secondItem="5ZA-75-Vvd" secondAttribute="top" id="jbX-Kx-odc"/>
-                                                    <constraint firstItem="AII-a3-aHc" firstAttribute="leading" secondItem="5ZA-75-Vvd" secondAttribute="leading" id="nw9-VB-dCe"/>
                                                     <constraint firstAttribute="trailing" secondItem="K4e-1h-jdc" secondAttribute="trailing" constant="10" id="pGX-Qu-9MC"/>
-                                                    <constraint firstAttribute="trailing" secondItem="AII-a3-aHc" secondAttribute="trailing" id="tTd-Id-Wbf"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -1415,6 +1423,7 @@
                     </view>
                     <size key="freeformSize" width="375" height="944"/>
                     <connections>
+                        <outlet property="ViewContainerVideoHeightConstraint" destination="9id-6h-h57" id="HMq-hi-Kwk"/>
                         <outlet property="arrival" destination="LWl-ap-Dv1" id="KbC-xP-BVl"/>
                         <outlet property="arrivalfront" destination="HQE-we-QHk" id="8K6-pf-HTB"/>
                         <outlet property="cermonyTitle" destination="2cb-SD-P4S" id="l3Q-og-BA0"/>
@@ -1426,6 +1435,7 @@
                         <outlet property="host1parent" destination="vE9-Fd-QVc" id="Gxb-6J-x9w"/>
                         <outlet property="host2" destination="dmw-75-lEa" id="F48-bJ-CrA"/>
                         <outlet property="host2parent" destination="thS-CC-YKK" id="erz-YM-sTM"/>
+                        <outlet property="mainviewHeightscrolling" destination="gNb-cV-Eq5" id="zX3-CC-rrp"/>
                         <outlet property="nikkah" destination="5UW-g5-8k7" id="lMA-EE-kWp"/>
                         <outlet property="nikkahfront" destination="TyT-AM-69h" id="nSf-JI-Leg"/>
                         <outlet property="resvptitle" destination="WZ8-i8-POC" id="XAp-3B-LhD"/>
@@ -1462,7 +1472,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EH4-DW-Zty" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1993" y="2175"/>
+            <point key="canvasLocation" x="249" y="2084"/>
         </scene>
         <!--Home-->
         <scene sceneID="epz-hy-W7j">
@@ -1861,7 +1871,7 @@
                                     <constraint firstAttribute="height" constant="20" id="JPf-pU-14N"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.87058823529999996" green="0.57254901960000004" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qfs-TS-Wyf">
@@ -1992,6 +2002,7 @@
                         <viewLayoutGuide key="safeArea" id="aTN-yt-BmI"/>
                     </view>
                     <connections>
+                        <outlet property="forgotPassword" destination="GpI-7C-v77" id="KoH-VH-3pH"/>
                         <outlet property="password" destination="tSa-nj-NEs" id="3gk-8m-g20"/>
                         <outlet property="phoneNumber" destination="feh-cc-UCX" id="9qF-tg-Ivr"/>
                     </connections>
@@ -2129,16 +2140,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k5Y-kd-t8v" userLabel="header">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k5Y-kd-t8v" userLabel="header">
                                 <rect key="frame" x="0.0" y="20" width="375" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Screen-slicing_01" translatesAutoresizingMaskIntoConstraints="NO" id="obb-lC-gsn">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="main_icon" translatesAutoresizingMaskIntoConstraints="NO" id="pFC-hS-Xz1">
-                                        <rect key="frame" x="8" y="5" width="58" height="45"/>
+                                        <rect key="frame" x="104" y="10" width="48" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="INVITE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Cp-8i-iOR">
@@ -2148,8 +2158,27 @@
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BHN-m0-FGm">
+                                        <rect key="frame" x="0.0" y="11" width="32" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="J57-dB-DiL"/>
+                                            <constraint firstAttribute="width" constant="32" id="hFb-8k-SCT"/>
+                                        </constraints>
+                                        <state key="normal" image="icons8-back-filled-50"/>
+                                        <connections>
+                                            <action selector="backAction:" destination="JvM-hb-4QY" eventType="touchUpInside" id="Zak-26-eIw"/>
+                                            <action selector="closeView:" destination="tNp-Lr-91i" eventType="touchUpInside" id="2ED-vZ-tBa"/>
+                                            <action selector="closeView:" destination="mXf-su-JYU" eventType="touchUpInside" id="nu9-YN-Ikf"/>
+                                            <action selector="quitePastEvent:" destination="aet-K9-UIh" eventType="touchUpInside" id="BCs-5l-rcH"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="BHN-m0-FGm" firstAttribute="leading" secondItem="k5Y-kd-t8v" secondAttribute="leading" id="Rk6-QM-seF"/>
+                                    <constraint firstAttribute="height" constant="55" id="xHS-Rk-pJi"/>
+                                    <constraint firstAttribute="bottom" secondItem="BHN-m0-FGm" secondAttribute="bottom" constant="12" id="y0f-nv-8Wi"/>
+                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wut-Nz-aA1" userLabel="Field2">
                                 <rect key="frame" x="16" y="83" width="343" height="58"/>
@@ -2228,6 +2257,11 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="k5Y-kd-t8v" firstAttribute="leading" secondItem="C1T-Oy-HjC" secondAttribute="leading" id="0rn-7s-MXZ"/>
+                            <constraint firstItem="k5Y-kd-t8v" firstAttribute="trailing" secondItem="C1T-Oy-HjC" secondAttribute="trailing" id="CGh-hT-eUT"/>
+                            <constraint firstItem="k5Y-kd-t8v" firstAttribute="top" secondItem="C1T-Oy-HjC" secondAttribute="top" id="SVY-eo-f2Q"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="C1T-Oy-HjC"/>
                     </view>
                     <connections>
@@ -2328,9 +2362,10 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IW9-vn-AKL">
-                                                        <rect key="frame" x="221" y="14" width="22" height="22"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IW9-vn-AKL">
+                                                        <rect key="frame" x="221" y="10" width="30" height="30"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" backgroundImage="recycle_change_button"/>
                                                         <connections>
                                                             <action selector="changesideinvite:" destination="QEq-8s-VS6" eventType="touchUpInside" id="atk-N1-kOn"/>
                                                         </connections>
@@ -2460,7 +2495,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="event_time" translatesAutoresizingMaskIntoConstraints="NO" id="gSr-co-Wu1">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pinmap" translatesAutoresizingMaskIntoConstraints="NO" id="gSr-co-Wu1">
                                                         <rect key="frame" x="293" y="10" width="42" height="36"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2490,7 +2525,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="event_time" translatesAutoresizingMaskIntoConstraints="NO" id="fvM-dR-8kc">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="event_date" translatesAutoresizingMaskIntoConstraints="NO" id="fvM-dR-8kc">
                                                         <rect key="frame" x="293" y="10" width="42" height="36"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2699,10 +2734,20 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="main_icon" translatesAutoresizingMaskIntoConstraints="NO" id="xr7-hY-6uE">
-                                        <rect key="frame" x="8" y="5" width="58" height="45"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kDt-0h-cEi">
+                                        <rect key="frame" x="0.0" y="11" width="32" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="4Sh-U1-ujD"/>
+                                            <constraint firstAttribute="width" constant="32" id="8qn-XP-Wfg"/>
+                                        </constraints>
+                                        <state key="normal" image="icons8-back-filled-50"/>
+                                        <connections>
+                                            <action selector="backAction:" destination="JvM-hb-4QY" eventType="touchUpInside" id="WV5-g5-U0s"/>
+                                            <action selector="closeView:" destination="tNp-Lr-91i" eventType="touchUpInside" id="3xV-Ju-Mu9"/>
+                                            <action selector="closeView:" destination="QEq-8s-VS6" eventType="touchUpInside" id="sqW-mf-HlZ"/>
+                                            <action selector="quitePastEvent:" destination="aet-K9-UIh" eventType="touchUpInside" id="7Wx-qr-Qrm"/>
+                                        </connections>
+                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DawatNama" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GV9-3q-4an">
                                         <rect key="frame" x="130" y="15" width="116" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2710,9 +2755,15 @@
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="main_icon" translatesAutoresizingMaskIntoConstraints="NO" id="xr7-hY-6uE">
+                                        <rect key="frame" x="74" y="10" width="48" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="kDt-0h-cEi" secondAttribute="bottom" constant="12" id="0fc-gY-y7s"/>
+                                    <constraint firstItem="kDt-0h-cEi" firstAttribute="leading" secondItem="kcx-Pc-9YB" secondAttribute="leading" id="b6N-8B-IFz"/>
                                     <constraint firstAttribute="height" constant="55" id="bzK-H1-Yht"/>
                                 </constraints>
                             </view>
@@ -2802,18 +2853,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i2S-ha-UAp" userLabel="header">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i2S-ha-UAp" userLabel="header">
                                 <rect key="frame" x="0.0" y="20" width="375" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Screen-slicing_01" translatesAutoresizingMaskIntoConstraints="NO" id="l4J-Qe-Lth">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="55"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="main_icon" translatesAutoresizingMaskIntoConstraints="NO" id="i5f-8h-V7K">
-                                        <rect key="frame" x="8" y="5" width="58" height="45"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vko-jW-Vbe">
+                                        <rect key="frame" x="0.0" y="11" width="32" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="32" id="6qA-do-iDT"/>
+                                            <constraint firstAttribute="height" constant="32" id="HJz-K2-D0Y"/>
+                                        </constraints>
+                                        <state key="normal" image="icons8-back-filled-50"/>
+                                        <connections>
+                                            <action selector="backAction:" destination="JvM-hb-4QY" eventType="touchUpInside" id="QGp-KE-8qP"/>
+                                            <action selector="closeView:" destination="tNp-Lr-91i" eventType="touchUpInside" id="FN8-i0-3VK"/>
+                                            <action selector="quitePastEvent:" destination="aet-K9-UIh" eventType="touchUpInside" id="POa-lX-jIO"/>
+                                        </connections>
+                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DawatNama" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKc-Bm-LQd">
                                         <rect key="frame" x="129.5" y="15" width="115.5" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2821,12 +2880,20 @@
                                         <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="main_icon" translatesAutoresizingMaskIntoConstraints="NO" id="i5f-8h-V7K">
+                                        <rect key="frame" x="80" y="12" width="46" height="35"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="Vko-jW-Vbe" secondAttribute="bottom" constant="12" id="LYB-5c-tAE"/>
+                                    <constraint firstItem="Vko-jW-Vbe" firstAttribute="leading" secondItem="i2S-ha-UAp" secondAttribute="leading" id="ZCZ-sa-j73"/>
+                                    <constraint firstAttribute="height" constant="55" id="j8Z-Aw-AtJ"/>
+                                </constraints>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jld-md-4No" customClass="DesignUIView" customModule="Dawat_Nama" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jld-md-4No" customClass="DesignUIView" customModule="Dawat_Nama" customModuleProvider="target">
                                 <rect key="frame" x="16" y="97" width="343" height="190"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RCM-bK-yTo">
                                         <rect key="frame" x="38" y="26" width="267" height="57"/>
@@ -2871,35 +2938,41 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.83921568627450982" green="0.83921568627450982" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="190" id="1Nm-gr-wJy"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="RadiusAndShadow" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Video Thumbnail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEW-Cp-OJ8">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Video Thumbnail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uEW-Cp-OJ8">
                                 <rect key="frame" x="16" y="345" width="129" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fu4-4C-fdo" customClass="DesignUIView" customModule="Dawat_Nama" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fu4-4C-fdo" customClass="DesignUIView" customModule="Dawat_Nama" customModuleProvider="target">
                                 <rect key="frame" x="16" y="374" width="343" height="190"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xc4-ED-Oa5">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xc4-ED-Oa5">
                                         <rect key="frame" x="34" y="25" width="269" height="148"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.83921568627450982" green="0.83921568627450982" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="190" id="yi4-oi-yfF"/>
+                                </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="RadiusAndShadow" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWc-Jc-vTN">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KWc-Jc-vTN">
                                 <rect key="frame" x="16" y="587" width="343" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Hmp-1E-3Ch"/>
+                                </constraints>
                                 <state key="normal" title="Submit" backgroundImage="login_shadow_button"/>
                                 <connections>
                                     <action selector="stepThree:" destination="QEq-8s-VS6" eventType="touchUpInside" id="yss-61-Cw4"/>
@@ -2908,6 +2981,23 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="YuY-0s-lCn" firstAttribute="trailing" secondItem="KWc-Jc-vTN" secondAttribute="trailing" constant="16" id="4PE-mL-X3u"/>
+                            <constraint firstItem="Fu4-4C-fdo" firstAttribute="leading" secondItem="YuY-0s-lCn" secondAttribute="leading" constant="16" id="5hQ-YN-6bi"/>
+                            <constraint firstItem="YuY-0s-lCn" firstAttribute="trailing" secondItem="jld-md-4No" secondAttribute="trailing" constant="16" id="67G-ry-lg5"/>
+                            <constraint firstItem="i2S-ha-UAp" firstAttribute="trailing" secondItem="YuY-0s-lCn" secondAttribute="trailing" id="8Cq-y1-FFQ"/>
+                            <constraint firstItem="KWc-Jc-vTN" firstAttribute="top" secondItem="Fu4-4C-fdo" secondAttribute="bottom" constant="23" id="9o3-qK-qcw"/>
+                            <constraint firstItem="i2S-ha-UAp" firstAttribute="leading" secondItem="YuY-0s-lCn" secondAttribute="leading" id="EHP-KZ-4B8"/>
+                            <constraint firstItem="jld-md-4No" firstAttribute="leading" secondItem="YuY-0s-lCn" secondAttribute="leading" constant="16" id="Fgm-b0-XYX"/>
+                            <constraint firstItem="YuY-0s-lCn" firstAttribute="trailing" secondItem="Fu4-4C-fdo" secondAttribute="trailing" constant="16" id="HUa-8U-WVk"/>
+                            <constraint firstItem="KWc-Jc-vTN" firstAttribute="leading" secondItem="YuY-0s-lCn" secondAttribute="leading" constant="16" id="V3R-Tp-8Zr"/>
+                            <constraint firstItem="jld-md-4No" firstAttribute="top" secondItem="i2S-ha-UAp" secondAttribute="bottom" constant="22" id="ZeC-qz-lKd"/>
+                            <constraint firstItem="Fu4-4C-fdo" firstAttribute="top" secondItem="uEW-Cp-OJ8" secondAttribute="bottom" constant="8" id="aIb-OY-ken"/>
+                            <constraint firstItem="YuY-0s-lCn" firstAttribute="trailing" secondItem="uEW-Cp-OJ8" secondAttribute="trailing" constant="230" id="dxZ-n0-ZQp"/>
+                            <constraint firstItem="i2S-ha-UAp" firstAttribute="top" secondItem="YuY-0s-lCn" secondAttribute="top" id="mIv-05-xKw"/>
+                            <constraint firstItem="uEW-Cp-OJ8" firstAttribute="top" secondItem="jld-md-4No" secondAttribute="bottom" constant="58" id="wZs-wx-Dgi"/>
+                            <constraint firstItem="uEW-Cp-OJ8" firstAttribute="leading" secondItem="YuY-0s-lCn" secondAttribute="leading" constant="16" id="yhc-BR-ezi"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="YuY-0s-lCn"/>
                     </view>
                     <connections>
@@ -2917,7 +3007,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4sm-dy-4Lf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5385" y="-842"/>
+            <point key="canvasLocation" x="5384.8000000000002" y="-842.42878560719646"/>
         </scene>
         <!--Third Contact View Controller-->
         <scene sceneID="dAW-xz-kZx">
@@ -3343,32 +3433,6 @@
             </objects>
             <point key="canvasLocation" x="-1432" y="610"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="Bcl-qH-MGf">
-            <objects>
-                <viewController id="9Ca-VO-x5p" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Fi8-f4-bbx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="CcX-J5-qAk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
-        <!--Home Video Container-->
-        <scene sceneID="eHb-Q6-EeD">
-            <objects>
-                <viewController id="BAn-AV-mnB" customClass="HomeVideoContainer" customModule="Dawat_Nama" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="S39-sE-Dmu">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lX0-mw-yZd" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
     </scenes>
     <resources>
         <image name="Screen-slicing_01" width="1440" height="402"/>
@@ -3380,6 +3444,7 @@
         <image name="attachment" width="375" height="270"/>
         <image name="background1" width="360" height="640"/>
         <image name="baratinvite" width="400" height="240"/>
+        <image name="event_date" width="89" height="106"/>
         <image name="event_time" width="87" height="95"/>
         <image name="facebook_login_button" width="1169" height="214"/>
         <image name="icons8-back-filled-50" width="50" height="50"/>
@@ -3387,15 +3452,17 @@
         <image name="icons8-wallet-filled-50" width="50" height="50"/>
         <image name="login_shadow_button" width="1179" height="208"/>
         <image name="main_icon" width="419" height="285"/>
+        <image name="name_card" width="400" height="240"/>
         <image name="password_icon" width="85" height="83"/>
         <image name="phone_icon" width="73" height="66"/>
         <image name="pinmap" width="49" height="75"/>
         <image name="profile" width="512" height="512"/>
         <image name="record_video" width="94" height="107"/>
+        <image name="recycle_change_button" width="106" height="110"/>
         <image name="upload_video" width="228" height="105"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Xmo-ZJ-NGJ"/>
-        <segue reference="Vwp-gM-3rP"/>
+        <segue reference="Vc2-Hy-DoP"/>
+        <segue reference="pQ7-Po-l2V"/>
     </inferredMetricsTieBreakers>
 </document>

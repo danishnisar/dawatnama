@@ -47,5 +47,13 @@ class RestFull {
     //ResendInvitation
     static let resendEventsContact = RestFull.hostURL+"/api/resend_invitation"
     
+   // FORGET PASSWORD: (POST)
+    static let forgotEmail = RestFull.hostURL+"/api/forgot_password"
+
+   // FETCH PAST EVENTS: (POST)
+    static let fetchPastEvent = RestFull.hostURL+"/api/fetch_past_events"
+   // inputs: sender_id, phone_number
+
+    
     
 }

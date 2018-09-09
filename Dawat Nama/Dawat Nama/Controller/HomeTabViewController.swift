@@ -76,13 +76,14 @@ class HomeTabViewController: UIViewController,TabSwiper {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         print("Did Appear")
-        
+        selecteddata.removeAll()
         
         
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         print("Did Dis Appear===>")
+        
     }
     
     
@@ -225,7 +226,7 @@ extension HomeTabViewController:UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
             indexID = indexPath.row
-        selecteddata.append(FetchIniteModel[0])
+        selecteddata.append(FetchIniteModel[indexPath.row])
         performSegue(withIdentifier: "seekingEvents", sender: self)
         
     }

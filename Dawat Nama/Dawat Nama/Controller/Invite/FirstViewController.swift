@@ -47,6 +47,9 @@ class FirstViewController: UIViewController {
        // print("dasdasdas\(fetch["Amount"]!)")
         digitalWallet.text = fetch as? String
         
+        amountToPaid.text = "0"
+        
+        
     }
     
     @objc func textDidChange(_ textField:UITextField){
@@ -94,6 +97,9 @@ class FirstViewController: UIViewController {
     }
     
     
+    @IBAction func closeView(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
     
     private func alertFunc(){
         let alert  = UIAlertController(title: "Insufficiant A ount", message: "Sorry, Your Current Wallet amouunt is insufficent for your current request .Please buy a package to recharge it ", preferredStyle: .alert)
@@ -133,16 +139,32 @@ class FirstViewController: UIViewController {
     
     private func NetworkIng(){
         
-        ProgressHUD.show()
+        ProgressHUD.show("Loading..")
+        self.view.isUserInteractionEnabled = false
         Alamofire.request(RestFull.fetch_perInvitation).responseJSON { (response) in
+            
+            
+            if let err = response.result.error{
+                ProgressHUD.showError("Loading Failed")
+                print(err.localizedDescription)
+                ToastView.shared.short(self.view, txt_msg: "Internet connectivity issue")
+                
+                ProgressHUD.dismiss()
+                return
+            }
+            
+            
+            
             if response.result.isSuccess {
                 print("firstview = \(response.result.value!)")
                 let data = JSON(response.result.value!)
                 self.setJson(data:data)
                 ProgressHUD.dismiss()
-            }else{
-                print("First View Controller alamofire error =>",response.result.error!)
+                
             }
+            
+            self.view.isUserInteractionEnabled = true
+            ProgressHUD.dismiss()
         }
     }
     

@@ -167,6 +167,7 @@ class MainViewController: UIViewController{
             
         case 5:
             //refresh
+            NotificationCenter.default.post(name: NSNotification.Name("reloaddataHome"), object: nil)
             menucallorclose()
             break;
             

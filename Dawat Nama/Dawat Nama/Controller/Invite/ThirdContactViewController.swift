@@ -49,7 +49,10 @@ class ThirdContactViewController: UIViewController {
         searchBarOutlet.returnKeyType = .done
         contactCell()
         if let counting = dataCollect["eventtopupload"] {
-            dataCollect["numberofInvite"] = dataCollect["invitation_count"]!
+            if counting == "yes" || counting == "no"{
+                dataCollect["numberofInvite"] = dataCollect["invitation_count"]!
+            }
+
             
         }
     }

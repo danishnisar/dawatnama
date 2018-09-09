@@ -13,6 +13,7 @@ import ProgressHUD
 
 class loginVC: UIViewController {
 
+    @IBOutlet weak var forgotPassword: UILabel!
     @IBOutlet weak var phoneNumber: DesignUITextField!
     @IBOutlet weak var password: DesignUITextField!
     let localdb = UserDefaults.standard
@@ -25,6 +26,7 @@ class loginVC: UIViewController {
         password.delegate = self
         phoneNumber.returnKeyType = .next
         password.returnKeyType = .done
+        addactionformgot()
     }
 
     override func didReceiveMemoryWarning() {
@@ -35,7 +37,7 @@ class loginVC: UIViewController {
 
     @IBAction func LogAuth(_ sender: Any) {
        
-        if phoneNumber.text! != "Phone Number" && password.text! != "Password"{
+        if phoneNumber.text! != "Phone Number" && password.text! != "Password" && phoneNumber.text! != "" && password.text! != "" {
             print(phoneNumber.text!,password.text!)
             let token = "\(localdb.value(forKey: "fcmtoken")!)"
             let parameter = ["number":phoneNumber.text!,"password":password.text!,"firebase_token":token]
@@ -43,6 +45,7 @@ class loginVC: UIViewController {
             AuthLogin(logUrl: RestFull.loginURL, param: parameter)
         }else{
             print("credentail dalo")
+            ToastView.shared.short(self.view, txt_msg: "Please fill the field")
         }
         
     }
@@ -50,6 +53,16 @@ class loginVC: UIViewController {
     private func AuthLogin(logUrl:String, param:Dictionary<String, String>){
         ProgressHUD.show("Authenticating..")
         Alamofire.request(logUrl, method: .post, parameters: param).responseJSON { (response) in
+            
+            
+            if let err = response.result.error{
+                ProgressHUD.showError("Loading Failed")
+                print(err.localizedDescription)
+                ToastView.shared.short(self.view, txt_msg: "Internet connectivity issue")
+                ProgressHUD.dismiss()
+                return
+            }
+            
             if response.result.isSuccess {
                 
                 let dataResult:JSON = JSON(response.result.value!)
@@ -57,10 +70,7 @@ class loginVC: UIViewController {
                 //print(dataResult)
                 
             }
-            else{
-                ProgressHUD.showError("Internet issue")
-                print("\(response.result.error!) in login")
-            }
+
             
             ProgressHUD.dismiss()
         }
@@ -104,6 +114,68 @@ class loginVC: UIViewController {
         
     }
     
+    
+    func addactionformgot(){
+        let tap = UITapGestureRecognizer(target: self, action: #selector(clickonforgot))
+        forgotPassword.isUserInteractionEnabled = true
+        forgotPassword.addGestureRecognizer(tap)
+    }
+    @objc func clickonforgot(){
+        //netowrking
+        let forgotAlert = UIAlertController(title: "Forgot Password", message: "Reset Password Email sent to Registered Email", preferredStyle: .alert)
+        forgotAlert.addTextField { (textfield) in
+            textfield.placeholder = "Enter Email"
+            textfield.addTarget(forgotAlert, action: #selector(forgotAlert.checkEMail), for: .editingChanged)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (cancel) in
+            print("Cancel")
+            
+        }
+        let submitAction = UIAlertAction(title: "Submit", style: .default) { (submit) in
+            print("Submit")
+            let data = forgotAlert.textFields?[0].text
+            self.networkingForgot(email:data!)
+            
+
+        }
+        submitAction.isEnabled = false
+        forgotAlert.addAction(cancelAction)
+        forgotAlert.addAction(submitAction)
+        
+        present(forgotAlert, animated: true, completion: nil)
+        
+    }
+    
+    private func networkingForgot(email:String){
+        ProgressHUD.show("Authenticating..")
+        let param = ["email":email]
+        
+        Alamofire.request(RestFull.forgotEmail, method: .post, parameters: param).responseJSON { (response) in
+            
+            
+            if let err = response.result.error{
+                ProgressHUD.showError("Loading Failed")
+                print(err.localizedDescription)
+                ToastView.shared.short(self.view, txt_msg: "Internet connectivity issue")
+                ProgressHUD.dismiss()
+                return
+            }
+            
+            if response.result.isSuccess {
+                
+                let dataResult:JSON = JSON(response.result.value!)
+               
+                ToastView.shared.short(self.view, txt_msg: dataResult["result"]["email"].stringValue)
+                // self.fetchJsontoObj(datajson: dataResult)
+                print(dataResult)
+                
+            }
+            
+            
+            ProgressHUD.dismiss()
+        }
+    }
 
 }
 extension loginVC:UITextFieldDelegate {
@@ -134,6 +206,24 @@ extension loginVC:UITextFieldDelegate {
    
     
     
+}
+
+extension UIAlertController{
+    @objc func checkEMail(){
+        
+        if let text1 = textFields?[0].text{
+            if text1.contains("@"){
+                            actions[1].isEnabled = true
+                            self.message = "Email is valid"
+            }else{
+                            actions[1].isEnabled = false
+                            self.message = "Email is not valid\nReset Password Email sent to Registered Email"
+                
+            }
+
+        }
+        
+    }
 }
 
 

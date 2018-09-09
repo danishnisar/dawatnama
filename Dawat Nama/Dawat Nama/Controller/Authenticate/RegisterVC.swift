@@ -59,11 +59,11 @@ class RegisterVC: UIViewController {
         name.delegate = self
         name.returnKeyType = .next
         email.delegate = self
-        name.returnKeyType = .next
+        email.returnKeyType = .next
         password.delegate = self
-        name.returnKeyType = .next
+        password.returnKeyType = .next
         confrimPassword.delegate = self
-        name.returnKeyType = .next
+        confrimPassword.returnKeyType = .next
         
     }
 
@@ -87,16 +87,24 @@ class RegisterVC: UIViewController {
         let param = ["number":phoneNumber,"name":name.text!,"email":email.text!,"password":password.text!,"firebase_token":token]
             print("register param ",param)
             Alamofire.request(RestFull.registerURL, method: .post, parameters: param).responseJSON { (response) in
+               
+                
+                if let err = response.result.error{
+                    ProgressHUD.showError("Loading Failed")
+                    print(err.localizedDescription)
+                    ToastView.shared.short(self.view, txt_msg: "Internet connectivity issue")
+                    ProgressHUD.dismiss()
+                    return
+                }
+                
+                
                 if response.result.isSuccess{
                     ProgressHUD.showSuccess("Success")
                     print("\(response.result.value!)")
                     
                     NotificationCenter.default.post(name: NSNotification.Name("SelectSegment"), object: nil)
                 }
-                else{
-                    ProgressHUD.showSuccess("Internet Issue")
-                    print(response.result.error!)
-                }
+             
                 ProgressHUD.dismiss()
             }
             
@@ -137,6 +145,8 @@ extension RegisterVC:UITextFieldDelegate{
             confrimPassword.becomeFirstResponder()
         case confrimPassword:
             confrimPassword.resignFirstResponder()
+            NotificationCenter.default.post(name: NSNotification.Name("KeyDown"), object: self)
+
         default:
             print("register deufalt")
         }

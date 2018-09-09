@@ -33,7 +33,7 @@ class HomeVideoContainer: UIViewController, WKUIDelegate {
     @objc func getVideoURL(notification:Notification){
          let videourl = notification.userInfo!["video"] as! String
         print("notificationwork",videourl)
-        showvideo(url: "https://www.google.com")
+        showvideo(url: videourl)
     }
     
     private func showvideo(url:String){

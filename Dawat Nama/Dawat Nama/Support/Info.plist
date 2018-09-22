@@ -2,11 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
+	<key>FirebaseScreenReportingEnabled</key>
+	<false/>
 	<key>AccountKitClientToken</key>
 	<string>93daabe25f40aedc0b935f7ed5ccaac5</string>
 	<key>CFBundleDevelopmentRegion</key>
@@ -38,22 +35,27 @@
 	<string>1200941286737983</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>open camera</string>
 	<key>NSContactsUsageDescription</key>
-	<string>DawatNama Need Acce of Your Contact</string>
+	<string>Dawatnama needs to access your contacts</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Need access</string>
+	<string>Dawatnama needs to access your Location</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>need access</string>
+	<string>Dawatnama needs to access your Location</string>
 	<key>NSLocationUsageDescription</key>
-	<string>need this babes</string>
+	<string>Dawatnama needs to access your Location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>chal jao bhai</string>
+	<string>Dawatnama needs to access your Location</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>use microphone</string>
+	<string>Dawatnama needs to access your Microphone</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>use photo saved</string>
+	<string>Dawatnama needs to access your Gallery</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>

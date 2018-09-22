@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		721CA24E211F190C00D23F12 /* AlamofireRequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 721CA24D211F190C00D23F12 /* AlamofireRequestHelper.swift */; };
-		725EDDA721244731006D0CF3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 725EDDA62124472F006D0CF3 /* GoogleService-Info.plist */; };
+		726364E22152441700A00BFE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 726364E12152441700A00BFE /* GoogleService-Info.plist */; };
 		727519102136E8D60049A1AD /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7275190F2136E8D60049A1AD /* ToastView.swift */; };
 		727D3CFB2118AB1300065235 /* loginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727D3CFA2118AB1200065235 /* loginVC.swift */; };
 		727D3CFF2118ABA400065235 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 727D3CFE2118ABA400065235 /* RegisterVC.swift */; };
@@ -64,7 +64,7 @@
 		396E9F7A9FC505501545A4B4 /* Pods_Dawat_Nama.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dawat_Nama.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5C9E89A67F6E705F01C1CA53 /* Pods-Dawat Nama.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dawat Nama.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dawat Nama/Pods-Dawat Nama.release.xcconfig"; sourceTree = "<group>"; };
 		721CA24D211F190C00D23F12 /* AlamofireRequestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireRequestHelper.swift; sourceTree = "<group>"; };
-		725EDDA62124472F006D0CF3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		726364E12152441700A00BFE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Dawatnama Apple id Certificate/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7275190F2136E8D60049A1AD /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		727D3CFA2118AB1200065235 /* loginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginVC.swift; sourceTree = "<group>"; };
 		727D3CFE2118ABA400065235 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
@@ -115,6 +115,7 @@
 		72BBB462211A1FC50008F2EB /* MenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuVC.swift; sourceTree = "<group>"; };
 		72C4B80321198306009F506B /* RestFull.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestFull.swift; sourceTree = "<group>"; };
 		72C8D046211D937B00217398 /* DesignUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignUIView.swift; sourceTree = "<group>"; };
+		72F1CFAE2156221600F0298D /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		72F4248A2117134400490251 /* DesignUITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignUITextField.swift; sourceTree = "<group>"; };
 		872256B649D7A72366327A74 /* Pods-Dawat Nama.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dawat Nama.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dawat Nama/Pods-Dawat Nama.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -236,7 +237,7 @@
 		729C6DCB20F7BBC400DA5F56 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				725EDDA62124472F006D0CF3 /* GoogleService-Info.plist */,
+				726364E12152441700A00BFE /* GoogleService-Info.plist */,
 				729C6DC220F7BAA200DA5F56 /* Info.plist */,
 			);
 			path = Support;
@@ -348,6 +349,7 @@
 		B9A586F35EE9462909021BAF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				72F1CFAE2156221600F0298D /* AVFoundation.framework */,
 				396E9F7A9FC505501545A4B4 /* Pods_Dawat_Nama.framework */,
 			);
 			name = Frameworks;
@@ -422,7 +424,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				725EDDA721244731006D0CF3 /* GoogleService-Info.plist in Resources */,
 				72A61F482100F3D200F146C5 /* TblBaseHome.xib in Resources */,
 				72A61F4420FE5BAC00F146C5 /* TblBaseCellView.xib in Resources */,
 				72860822213DA12B0077A73D /* UpCommingTblVCell.xib in Resources */,
@@ -430,6 +431,7 @@
 				729C6DCF20F90CE300DA5F56 /* HomeMenuCollectionViewCell.xib in Resources */,
 				729C6DC120F7BAA200DA5F56 /* LaunchScreen.storyboard in Resources */,
 				729C6DBE20F7BAA200DA5F56 /* Assets.xcassets in Resources */,
+				726364E22152441700A00BFE /* GoogleService-Info.plist in Resources */,
 				7286082C213E62620077A73D /* PackgesTblVCell.xib in Resources */,
 				729C6DBC20F7BA7600DA5F56 /* Main.storyboard in Resources */,
 			);
@@ -703,14 +705,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Dawat Nama/Dawat Nama.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W6L6HHJ7A3;
+				DEVELOPMENT_TEAM = 8UDTWQ983P;
 				INFOPLIST_FILE = "$(SRCROOT)/Dawat Nama/Support/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.codiansoft.Dawat-Nama";
+				PRODUCT_BUNDLE_IDENTIFIER = com.codiansoft.DawatNama;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -724,14 +726,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Dawat Nama/Dawat Nama.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W6L6HHJ7A3;
+				DEVELOPMENT_TEAM = 8UDTWQ983P;
 				INFOPLIST_FILE = "$(SRCROOT)/Dawat Nama/Support/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.codiansoft.Dawat-Nama";
+				PRODUCT_BUNDLE_IDENTIFIER = com.codiansoft.DawatNama;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;

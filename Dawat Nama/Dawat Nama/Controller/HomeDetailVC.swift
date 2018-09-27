@@ -70,50 +70,63 @@ class HomeDetailVC: UIViewController,WKUIDelegate,SFSafariViewControllerDelegate
     
         
         
-        
-        
-        //openmaporsafari
-        print("Location:",recivedData[0].location)
-        
-        
-        let searchRequest = MKLocalSearch.Request()
-        searchRequest.naturalLanguageQuery = "\(recivedData[0].location)"
-        
-        searchRequest.region = .init()
-        let search  = MKLocalSearch(request: searchRequest)
-        
-        search.start { (response, error) in
-            ProgressHUD.show("Loading")
-            if error != nil {
-                print("\(error)")
-                ProgressHUD.show("Opps There is an issue.")
-                //Open safari b/c Map App nt recognize this location
-                var halfUrl = ""
-                let splitinstance = self.recivedData[0].location.split(separator: " ")
-                for sp in 0..<splitinstance.count{
-                    halfUrl += "-"
-                    halfUrl += splitinstance[sp]
-                }
-                print("HalfUrl",halfUrl)
-                let safarVC = SFSafariViewController(url: URL(string: "https://www.google.com/maps/search/\(halfUrl)/")!, entersReaderIfAvailable: true)
-                
-                self.present(safarVC, animated: true, completion: nil)
-                safarVC.delegate = self
-                
-            }else {
-                
-                let count = response!.mapItems.count
-                if count != 0 {
+        let alert = UIAlertController(title: "Map", message: "Invitation location", preferredStyle: .alert)
+        let actionOkay  = UIAlertAction(title: "Open", style: .default) { (UIAlertActionOkay) in
+            print("okay")
+            //openmaporsafari
+            print("Location:",self.recivedData[0].location)
+            
+            
+            let searchRequest = MKLocalSearch.Request()
+            searchRequest.naturalLanguageQuery = "\(self.recivedData[0].location)"
+            
+            searchRequest.region = .init()
+            let search  = MKLocalSearch(request: searchRequest)
+            
+            search.start { (response, error) in
+                ProgressHUD.show("Loading")
+                if error != nil {
+                    print("\(error)")
+                    ProgressHUD.show("Opps There is an issue.")
+                    //Open safari b/c Map App nt recognize this location
+                    var halfUrl = ""
+                    let splitinstance = self.recivedData[0].location.split(separator: " ")
+                    for sp in 0..<splitinstance.count{
+                        halfUrl += "-"
+                        halfUrl += splitinstance[sp]
+                    }
+                    print("HalfUrl",halfUrl)
+                    let safarVC = SFSafariViewController(url: URL(string: "https://www.google.com/maps/search/\(halfUrl)/")!, entersReaderIfAvailable: true)
                     
-                    let itemcount = response!.mapItems.first
-                    itemcount!.openInMaps(launchOptions: nil)
-
+                    self.present(safarVC, animated: true, completion: nil)
+                    safarVC.delegate = self
+                    
+                }else {
+                    
+                    let count = response!.mapItems.count
+                    if count != 0 {
+                        
+                        let itemcount = response!.mapItems.first
+                        itemcount!.openInMaps(launchOptions: nil)
+                        
+                    }
+                    
                 }
+                ProgressHUD.dismiss()
                 
             }
-            ProgressHUD.dismiss()
-            
         }
+        let actionCancel = UIAlertAction(title: "Cancel", style: .destructive) { (UIAlertActionOkay) in
+            print("cancel")
+            return
+        }
+        
+        alert.addAction(actionCancel)
+        alert.addAction(actionOkay)
+        present(alert, animated: true, completion: nil)
+        
+        
+       
         
         
        

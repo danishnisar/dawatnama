@@ -29,6 +29,7 @@ class ThirdContactViewController: UIViewController {
     //parameter collection array
     var param:Dictionary = [String:Any]()
     @IBOutlet weak var searchBarOutlet: UISearchBar!
+    let userINFO = UserDefaults.standard
     
    
     //sendsmscheck
@@ -509,7 +510,8 @@ extension ThirdContactViewController:MFMessageComposeViewControllerDelegate{
         if MFMessageComposeViewController.canSendText() {
             let controler  = MFMessageComposeViewController()
             controler.messageComposeDelegate = self
-            controler.body = "Need to send text for download app"
+            let fetch  = userINFO.value(forKey: "LoggedIN") as! Dictionary<String,String>
+            controler.body = "\(fetch["Name"]!) send invitation.\nDownload Dawatnama App to see the invitations"
             controler.recipients = recipent
             self.present(controler, animated: true)
         }

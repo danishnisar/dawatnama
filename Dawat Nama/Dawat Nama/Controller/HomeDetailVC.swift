@@ -9,6 +9,8 @@
 import UIKit
 import WebKit
 import SafariServices
+import MapKit
+import ProgressHUD
 class HomeDetailVC: UIViewController,WKUIDelegate,SFSafariViewControllerDelegate {
 
     @IBOutlet weak var view1Image: UIImageView!
@@ -67,19 +69,54 @@ class HomeDetailVC: UIViewController,WKUIDelegate,SFSafariViewControllerDelegate
     @IBAction func locationAction(_ sender: UIButton) {
     
         
+        
+        
+        
         //openmaporsafari
         print("Location:",recivedData[0].location)
-        var halfUrl = ""
-        let splitinstance = recivedData[0].location.split(separator: " ")
-        for sp in 0..<splitinstance.count{
-            halfUrl += "-"
-            halfUrl += splitinstance[sp]
-        }
-        print("HalfUrl",halfUrl)
-        let safarVC = SFSafariViewController(url: URL(string: "https://www.google.com/maps/search/\(halfUrl)/")!, entersReaderIfAvailable: true)
         
-        present(safarVC, animated: true, completion: nil)
-        safarVC.delegate = self
+        
+        let searchRequest = MKLocalSearch.Request()
+        searchRequest.naturalLanguageQuery = "\(recivedData[0].location)"
+        
+        searchRequest.region = .init()
+        let search  = MKLocalSearch(request: searchRequest)
+        
+        search.start { (response, error) in
+            ProgressHUD.show("Loading")
+            if error != nil {
+                print("\(error)")
+                ProgressHUD.show("Opps There is an issue.")
+                //Open safari b/c Map App nt recognize this location
+                var halfUrl = ""
+                let splitinstance = self.recivedData[0].location.split(separator: " ")
+                for sp in 0..<splitinstance.count{
+                    halfUrl += "-"
+                    halfUrl += splitinstance[sp]
+                }
+                print("HalfUrl",halfUrl)
+                let safarVC = SFSafariViewController(url: URL(string: "https://www.google.com/maps/search/\(halfUrl)/")!, entersReaderIfAvailable: true)
+                
+                self.present(safarVC, animated: true, completion: nil)
+                safarVC.delegate = self
+                
+            }else {
+                
+                let count = response!.mapItems.count
+                if count != 0 {
+                    
+                    let itemcount = response!.mapItems.first
+                    itemcount!.openInMaps(launchOptions: nil)
+
+                }
+                
+            }
+            ProgressHUD.dismiss()
+            
+        }
+        
+        
+       
         
         
     }
